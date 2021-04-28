@@ -1,0 +1,377 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17322,        369]
+NotebookOptionsPosition[     16510,        349]
+NotebookOutlinePosition[     16859,        364]
+CellTagsIndexPosition[     16816,        361]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{"notesUS", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<C\>\"", ",", "\"\<D\>\"", ",", "\"\<E\>\"", ",", "\"\<F\>\"", ",", 
+      "\"\<G\>\"", ",", "\"\<A\>\"", ",", "\"\<B\>\""}], "}"}]}], ";"}],
+  FontSize->16], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"notesEU", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Do\>\"", ",", "\"\<Re\>\"", ",", "\"\<Mi\>\"", ",", "\"\<Fa\>\"", 
+       ",", "\"\<Sol\>\"", ",", "\"\<La\>\"", ",", "\"\<Si\>\""}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]"}],
+  FontSize->16], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"showNotes", "[", "notesList_", "]"}], ":=", " ", 
+   RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"list", " ", "=", " ", "notesList"}], ",", " ", 
+       RowBox[{"noteInd", " ", "=", " ", "1"}], ",", " ", 
+       RowBox[{"prevLabel", " ", "=", " ", "\"\<--\>\""}], ",", " ", 
+       RowBox[{"nextLabel", " ", "=", " ", "\"\<--\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"nextLabel", " ", "=", " ", 
+       RowBox[{"notesEU", "[", 
+        RowBox[{"[", 
+         RowBox[{"noteInd", "+", "1"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Panel", "[", 
+       RowBox[{
+        RowBox[{"Row", "[", "\[IndentingNewLine]", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Dynamic", "[", " ", 
+            RowBox[{"EmitSound", "[", 
+             RowBox[{"Sound", "[", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"list", "[", 
+                RowBox[{"[", "noteInd", "]"}], "]"}], "]"}], "]"}], "]"}], 
+            " ", "]"}], ",", 
+           RowBox[{"Spacer", "[", 
+            RowBox[{"72", " ", "0.7"}], "]"}], ",", 
+           RowBox[{"Column", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"Button", "[", 
+                  RowBox[{
+                   RowBox[{"Dynamic", "[", "prevLabel", "]"}], ",", " ", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"noteInd", " ", ">", " ", "2"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"nextLabel", " ", "=", " ", 
+                    RowBox[{
+                    RowBox[{"notesEU", "[", 
+                    RowBox[{"[", "noteInd", "]"}], "]"}], 
+                    RowBox[{"noteInd", "-=", " ", "1"}]}]}], ";", " ", 
+                    RowBox[{"prevLabel", " ", "=", " ", 
+                    RowBox[{"notesEU", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"noteInd", "-", "1"}], "]"}], "]"}]}]}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"noteInd", " ", ">", " ", "1"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"nextLabel", " ", "=", " ", 
+                    RowBox[{"notesEU", "[", 
+                    RowBox[{"[", "noteInd", "]"}], "]"}]}], ";", 
+                    RowBox[{"noteInd", "-=", " ", "1"}], ";", " ", 
+                    RowBox[{"prevLabel", " ", "=", " ", "\"\<--\>\""}]}]}], 
+                    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+                    "]"}]}], "\[IndentingNewLine]", "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Spacer", "[", 
+                  RowBox[{"174", " ", "0.7"}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                   RowBox[{"Dynamic", "[", 
+                    RowBox[{"notesEU", "[", 
+                    RowBox[{"[", "noteInd", "]"}], "]"}], "]"}], ",", 
+                   RowBox[{"FontFamily", "\[Rule]", "\"\<Arial-Bold\>\""}], 
+                   ",", "16"}], "]"}], ",", "\[IndentingNewLine]", 
+                 RowBox[{"Spacer", "[", 
+                  RowBox[{"174", " ", "0.7"}], "]"}], ",", 
+                 "\[IndentingNewLine]", "\[IndentingNewLine]", 
+                 RowBox[{"Button", "[", 
+                  RowBox[{
+                   RowBox[{"Dynamic", "[", "nextLabel", "]"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", " ", 
+                    RowBox[{
+                    RowBox[{"noteInd", " ", "<", " ", 
+                    RowBox[{
+                    RowBox[{"Length", "[", "list", "]"}], " ", "-", "1"}]}], 
+                    " ", ",", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"prevLabel", " ", "=", " ", 
+                    RowBox[{"notesEU", "[", 
+                    RowBox[{"[", "noteInd", "]"}], "]"}]}], ";", 
+                    RowBox[{"noteInd", "+=", "1"}], ";", 
+                    RowBox[{"nextLabel", " ", "=", " ", 
+                    RowBox[{"notesEU", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"noteInd", "+", "1"}], "]"}], "]"}]}]}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"noteInd", " ", "<", " ", 
+                    RowBox[{"Length", "[", "list", "]"}]}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"prevLabel", " ", "=", " ", 
+                    RowBox[{"notesEU", "[", 
+                    RowBox[{"[", "noteInd", "]"}], "]"}]}], ";", 
+                    RowBox[{"noteInd", "+=", "1"}], ";", 
+                    RowBox[{"nextLabel", " ", "=", " ", "\"\<--\>\""}]}]}], 
+                    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+                    "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+                "\[IndentingNewLine]", "}"}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Button", "[", 
+               RowBox[{"\"\<Next Lesson\>\"", ",", 
+                RowBox[{
+                "Print", "[", "\"\<To do refresh panel for next lesson\>\"", 
+                 "]"}]}], "]"}]}], "}"}], "]"}]}], "\[IndentingNewLine]", 
+          "}"}], "]"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "750"}]}], "]"}]}]}], "\n", "]"}]}],
+  FontSize->16]}], "Input",
+ CellChangeTimes->{{3.828607261589456*^9, 3.8286072665435305`*^9}, {
+   3.828607443554761*^9, 3.8286076082098975`*^9}, {3.8286076669034348`*^9, 
+   3.8286077194186163`*^9}, {3.8286081395390453`*^9, 
+   3.8286082577342863`*^9}, {3.8286083173412123`*^9, 
+   3.8286083513826942`*^9}, {3.828608574084385*^9, 3.8286086239521856`*^9}, {
+   3.828608658993251*^9, 3.8286087207843046`*^9}, {3.82860875373635*^9, 
+   3.8286087962751656`*^9}, 3.8286088486205783`*^9, {3.8286088815008345`*^9, 
+   3.828608886233455*^9}, {3.8286089211539154`*^9, 3.8286089212406406`*^9}, {
+   3.8286089519541297`*^9, 3.828609382782015*^9}, {3.828609432576346*^9, 
+   3.8286094414492474`*^9}, {3.828609488127636*^9, 3.828609543585349*^9}, {
+   3.828609618724633*^9, 3.8286096815991473`*^9}, {3.8286099068954053`*^9, 
+   3.8286099707646227`*^9}, {3.8286100341879363`*^9, 
+   3.8286100598052616`*^9}, {3.8286198604852257`*^9, 3.828619922128995*^9}, {
+   3.828619957930097*^9, 3.828619968068634*^9}, {3.8286200274563127`*^9, 
+   3.828620028412232*^9}, {3.8286200752179737`*^9, 3.8286201727368007`*^9}, {
+   3.8286202242429066`*^9, 3.8286202252683697`*^9}, {3.828620289217291*^9, 
+   3.8286203400946255`*^9}, {3.8286203737534676`*^9, 3.828620452841795*^9}, {
+   3.8286205045804143`*^9, 3.828620599577099*^9}, {3.8286206855606284`*^9, 
+   3.828620686645297*^9}, {3.8286207366835594`*^9, 3.8286207586998177`*^9}, {
+   3.828620833760275*^9, 3.8286208667139597`*^9}, {3.82862091199333*^9, 
+   3.8286209546859474`*^9}, {3.8286209932514343`*^9, 3.828621068408966*^9}, {
+   3.8286211455678935`*^9, 3.828621467420648*^9}, {3.828621501505927*^9, 
+   3.8286216348899813`*^9}, {3.828621689223868*^9, 3.828621783186778*^9}, {
+   3.8286218171953526`*^9, 3.8286218349775224`*^9}, {3.8286218733298683`*^9, 
+   3.828621938373559*^9}, {3.8286219764275627`*^9, 3.8286220133927517`*^9}, {
+   3.828622044408579*^9, 3.828622059447424*^9}, {3.828622100196294*^9, 
+   3.8286221296746483`*^9}},ExpressionUUID->"5f34716a-cd97-48d0-964a-\
+4d7ea92e1ae8"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.8286207858722134`*^9, 3.828620813900017*^9}, 
+   3.828620873388277*^9},ExpressionUUID->"92b99eef-4aa8-4fa1-839c-\
+3b3c6bb29939"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  StyleBox[
+   RowBox[{
+    RowBox[{"showNotes", "[", "notesUS", "]"}], "\[IndentingNewLine]", 
+    RowBox[{"AudioCapture", "[", "]"}], "\[IndentingNewLine]", 
+    "\[IndentingNewLine]"}],
+   FontSize->16]}]], "Input",
+ CellChangeTimes->{{3.828608320306094*^9, 3.828608328404704*^9}, {
+  3.828608663276132*^9, 3.8286086638738785`*^9}, {3.8286088199577093`*^9, 
+  3.828608820472724*^9}, {3.8286200145646915`*^9, 3.828620070520597*^9}, {
+  3.828622158795536*^9, 
+  3.8286221673654904`*^9}},ExpressionUUID->"f9dff5b0-c476-4fa0-bb13-\
+8f3d5e0447d7"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`list$$ = {
+  "C", "D", "E", "F", "G", "A", "B"}, $CellContext`noteInd$$ = 
+  1, $CellContext`prevLabel$$ = "--", $CellContext`nextLabel$$ = "Re"}, 
+  PanelBox[
+   TemplateBox[{DynamicBox[
+      ToBoxes[
+       EmitSound[
+        Sound[
+         SoundNote[
+          Part[$CellContext`list$$, $CellContext`noteInd$$]]]], 
+       StandardForm]],TemplateBox[{50.4}, "Spacer1"],TagBox[
+      GridBox[{{
+         TemplateBox[{
+           ButtonBox[
+            DynamicBox[
+             ToBoxes[$CellContext`prevLabel$$, StandardForm]], ButtonFunction :> 
+            If[$CellContext`noteInd$$ > 
+              2, $CellContext`nextLabel$$ = 
+               Part[$CellContext`notesEU, $CellContext`noteInd$$] 
+                SubtractFrom[$CellContext`noteInd$$, 
+                  1]; $CellContext`prevLabel$$ = 
+               Part[$CellContext`notesEU, $CellContext`noteInd$$ - 1], 
+              
+              If[$CellContext`noteInd$$ > 
+               1, $CellContext`nextLabel$$ = 
+                Part[$CellContext`notesEU, $CellContext`noteInd$$]; 
+               SubtractFrom[$CellContext`noteInd$$, 
+                 1]; $CellContext`prevLabel$$ = "--"]], Appearance -> 
+            Automatic, Evaluator -> Automatic, Method -> "Preemptive"], 
+           TemplateBox[{121.8}, "Spacer1"], 
+           StyleBox[
+            DynamicBox[
+             ToBoxes[
+              Part[$CellContext`notesEU, $CellContext`noteInd$$], 
+              StandardForm]], FontFamily -> "Arial-Bold", 16, StripOnInput -> 
+            False], 
+           TemplateBox[{121.8}, "Spacer1"], 
+           ButtonBox[
+            DynamicBox[
+             ToBoxes[$CellContext`nextLabel$$, StandardForm]], ButtonFunction :> 
+            If[$CellContext`noteInd$$ < 
+              Length[$CellContext`list$$] - 1, $CellContext`prevLabel$$ = 
+               Part[$CellContext`notesEU, $CellContext`noteInd$$]; 
+              AddTo[$CellContext`noteInd$$, 1]; $CellContext`nextLabel$$ = 
+               Part[$CellContext`notesEU, $CellContext`noteInd$$ + 1], 
+              
+              If[$CellContext`noteInd$$ < 
+               Length[$CellContext`list$$], $CellContext`prevLabel$$ = 
+                Part[$CellContext`notesEU, $CellContext`noteInd$$]; 
+               AddTo[$CellContext`noteInd$$, 1]; $CellContext`nextLabel$$ = 
+                "--"]], Appearance -> Automatic, Evaluator -> Automatic, 
+            Method -> "Preemptive"]}, "RowDefault"]}, {
+         ButtonBox[
+         "\"Next Lesson\"", ButtonFunction :> 
+          Print["To do refresh panel for next lesson"], Appearance -> 
+          Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}}, 
+       GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+       "Column", 
+       GridBoxItemSize -> {
+        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]},
+    "RowDefault"],
+   ImageSize->750],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{
+  3.828609406417161*^9, 3.8286094436794252`*^9, 3.8286094752816467`*^9, 
+   3.828609546584058*^9, {3.82860963614636*^9, 3.8286096525872917`*^9}, {
+   3.828609683946272*^9, 3.8286096882365017`*^9}, {3.8286099135633492`*^9, 
+   3.828609936695468*^9}, {3.828609972706987*^9, 3.828609977378147*^9}, {
+   3.8286100461361823`*^9, 3.828610062034894*^9}, 3.828619797343734*^9, 
+   3.828619926086321*^9, {3.828619962505533*^9, 3.828619970969802*^9}, 
+   3.828620102426119*^9, {3.828620137361769*^9, 3.8286201419431834`*^9}, 
+   3.8286201762421036`*^9, 3.8286202285700154`*^9, {3.8286203164072037`*^9, 
+   3.828620345034833*^9}, 3.828620465303235*^9, {3.82862060603646*^9, 
+   3.8286206272168684`*^9}, {3.8286206634640365`*^9, 3.828620699565193*^9}, {
+   3.82862087608115*^9, 3.8286208788603163`*^9}, {3.828620930640267*^9, 
+   3.8286209585586667`*^9}, 3.8286210716046324`*^9, {3.8286219296992116`*^9, 
+   3.8286219446679583`*^9}, 3.828621981664525*^9, 3.8286220162671857`*^9, 
+   3.828622065263172*^9, {3.8286221357442207`*^9, 
+   3.828622168987675*^9}},ExpressionUUID->"89f21402-345f-43fa-a83f-\
+ef3d91762616"],
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{Audio`AudioObjects`audio$$ = HoldComplete[
+    Audio[
+    "C:\\Users\\riccardo\\Documents\\WolframAudio\\Capture-a750aa1c-84be-458d-\
+9448-082c4c74ec6a.wav", "Real32", Appearance -> Automatic, AudioOutputDevice -> 
+     Automatic, SampleRate -> 44100, SoundVolume -> 1]], 
+   Audio`AudioObjects`audioID$$, Audio`AudioObjects`buttonState$$ = "Basic", 
+   Audio`AudioObjects`newAudio$$}, 
+   DynamicBox[ToBoxes[
+     Audio`AudioGUI[
+     2, Audio`AudioObjects`audioID$$, Audio`AudioObjects`buttonState$$, 
+      Audio`AudioObjects`audio$$], StandardForm],
+    ImageSizeCache->{136., {43., 49.}},
+    TrackedSymbols:>{}],
+   Deinitialization:>(Clear[Audio`AudioObjects`newAudio$$]; 
+    Audio`ClearRef[Audio`AudioObjects`audioID$$]),
+   DynamicModuleValues:>{},
+   Initialization:>({
+     Audio`AudioObjects`newAudio$$, Audio`AudioObjects`audioID$$} = 
+    Audio`CheckID[
+     Audio`AudioObjects`audio$$, Audio`AudioObjects`audioID$$, 
+      Audio`AudioObjects`newAudio$$]),
+   UnsavedVariables:>{
+    Audio`AudioObjects`audioID$$, Audio`AudioObjects`newAudio$$}],
+  Audio`AudioBox["AudioClass" -> "AudioFile"],
+  Editable->False,
+  Selectable->False]], "Output",
+ CellChangeTimes->{
+  3.828609406417161*^9, 3.8286094436794252`*^9, 3.8286094752816467`*^9, 
+   3.828609546584058*^9, {3.82860963614636*^9, 3.8286096525872917`*^9}, {
+   3.828609683946272*^9, 3.8286096882365017`*^9}, {3.8286099135633492`*^9, 
+   3.828609936695468*^9}, {3.828609972706987*^9, 3.828609977378147*^9}, {
+   3.8286100461361823`*^9, 3.828610062034894*^9}, 3.828619797343734*^9, 
+   3.828619926086321*^9, {3.828619962505533*^9, 3.828619970969802*^9}, 
+   3.828620102426119*^9, {3.828620137361769*^9, 3.8286201419431834`*^9}, 
+   3.8286201762421036`*^9, 3.8286202285700154`*^9, {3.8286203164072037`*^9, 
+   3.828620345034833*^9}, 3.828620465303235*^9, {3.82862060603646*^9, 
+   3.8286206272168684`*^9}, {3.8286206634640365`*^9, 3.828620699565193*^9}, {
+   3.82862087608115*^9, 3.8286208788603163`*^9}, {3.828620930640267*^9, 
+   3.8286209585586667`*^9}, 3.8286210716046324`*^9, {3.8286219296992116`*^9, 
+   3.8286219446679583`*^9}, 3.828621981664525*^9, 3.8286220162671857`*^9, 
+   3.828622065263172*^9, {3.8286221357442207`*^9, 
+   3.828622176049656*^9}},ExpressionUUID->"a03e6373-7a90-4f39-98f9-\
+a03ae47dc8f9"],
+
+Cell[BoxData["\<\"To do refresh panel for next lesson\"\>"], "Print",
+ CellChangeTimes->{
+  3.8286222094127545`*^9},ExpressionUUID->"9044d9f6-0544-4784-8a7e-\
+918cc3bfbde2"]
+}, Open  ]]
+},
+WindowSize->{1920, 1037},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 8541, 171, 825, "Input",ExpressionUUID->"5f34716a-cd97-48d0-964a-4d7ea92e1ae8"],
+Cell[9102, 193, 177, 3, 28, "Input",ExpressionUUID->"92b99eef-4aa8-4fa1-839c-3b3c6bb29939"],
+Cell[CellGroupData[{
+Cell[9304, 200, 592, 13, 105, "Input",ExpressionUUID->"f9dff5b0-c476-4fa0-bb13-8f3d5e0447d7"],
+Cell[9899, 215, 4090, 80, 98, "Output",ExpressionUUID->"89f21402-345f-43fa-a83f-ef3d91762616"],
+Cell[13992, 297, 2326, 44, 111, "Output",ExpressionUUID->"a03e6373-7a90-4f39-98f9-a03ae47dc8f9"],
+Cell[16321, 343, 173, 3, 22, "Print",ExpressionUUID->"9044d9f6-0544-4784-8a7e-918cc3bfbde2"]
+}, Open  ]]
+}
+]
+*)
+
