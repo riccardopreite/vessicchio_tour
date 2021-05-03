@@ -1,0 +1,472 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17546,        462]
+NotebookOptionsPosition[     17244,        449]
+NotebookOutlinePosition[     17590,        464]
+CellTagsIndexPosition[     17547,        461]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "chiave", ",", " ", "nota", ",", " ", "notaBarra", ",", " ", "barra"}], 
+    "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"chiave", " ", "=", " ", 
+     RowBox[{"Import", "[", "\"\<../immagini/chiave.png\>\"", "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"nota", " ", "=", " ", 
+     RowBox[{
+     "Import", "[", "\"\<../immagini/nota_senza_barra.png\>\"", "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"notaBarra", " ", "=", " ", 
+     RowBox[{"Import", "[", "\"\<../immagini/nota_barra.png\>\"", "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"barra", " ", "=", " ", 
+     RowBox[{"Import", "[", "\"\<../immagini/barra.png\>\"", "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"NoteDistance", "[", 
+      RowBox[{"a_", ",", " ", 
+       RowBox[{"b_:", "\"\<C4\>\""}]}], "]"}], " ", ":=", " ", 
+     RowBox[{
+      RowBox[{"12", 
+       RowBox[{"FromDigits", "[", 
+        RowBox[{"StringTake", "[", 
+         RowBox[{"a", ",", " ", 
+          RowBox[{"-", "1"}]}], "]"}], "]"}]}], "-", " ", 
+      RowBox[{"12", 
+       RowBox[{"FromDigits", "[", 
+        RowBox[{"StringTake", "[", 
+         RowBox[{"b", ",", " ", 
+          RowBox[{"-", "1"}]}], "]"}], "]"}]}], " ", "+", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Position", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<C\>\"", ",", "\"\<C#\>\"", ",", " ", "\"\<D\>\"", ",", " ", 
+            "\"\<D#\>\"", ",", "  ", "\"\<E\>\"", ",", " ", "\"\<F\>\"", ",", 
+            " ", "\"\<F#\>\"", ",", " ", "\"\<G\>\"", ",", " ", "\"\<G#\>\"", 
+            ",", "  ", "\"\<A\>\"", ",", " ", "\"\<A#\>\"", ",", "  ", 
+            "\"\<B\>\""}], "}"}], ",", " ", 
+          RowBox[{"StringTake", "[", 
+           RowBox[{"a", ",", " ", "1"}], "]"}]}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "-", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Position", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<C\>\"", ",", "\"\<C#\>\"", ",", " ", "\"\<D\>\"", ",", " ", 
+            "\"\<D#\>\"", ",", "  ", "\"\<E\>\"", ",", " ", "\"\<F\>\"", ",", 
+            " ", "\"\<F#\>\"", ",", " ", "\"\<G\>\"", ",", " ", "\"\<G#\>\"", 
+            ",", "  ", "\"\<A\>\"", ",", " ", "\"\<A#\>\"", ",", "  ", 
+            "\"\<B\>\""}], "}"}], ",", " ", 
+          RowBox[{"StringTake", "[", 
+           RowBox[{"b", ",", " ", "1"}], "]"}]}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "+", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"StringContainsQ", "[", 
+         RowBox[{"a", ",", " ", "\"\<#\>\""}], "]"}], ",", " ", "1", ",", " ",
+         "0"}], "]"}], "+", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"StringContainsQ", "[", 
+         RowBox[{"b", ",", " ", "\"\<#\>\""}], "]"}], ",", " ", 
+        RowBox[{"-", "1"}], ",", " ", "0"}], "]"}]}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"NoteSpaces", "[", 
+      RowBox[{"a_", ",", " ", 
+       RowBox[{"b_:", "\"\<C4\>\""}]}], "]"}], " ", ":=", " ", 
+     RowBox[{
+      RowBox[{"7", 
+       RowBox[{"FromDigits", "[", 
+        RowBox[{"StringTake", "[", 
+         RowBox[{"a", ",", " ", 
+          RowBox[{"-", "1"}]}], "]"}], "]"}]}], "-", " ", 
+      RowBox[{"7", 
+       RowBox[{"FromDigits", "[", 
+        RowBox[{"StringTake", "[", 
+         RowBox[{"b", ",", " ", 
+          RowBox[{"-", "1"}]}], "]"}], "]"}]}], " ", "+", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Position", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<C\>\"", ",", " ", "\"\<D\>\"", ",", "\"\<E\>\"", ",", " ", 
+            "\"\<F\>\"", ",", " ", "\"\<G\>\"", ",", "\"\<A\>\"", ",", 
+            "\"\<B\>\""}], "}"}], ",", " ", 
+          RowBox[{"StringTake", "[", 
+           RowBox[{"a", ",", " ", "1"}], "]"}]}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "-", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Position", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<C\>\"", ",", "\"\<D\>\"", ",", "\"\<E\>\"", ",", " ", 
+            "\"\<F\>\"", ",", "\"\<G\>\"", ",", "\"\<A\>\"", ",", " ", 
+            "\"\<B\>\""}], "}"}], ",", " ", 
+          RowBox[{"StringTake", "[", 
+           RowBox[{"b", ",", " ", "1"}], "]"}]}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"NotePreorderQ", "[", 
+      RowBox[{"a_", ",", " ", 
+       RowBox[{"b_:", "\"\<C4\>\""}]}], "]"}], " ", ":=", " ", 
+     RowBox[{
+      RowBox[{"NoteDistance", "[", 
+       RowBox[{"a", ",", " ", "b"}], "]"}], "\[LessEqual]", "0"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"NoteSpacesPreorderQ", "[", 
+      RowBox[{"a_", ",", " ", 
+       RowBox[{"b_:", "\"\<C4\>\""}]}], "]"}], " ", ":=", " ", 
+     RowBox[{
+      RowBox[{"NoteSpaces", "[", 
+       RowBox[{"a", ",", " ", "b"}], "]"}], "\[LessEqual]", "0"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"PrintNote", "[", 
+      RowBox[{"o_", ",", " ", 
+       RowBox[{"n_", "/;", 
+        RowBox[{
+         RowBox[{"NotePreorderQ", "[", 
+          RowBox[{"n", ",", " ", "\"\<G5\>\""}], "]"}], "&&", " ", 
+         RowBox[{"!", 
+          RowBox[{"NotePreorderQ", "[", 
+           RowBox[{"n", ",", "\"\<C4\>\""}], "]"}]}]}]}], ",", " ", 
+       RowBox[{"back_:", "chiave"}]}], "]"}], ":=", 
+     RowBox[{"ImageCompose", "[", 
+      RowBox[{"back", ",", " ", "nota", ",", "  ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"300", "+", 
+          RowBox[{"100", "*", "o"}]}], ",", 
+         RowBox[{"355", "+", 
+          RowBox[{"13.2", "*", 
+           RowBox[{"NoteSpaces", "[", 
+            RowBox[{"n", ",", " ", "\"\<D4\>\""}], "]"}]}]}]}], " ", "}"}]}], 
+      "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"PrintNote", "[", " ", 
+      RowBox[{"o_", ",", " ", 
+       RowBox[{"n_", "/;", 
+        RowBox[{
+         RowBox[{"NotePreorderQ", "[", 
+          RowBox[{"n", ",", " ", "\"\<B3\>\""}], "]"}], "&&", " ", 
+         RowBox[{"!", 
+          RowBox[{"NotePreorderQ", "[", 
+           RowBox[{"n", ",", "\"\<E2\>\""}], "]"}]}]}]}], ",", " ", 
+       RowBox[{"back_:", "chiave"}]}], "]"}], ":=", 
+     RowBox[{"ImageCompose", "[", 
+      RowBox[{"back", ",", " ", "nota", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"300", "+", 
+          RowBox[{"100", "*", "o"}]}], ",", 
+         RowBox[{"87", "+", 
+          RowBox[{"13.2", "*", 
+           RowBox[{"NoteSpaces", "[", 
+            RowBox[{"n", ",", " ", "\"\<F2\>\""}], "]"}]}]}]}], " ", "}"}]}], 
+      "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"PrintNote", "[", " ", 
+      RowBox[{"o_", ",", " ", 
+       RowBox[{"n_", "/;", 
+        RowBox[{
+         RowBox[{"NotePreorderQ", "[", 
+          RowBox[{"n", ",", " ", "\"\<C4\>\""}], "]"}], "&&", " ", 
+         RowBox[{"NotePreorderQ", "[", 
+          RowBox[{"\"\<C4\>\"", ",", "n"}], "]"}]}]}], ",", " ", 
+       RowBox[{"back_:", "chiave"}]}], "]"}], ":=", 
+     RowBox[{"ImageCompose", "[", 
+      RowBox[{"back", ",", " ", "notaBarra", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"300", "+", 
+          RowBox[{"100", "*", "o"}]}], ",", "287"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"PrintNote", "[", 
+      RowBox[{"o_", ",", " ", 
+       RowBox[{"n_", "/;", 
+        RowBox[{
+         RowBox[{"NotePreorderQ", "[", 
+          RowBox[{"\"\<A5\>\"", ",", " ", "n"}], "]"}], "&&", 
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{
+            RowBox[{"NoteSpaces", "[", 
+             RowBox[{"n", ",", " ", "\"\<G5\>\""}], "]"}], ",", " ", "2"}], 
+           "]"}], "\[Equal]", "1"}]}]}], ",", " ", 
+       RowBox[{"back_:", "chiave"}]}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"FoldList", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ImageCompose", "[", 
+          RowBox[{"#1", ",", " ", "barra", ",", "  ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"300", "+", 
+              RowBox[{"100", "*", "o"}]}], ",", 
+             RowBox[{"473.8", "+", 
+              RowBox[{"13.2", "*", "#2"}]}]}], " ", "}"}]}], "]"}], "&"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{"ImageCompose", "[", 
+         RowBox[{"back", ",", " ", "notaBarra", ",", "  ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"300", "+", 
+             RowBox[{"100", "*", "o"}]}], ",", 
+            RowBox[{"355", "+", 
+             RowBox[{"13.2", "*", 
+              RowBox[{"NoteSpaces", "[", 
+               RowBox[{"n", ",", " ", "\"\<D4\>\""}], "]"}]}]}]}], " ", 
+           "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Range", "[", 
+         RowBox[{"2", ",", " ", 
+          RowBox[{
+           RowBox[{"NoteSpaces", "[", 
+            RowBox[{"n", ",", " ", "\"\<F5\>\""}], "]"}], "-", "2"}], ",", 
+          " ", "2"}], "]"}]}], "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"-", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"PrintNote", "[", 
+      RowBox[{"o_", ",", " ", 
+       RowBox[{"n_", "/;", 
+        RowBox[{
+         RowBox[{"NotePreorderQ", "[", 
+          RowBox[{"\"\<A5\>\"", ",", " ", "n"}], "]"}], "&&", 
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{
+            RowBox[{"NoteSpaces", "[", 
+             RowBox[{"n", ",", " ", "\"\<G5\>\""}], "]"}], ",", " ", "2"}], 
+           "]"}], "\[Equal]", "0"}]}]}], ",", " ", 
+       RowBox[{"back_:", "chiave"}]}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"FoldList", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ImageCompose", "[", 
+          RowBox[{"#1", ",", " ", "barra", ",", "  ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"300", "+", 
+              RowBox[{"100", "*", "o"}]}], ",", 
+             RowBox[{"473.8", "+", 
+              RowBox[{"13.2", "*", "#2"}]}]}], " ", "}"}]}], "]"}], "&"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{"ImageCompose", "[", 
+         RowBox[{"back", ",", " ", "nota", ",", "  ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"300", "+", 
+             RowBox[{"100", "*", "o"}]}], ",", 
+            RowBox[{"355", "+", 
+             RowBox[{"13.2", "*", 
+              RowBox[{"NoteSpaces", "[", 
+               RowBox[{"n", ",", " ", "\"\<D4\>\""}], "]"}]}]}]}], " ", 
+           "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Range", "[", 
+         RowBox[{"2", ",", " ", 
+          RowBox[{"NoteSpaces", "[", 
+           RowBox[{"n", ",", " ", "\"\<F5\>\""}], "]"}], ",", " ", "2"}], 
+         "]"}]}], "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"-", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"PrintNote", "[", 
+      RowBox[{"o_", ",", " ", 
+       RowBox[{"n_", "/;", 
+        RowBox[{
+         RowBox[{"NotePreorderQ", "[", 
+          RowBox[{"n", ",", " ", "\"\<F2\>\""}], "]"}], "&&", 
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{
+            RowBox[{"NoteSpaces", "[", 
+             RowBox[{"n", ",", " ", "\"\<F2\>\""}], "]"}], ",", " ", "2"}], 
+           "]"}], "\[Equal]", "1"}]}]}], ",", " ", 
+       RowBox[{"back_:", "chiave"}]}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"FoldList", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ImageCompose", "[", 
+          RowBox[{"#1", ",", " ", "barra", ",", "  ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"300", "+", 
+              RowBox[{"100", "*", "o"}]}], ",", 
+             RowBox[{"87", "-", 
+              RowBox[{"13.2", "*", 
+               RowBox[{"(", 
+                RowBox[{"#2", "-", "1"}], ")"}]}]}]}], " ", "}"}]}], "]"}], 
+         "&"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"ImageCompose", "[", 
+         RowBox[{"back", ",", " ", "notaBarra", ",", "  ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"300", "+", 
+             RowBox[{"100", "*", "o"}]}], ",", 
+            RowBox[{"87", "-", 
+             RowBox[{"13.2", "*", 
+              RowBox[{"NoteSpaces", "[", 
+               RowBox[{"\"\<F2\>\"", ",", " ", "n"}], "]"}]}]}]}], " ", 
+           "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Range", "[", 
+         RowBox[{"2", ",", " ", 
+          RowBox[{"NoteSpaces", "[", 
+           RowBox[{"\"\<F2\>\"", ",", " ", "n"}], "]"}], ",", " ", "2"}], 
+         "]"}]}], "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"-", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"PrintNote", "[", 
+      RowBox[{"o_", ",", " ", 
+       RowBox[{"n_", "/;", 
+        RowBox[{
+         RowBox[{"NotePreorderQ", "[", 
+          RowBox[{"n", ",", " ", "\"\<F2\>\""}], "]"}], "&&", 
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{
+            RowBox[{"NoteSpaces", "[", 
+             RowBox[{"n", ",", " ", "\"\<F2\>\""}], "]"}], ",", " ", "2"}], 
+           "]"}], "\[Equal]", "0"}]}]}], ",", " ", 
+       RowBox[{"back_:", "chiave"}]}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"FoldList", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ImageCompose", "[", 
+          RowBox[{"#1", ",", " ", "barra", ",", "  ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"300", "+", 
+              RowBox[{"100", "*", "o"}]}], ",", 
+             RowBox[{"87", "-", 
+              RowBox[{"13.2", "*", 
+               RowBox[{"(", 
+                RowBox[{"#2", "-", "1"}], ")"}]}]}]}], " ", "}"}]}], "]"}], 
+         "&"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"ImageCompose", "[", 
+         RowBox[{"back", ",", " ", "nota", ",", "  ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"300", "+", 
+             RowBox[{"100", "*", "o"}]}], ",", 
+            RowBox[{"87", "-", 
+             RowBox[{"13.2", "*", 
+              RowBox[{"NoteSpaces", "[", 
+               RowBox[{"\"\<F2\>\"", ",", " ", "n"}], "]"}]}]}]}], " ", 
+           "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Range", "[", 
+         RowBox[{"2", ",", " ", 
+          RowBox[{"NoteSpaces", "[", 
+           RowBox[{"\"\<F2\>\"", ",", " ", "n"}], "]"}], ",", " ", "2"}], 
+         "]"}]}], "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"-", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"PrintChord", "[", 
+      RowBox[{"o_", ",", " ", "c_", ",", " ", 
+       RowBox[{"back_:", "chiave"}]}], "]"}], " ", ":=", 
+     RowBox[{"Fold", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"PrintNote", "[", 
+         RowBox[{"o", ",", " ", "#2", ",", " ", "#1"}], "]"}], "&"}], ",", 
+       " ", "back", ",", " ", "c"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"PrintPartPre", "[", 
+      RowBox[{"p_", ",", 
+       RowBox[{"o_:", "0"}], ",", " ", 
+       RowBox[{"back_:", "chiave"}]}], "]"}], " ", ":=", " ", 
+     RowBox[{"Fold", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"#1", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "+", "1"}], ",", " ", 
+          RowBox[{"PrintChord", "[", 
+           RowBox[{
+            RowBox[{"#1", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "#2", ",", " ", 
+            RowBox[{"#1", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], " ", "]"}]}], "}"}], "&"}], 
+       ",", " ", 
+       RowBox[{"{", " ", 
+        RowBox[{"0", ",", " ", "back"}], "}"}], ",", " ", "p"}], "  ", 
+      "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"PrintPart", "[", "p_", "]"}], " ", ":=", " ", 
+     RowBox[{
+      RowBox[{"PrintPartPre", "[", 
+       RowBox[{"p", ",", " ", "0", ",", " ", "chiave"}], "]"}], "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], ";"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{
+  3.829018916183262*^9},ExpressionUUID->"7ef18615-8702-424a-9b69-\
+90a178f64dfa"]
+},
+WindowSize->{638, 708},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 16682, 427, 1435, "Input",ExpressionUUID->"7ef18615-8702-424a-9b69-90a178f64dfa"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
