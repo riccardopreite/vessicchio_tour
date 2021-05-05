@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     17546,        462]
-NotebookOptionsPosition[     17244,        449]
-NotebookOutlinePosition[     17590,        464]
-CellTagsIndexPosition[     17547,        461]
+NotebookDataLength[     17719,        466]
+NotebookOptionsPosition[     17417,        453]
+NotebookOutlinePosition[     17763,        468]
+CellTagsIndexPosition[     17720,        465]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -26,6 +26,9 @@ Cell[BoxData[
     "chiave", ",", " ", "nota", ",", " ", "notaBarra", ",", " ", "barra"}], 
     "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"SetDirectory", "[", 
+     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";", 
+    "\[IndentingNewLine]", 
     RowBox[{"chiave", " ", "=", " ", 
      RowBox[{"Import", "[", "\"\<../immagini/chiave.png\>\"", "]"}]}], ";", 
     "\[IndentingNewLine]", 
@@ -444,7 +447,8 @@ Cell[BoxData[
       RowBox[{"[", "2", "]"}], "]"}]}], ";"}]}], "\[IndentingNewLine]", 
   "]"}]], "Input",
  CellChangeTimes->{
-  3.829018916183262*^9},ExpressionUUID->"7ef18615-8702-424a-9b69-\
+  3.829018916183262*^9, {3.8291961006156654`*^9, 
+   3.829196123924426*^9}},ExpressionUUID->"7ef18615-8702-424a-9b69-\
 90a178f64dfa"]
 },
 WindowSize->{638, 708},
@@ -463,10 +467,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 16682, 427, 1435, "Input",ExpressionUUID->"7ef18615-8702-424a-9b69-90a178f64dfa"]
+Cell[558, 20, 16855, 431, 1468, "Input",ExpressionUUID->"7ef18615-8702-424a-9b69-90a178f64dfa"]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
