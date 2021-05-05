@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     77506,       1725]
-NotebookOptionsPosition[     76512,       1701]
-NotebookOutlinePosition[     76888,       1717]
-CellTagsIndexPosition[     76845,       1714]
+NotebookDataLength[    116959,       2571]
+NotebookOptionsPosition[    115739,       2543]
+NotebookOutlinePosition[    116115,       2559]
+CellTagsIndexPosition[    116072,       2556]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1697,6 +1697,848 @@ Cell[BoxData[
    3.8290240190207977`*^9}, 3.829024081252284*^9, {3.829024115109888*^9, 
    3.8290241339796762`*^9}, {3.8290241847052608`*^9, 3.829024196836171*^9}, 
    3.8290243313021*^9},ExpressionUUID->"35f6519e-3ea6-469b-bfaf-cd53a4f54668"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Panel", "[", "\[IndentingNewLine]", 
+  RowBox[{"Column", "[", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Row", "[", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+       "Text", "[", "\"\<Seleziona lo strumento ed ascolta la canzone!\>\"", 
+        "]"}], "}"}], "\[IndentingNewLine]", "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Spacer", "[", 
+      RowBox[{"50", " ", "0.7"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Row", "[", "\[IndentingNewLine]", 
+      RowBox[{"{", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"PopupMenu", "[", 
+         RowBox[{
+          RowBox[{"Dynamic", "[", "strumento", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<SteelGuitar\>\"", ",", "\"\<BaritoneSax\>\"", ",", 
+            "\"\<Trumpet\>\"", ",", "\"\<Piano\>\"", ",", "\"\<Cello\>\""}], 
+           "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Spacer", "[", 
+         RowBox[{"120", " ", "0.7"}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Button", "[", 
+         RowBox[{"\"\<Play\>\"", ",", 
+          RowBox[{"EmitSound", "[", 
+           RowBox[{"Sound", "[", "\[IndentingNewLine]", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"\"\<C4\>\"", ",", " ", "0.25", ",", "strumento"}], 
+               "]"}], ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.50", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.50", ",", " ", "strumento"}], 
+               "]"}], ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "1", ",", " ", "strumento"}], "]"}], 
+              ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.50", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.50", ",", " ", "strumento"}], 
+               "]"}], ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "1", ",", " ", "strumento"}], "]"}], 
+              ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<Bb4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<Bb4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.50", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.50", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<Bb4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<Bb4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "1", ",", " ", "strumento"}], "]"}], 
+              ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<Bb4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<Bb4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C5\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<Bb4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<Bb4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<Bb4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "1", ",", " ", "strumento"}], "]"}], 
+              ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"\"\<A4\>\"", ",", " ", "0.5", ",", " ", "strumento"}],
+                "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"\"\<A4\>\"", ",", " ", "1", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"\"\<A4\>\"", ",", " ", "0.5", ",", " ", "strumento"}],
+                "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.5", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "1", ",", " ", "strumento"}], "]"}], 
+              ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.50", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", " ", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"\"\<A4\>\"", ",", " ", "0.5", ",", " ", "strumento"}],
+                "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"None", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<D4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<D4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<D4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"\"\<Bb4\>\"", ",", " ", "0.25", ",", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<D4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"\"\<Bb4\>\"", ",", " ", "0.25", ",", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"\"\<G4\>\"", ",", " ", "0.25", ",", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"\"\<Bb4\>\"", ",", " ", "0.25", ",", "strumento"}], 
+               "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"\"\<A4\>\"", ",", " ", "0.5", ",", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<D4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<G4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<D4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<Bb4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<Bb4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<A4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{"\"\<F4\>\"", ",", " ", "0.5", ",", " ", "strumento"}],
+                "]"}], ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<C4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<D4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], "]"}],
+               ",", 
+              RowBox[{"SoundNote", "[", 
+               RowBox[{
+               "\"\<F4\>\"", ",", " ", "0.25", ",", " ", "strumento"}], 
+               "]"}]}], "\[IndentingNewLine]", "}"}], "\[IndentingNewLine]", 
+            "]"}], "]"}]}], " ", "\[IndentingNewLine]", "]"}], ",", " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Button", "[", 
+         RowBox[{"\"\<Stop\>\"", ",", " ", 
+          RowBox[{"EmitSound", "[", 
+           RowBox[{"Sound", "[", 
+            RowBox[{"SoundNote", "[", 
+             RowBox[{"\"\<C4\>\"", ",", 
+              RowBox[{"SoundVolume", "\[Rule]", "0"}]}], "]"}], "]"}], 
+           "]"}]}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+      "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "}"}], "]"}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.8291888834546547`*^9, 3.829188931654605*^9}, {
+  3.8291889871544533`*^9, 3.829189067175045*^9}, {3.8291890981742687`*^9, 
+  3.829189100711025*^9}, {3.8291891812068863`*^9, 3.8291891856057563`*^9}, {
+  3.829189398606281*^9, 3.8291894523271637`*^9}, {3.8291895491333866`*^9, 
+  3.829189643485919*^9}, {3.8291908925307436`*^9, 3.829190924291936*^9}, {
+  3.8291910307948575`*^9, 3.8291910359474063`*^9}, {3.8291910888335743`*^9, 
+  3.829191101685519*^9}, {3.8291911781635485`*^9, 3.8291912713768263`*^9}, {
+  3.8291919427763166`*^9, 
+  3.829192220614176*^9}},ExpressionUUID->"4d7d4cc9-0860-4f20-a949-\
+4c55e66d9bc9"],
+
+Cell[BoxData[
+ PanelBox[
+  TagBox[GridBox[{
+     {
+      TemplateBox[{InterpretationBox[
+         Cell[
+          BoxData[
+           FormBox[
+           "\"Seleziona lo strumento ed ascolta la canzone!\"", TextForm]], 
+          "InlineText"], 
+         Text["Seleziona lo strumento ed ascolta la canzone!"]]},
+       "RowDefault"]},
+     {
+      TemplateBox[{35.},
+       "Spacer1"]},
+     {
+      TemplateBox[{PopupMenuBox[
+         Dynamic[$CellContext`strumento], {
+         "SteelGuitar" -> "\"SteelGuitar\"", "BaritoneSax" -> 
+          "\"BaritoneSax\"", "Trumpet" -> "\"Trumpet\"", "Piano" -> 
+          "\"Piano\"", "Cello" -> "\"Cello\""}],TemplateBox[{84.}, "Spacer1"],
+        ButtonBox["\"Play\"", ButtonFunction :> EmitSound[
+           Sound[{
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["C4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.5, $CellContext`strumento], 
+             SoundNote[None, 0.5, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["C4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote[None, 1, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["C4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.5, $CellContext`strumento], 
+             SoundNote[None, 0.5, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["C4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote[None, 1, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.5, $CellContext`strumento], 
+             SoundNote[None, 0.5, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote[None, 1, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["C5", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote[None, 1, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.5, $CellContext`strumento], 
+             SoundNote["A4", 1, $CellContext`strumento], 
+             SoundNote["A4", 0.5, $CellContext`strumento], 
+             SoundNote[None, 0.5, $CellContext`strumento], 
+             SoundNote[None, 1, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.5, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.5, $CellContext`strumento], 
+             SoundNote[None, 0.25, $CellContext`strumento], 
+             SoundNote["C4", 0.25, $CellContext`strumento], 
+             SoundNote["D4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["C4", 0.25, $CellContext`strumento], 
+             SoundNote["D4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["C4", 0.25, $CellContext`strumento], 
+             SoundNote["D4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["C4", 0.25, $CellContext`strumento], 
+             SoundNote["D4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.5, $CellContext`strumento], 
+             SoundNote["C4", 0.25, $CellContext`strumento], 
+             SoundNote["D4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["G4", 0.25, $CellContext`strumento], 
+             SoundNote["C4", 0.25, $CellContext`strumento], 
+             SoundNote["D4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["Bb4", 0.25, $CellContext`strumento], 
+             SoundNote["A4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.5, $CellContext`strumento], 
+             SoundNote["C4", 0.25, $CellContext`strumento], 
+             SoundNote["D4", 0.25, $CellContext`strumento], 
+             SoundNote["F4", 0.25, $CellContext`strumento]}]], Appearance -> 
+         Automatic, Evaluator -> Automatic, Method -> "Preemptive"],ButtonBox[
+        "\"Stop\"", ButtonFunction :> EmitSound[
+           Sound[
+            SoundNote["C4", SoundVolume -> 0]]], Appearance -> Automatic, 
+         Evaluator -> Automatic, Method -> "Preemptive"]},
+       "RowDefault"]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Column"]]], "Output",
+ CellChangeTimes->{{3.829192078272766*^9, 3.829192191778274*^9}, 
+   3.829192223984937*^9},ExpressionUUID->"5a1be57f-cfaa-458a-bc4b-\
+82afef6234de"]
 }, Open  ]]
 },
 WindowSize->{958, 988},
@@ -1724,8 +2566,12 @@ Cell[22254, 521, 19027, 460, 2203, "Output",ExpressionUUID->"43cdbabd-9aa9-48a6-
 Cell[41296, 984, 81, 0, 40, "Input",ExpressionUUID->"f1b8cf6e-dd39-4894-aca0-d0cb710b369d"],
 Cell[41380, 986, 229, 4, 40, "Input",ExpressionUUID->"18e1250a-0c2f-4843-ab11-70eeb1f6c153"],
 Cell[CellGroupData[{
-Cell[41634, 994, 24392, 509, 2701, InheritFromParent,ExpressionUUID->"e0b46b99-8399-4869-ada0-ed6c790010c1"],
+Cell[41634, 994, 24392, 509, 2701, "Input",ExpressionUUID->"e0b46b99-8399-4869-ada0-ed6c790010c1"],
 Cell[66029, 1505, 10467, 193, 170, "Output",ExpressionUUID->"35f6519e-3ea6-469b-bfaf-cd53a4f54668"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[76533, 1703, 28272, 643, 2953, "Input",ExpressionUUID->"4d7d4cc9-0860-4f20-a949-4c55e66d9bc9"],
+Cell[104808, 2348, 10915, 192, 141, "Output",ExpressionUUID->"5a1be57f-cfaa-458a-bc4b-82afef6234de"]
 }, Open  ]]
 }
 ]
