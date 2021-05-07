@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     41081,        841]
-NotebookOptionsPosition[     39388,        811]
-NotebookOutlinePosition[     39767,        827]
-CellTagsIndexPosition[     39724,        824]
+NotebookDataLength[     34898,        692]
+NotebookOptionsPosition[     33112,        661]
+NotebookOutlinePosition[     33491,        677]
+CellTagsIndexPosition[     33448,        674]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -40,16 +40,6 @@ Cell[BoxData[
     RowBox[{"Get", "[", "\"\<bozze/modulo_print_distance.nb\>\"", "]"}], 
     ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    StyleBox[
-     RowBox[{
-      RowBox[{"spartito", " ", "=", " ", 
-       RowBox[{"Import", "[", "\"\<immagini/chiave.png\>\"", "]"}]}], ";"}],
-     FontSize->16], 
-    StyleBox[
-     StyleBox[
-      RowBox[{"*", ")"}]],
-     FontSize->16]}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"simpleScale", " ", "=", " ", 
      RowBox[{"{", 
@@ -73,145 +63,92 @@ Cell[BoxData[
      FontSize->16], 
     StyleBox[" ",
      FontSize->16], 
-    RowBox[{
-     StyleBox[
-      StyleBox[
-       RowBox[{"(", "*"}]],
-      FontSize->16], 
-     StyleBox[
+    StyleBox[
+     RowBox[{"(*", 
       RowBox[{",", 
        RowBox[{"{", 
         RowBox[{"\"\<F4\>\"", ",", "\"\<G4\>\""}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{"\"\<C4\>\"", ",", "\"\<D4\>\""}], "}"}], ",", 
        RowBox[{"{", 
-        RowBox[{"\"\<C4\>\"", ",", "\"\<D4\>\""}], "}"}]}],
-      FontSize->16], 
-     StyleBox[
-      RowBox[{
-       StyleBox["*",
-        FontSize->16], 
-       StyleBox[")",
-        FontSize->16]}]]}], "\[IndentingNewLine]", 
-    StyleBox["\[IndentingNewLine]",
+        RowBox[{"\"\<C4\>\"", ",", "\"\<D4\>\""}], "}"}]}], 
+      StyleBox[
+       RowBox[{"*", ")"}]]}],
      FontSize->16], "\[IndentingNewLine]", 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->16], 
     RowBox[{
-     RowBox[{"createSpartitoList", "[", "list_", "]"}], ":=", " ", 
-     RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{"showNotes", "[", 
+      RowBox[{"notesList_", ",", "type_"}], "]"}], ":=", " ", 
+     RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"{", 
-        RowBox[{"i", " ", "=", " ", "1"}], "}"}], ",", "\[IndentingNewLine]", 
-       
+        RowBox[{
+         RowBox[{"list", " ", "=", " ", "notesList"}], ",", "  ", 
+         RowBox[{"prevLabel", " ", "=", " ", "\"\<--\>\""}], ",", " ", 
+         RowBox[{"nextLabel", " ", "=", " ", "\"\<--\>\""}], ",", 
+         RowBox[{"instrument", " ", "=", " ", "\"\<SteelGuitar\>\""}]}], 
+        "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{
-        RowBox[{"temp", " ", "=", " ", 
-         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{"lenList", " ", "=", " ", 
-         RowBox[{
-          RowBox[{"Length", "[", "list", "]"}], " ", "+", "1"}]}], ";", 
+        RowBox[{"spartitoList", " ", "=", " ", 
+         RowBox[{"createSpartitoList", "[", "list", "]"}]}], ";", 
         "\[IndentingNewLine]", 
-        RowBox[{"For", "[", 
+        RowBox[{"spartito", " ", "=", " ", 
+         RowBox[{"PrintPart", "[", "spartitoList", "]"}]}], ";", "\n", 
+        RowBox[{"noteInd", " ", "=", " ", "1"}], ";", "\n", 
+        RowBox[{"labelList", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\n", 
+        RowBox[{"euList", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\n", 
+        RowBox[{"usList", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\n", 
+        RowBox[{"If", "[", 
          RowBox[{
-          RowBox[{"i", "=", "1"}], ",", 
-          RowBox[{"i", " ", "<", "  ", "lenList"}], ",", 
-          RowBox[{"i", "++"}], ",", " ", "\[IndentingNewLine]", 
+          RowBox[{"type", " ", "\[Equal]", " ", "\"\<e\>\""}], ",", "\n", 
           RowBox[{
-           RowBox[{"If", "[", 
+           RowBox[{"euList", " ", "=", " ", 
+            RowBox[{"toLabelList", "[", 
+             RowBox[{"list", ",", 
+              RowBox[{"{", "}"}], ",", "\"\<e\>\""}], "]"}]}], ";", "\n", 
+           RowBox[{"usList", " ", "=", " ", "list"}], ";", "\n", 
+           RowBox[{"labelList", " ", "=", " ", "euList"}]}], " ", ",", "\n", 
+          "\n", 
+          RowBox[{
+           RowBox[{"usList", " ", "=", " ", 
+            RowBox[{"toLabelList", "[", 
+             RowBox[{"list", ",", 
+              RowBox[{"{", "}"}], ",", "\"\<u\>\""}], "]"}]}], ";", "\n", 
+           RowBox[{"euList", " ", "=", " ", "list"}], ";", "\n", 
+           RowBox[{"labelList", " ", "=", "usList"}], ";", "\n", " ", 
+           RowBox[{"list", " ", "=", " ", "labelList"}], ";"}]}], "\n", "]"}],
+         ";", "\n", 
+        RowBox[{"nextLabel", " ", "=", " ", 
+         RowBox[{"Dynamic", "[", 
+          RowBox[{"labelList", "[", 
+           RowBox[{"[", 
+            RowBox[{"noteInd", "+", "1"}], "]"}], "]"}], "]"}]}], ";", "\n", 
+        RowBox[{"Panel", "[", 
+         RowBox[{
+          RowBox[{"Row", "[", "\n", 
+           RowBox[{"{", "\n", 
             RowBox[{
-             RowBox[{
-              RowBox[{"Length", "[", 
-               RowBox[{"list", "[", 
-                RowBox[{"[", "i", "]"}], "]"}], "]"}], " ", "\[Equal]", " ", 
-              "0"}], ",", "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"temp", " ", "=", " ", 
-               RowBox[{"AppendTo", "[", 
-                RowBox[{"temp", ",", " ", 
-                 RowBox[{"List", "[", 
-                  RowBox[{"list", "[", 
-                   RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}]}], ";"}], 
-             "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"temp", " ", "=", " ", 
-               RowBox[{"AppendTo", "[", 
-                RowBox[{"temp", ",", " ", 
+             RowBox[{"EmitSound", "[", 
+              RowBox[{"Sound", "[", 
+               RowBox[{"SoundNote", "[", 
+                RowBox[{
                  RowBox[{"list", "[", 
-                  RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], ";"}]}], 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}], ";"}]}], 
-         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-        RowBox[{"Return", "[", "temp", "]"}], ";"}]}], "\[IndentingNewLine]", 
-      "]"}]}], ";"}], "\n", 
-   RowBox[{
-    RowBox[{"showNotes", "[", 
-     RowBox[{"notesList_", ",", "type_"}], "]"}], ":=", " ", 
-    RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"list", " ", "=", " ", "notesList"}], ",", "  ", 
-        RowBox[{"prevLabel", " ", "=", " ", "\"\<--\>\""}], ",", " ", 
-        RowBox[{"nextLabel", " ", "=", " ", "\"\<--\>\""}], ",", 
-        RowBox[{"instrument", " ", "=", " ", "\"\<SteelGuitar\>\""}]}], "}"}],
-       ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"spartitoList", " ", "=", " ", 
-        RowBox[{"createSpartitoList", "[", "list", "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"spartito", " ", "=", " ", 
-        RowBox[{"PrintPart", "[", "spartitoList", "]"}]}], ";", "\n", 
-       RowBox[{"noteInd", " ", "=", " ", "1"}], ";", "\n", 
-       RowBox[{"labelList", " ", "=", " ", 
-        RowBox[{"{", "}"}]}], ";", "\n", 
-       RowBox[{"euList", " ", "=", " ", 
-        RowBox[{"{", "}"}]}], ";", "\n", 
-       RowBox[{"usList", " ", "=", " ", 
-        RowBox[{"{", "}"}]}], ";", "\n", 
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{"type", " ", "\[Equal]", " ", "\"\<e\>\""}], ",", "\n", 
-         RowBox[{
-          RowBox[{"euList", " ", "=", " ", 
-           RowBox[{"toLabelList", "[", 
-            RowBox[{"list", ",", 
-             RowBox[{"{", "}"}], ",", "\"\<e\>\""}], "]"}]}], ";", "\n", 
-          RowBox[{"usList", " ", "=", " ", "list"}], ";", "\n", 
-          RowBox[{"labelList", " ", "=", " ", "euList"}]}], " ", ",", "\n", 
-         "\n", 
-         RowBox[{
-          RowBox[{"usList", " ", "=", " ", 
-           RowBox[{"toLabelList", "[", 
-            RowBox[{"list", ",", 
-             RowBox[{"{", "}"}], ",", "\"\<u\>\""}], "]"}]}], ";", "\n", 
-          RowBox[{"euList", " ", "=", " ", "list"}], ";", "\n", 
-          RowBox[{"labelList", " ", "=", "usList"}], ";", "\n", " ", 
-          RowBox[{"list", " ", "=", " ", "labelList"}], ";"}]}], "\n", "]"}], 
-       ";", "\n", 
-       RowBox[{"nextLabel", " ", "=", " ", 
-        RowBox[{"Dynamic", "[", 
-         RowBox[{"labelList", "[", 
-          RowBox[{"[", 
-           RowBox[{"noteInd", "+", "1"}], "]"}], "]"}], "]"}]}], ";", "\n", 
-       RowBox[{"Panel", "[", 
-        RowBox[{
-         RowBox[{"Row", "[", "\n", 
-          RowBox[{"{", "\n", 
-           RowBox[{
-            RowBox[{"EmitSound", "[", 
-             RowBox[{"Sound", "[", 
-              RowBox[{"SoundNote", "[", 
+                  RowBox[{"[", "noteInd", "]"}], "]"}], ",", "1", ",", 
+                 "instrument"}], " ", "]"}], "]"}], "]"}], ",", 
+             RowBox[{"Spacer", "[", 
+              RowBox[{"72", " ", "0.7"}], "]"}], ",", 
+             RowBox[{"Column", "[", 
+              RowBox[{"{", "\n", 
                RowBox[{
-                RowBox[{"list", "[", 
-                 RowBox[{"[", "noteInd", "]"}], "]"}], ",", "1", ",", 
-                "instrument"}], " ", "]"}], "]"}], "]"}], ",", 
-            RowBox[{"Spacer", "[", 
-             RowBox[{"72", " ", "0.7"}], "]"}], ",", 
-            RowBox[{"Column", "[", 
-             RowBox[{"{", "\n", 
-              RowBox[{
-               RowBox[{"Row", "[", 
-                RowBox[{"{", "\n", "\n", 
-                 RowBox[{
-                  RowBox[{"Button", "[", 
-                   RowBox[{
+                RowBox[{"Row", "[", 
+                 RowBox[{"{", "\n", "\n", 
+                  RowBox[{
+                   RowBox[{"Button", "[", 
+                    RowBox[{
                     RowBox[{"Dynamic", "[", "prevLabel", "]"}], ",", " ", 
                     "\n", 
                     RowBox[{"If", "[", 
@@ -254,19 +191,19 @@ Cell[BoxData[
                     RowBox[{"noteInd", "-=", " ", "1"}], ";", "  ", 
                     RowBox[{"prevLabel", " ", "=", " ", "\"\<--\>\""}]}]}], 
                     "\n", "]"}]}], "\n", "]"}]}], "\n", "]"}], ",", "\n", 
-                  RowBox[{"Spacer", "[", 
-                   RowBox[{"174", " ", "0.7"}], "]"}], ",", "\n", 
-                  RowBox[{"Style", "[", 
-                   RowBox[{
+                   RowBox[{"Spacer", "[", 
+                    RowBox[{"174", " ", "0.7"}], "]"}], ",", "\n", 
+                   RowBox[{"Style", "[", 
+                    RowBox[{
                     RowBox[{"Dynamic", "[", 
                     RowBox[{"labelList", "[", 
                     RowBox[{"[", "noteInd", "]"}], "]"}], "]"}], ",", 
                     RowBox[{"FontFamily", "\[Rule]", "\"\<Arial-Bold\>\""}], 
                     ",", "14"}], "]"}], ",", "\n", 
-                  RowBox[{"Spacer", "[", 
-                   RowBox[{"174", " ", "0.7"}], "]"}], ",", "\n", "\n", 
-                  RowBox[{"Button", "[", 
-                   RowBox[{
+                   RowBox[{"Spacer", "[", 
+                    RowBox[{"174", " ", "0.7"}], "]"}], ",", "\n", "\n", 
+                   RowBox[{"Button", "[", 
+                    RowBox[{
                     RowBox[{"Dynamic", "[", "nextLabel", "]"}], ",", "\n", 
                     RowBox[{"If", "[", " ", 
                     RowBox[{
@@ -312,69 +249,68 @@ Cell[BoxData[
                     "instrument"}], " ", "]"}], "]"}], "]"}], ";", " ", 
                     RowBox[{"nextLabel", " ", "=", " ", "\"\<--\>\""}]}]}], 
                     "\n", "]"}]}], "\n", "]"}]}], "\n", "]"}]}], "\n", "\n", 
-                 "}"}], "]"}], ",", "\n", 
-               RowBox[{"Spacer", "[", 
-                RowBox[{"87", "  ", "0.7"}], "]"}], ",", "\n", 
-               RowBox[{"Row", "[", 
-                RowBox[{"{", 
-                 RowBox[{"Magnify", "[", 
-                  RowBox[{
-                   RowBox[{"Dynamic", "[", "spartito", "]"}], ",", "4"}], 
-                  "]"}], "}"}], "]"}]}], "\n", "}"}], "]"}], ",", "\n", "\n", 
-            
-            RowBox[{"Spacer", "[", 
-             RowBox[{"87", "  ", "0.7"}], "]"}], ",", "\n", "\n", "\n", 
-            RowBox[{"Column", "[", 
-             RowBox[{"{", "\n", 
-              RowBox[{
-               RowBox[{"PopupMenu", "[", 
-                RowBox[{
-                 RowBox[{"Dynamic", "[", "instrument", "]"}], ",", 
+                  "}"}], "]"}], ",", "\n", 
+                RowBox[{"Spacer", "[", 
+                 RowBox[{"87", "  ", "0.7"}], "]"}], ",", "\n", 
+                RowBox[{"Row", "[", 
                  RowBox[{"{", 
-                  RowBox[{
-                  "\"\<SteelGuitar\>\"", ",", "\"\<Banjo\>\"", ",", 
-                   "\"\<Contrabass\>\"", ",", "\"\<Oboe\>\"", ",", 
-                   "\"\<Piano\>\"", ",", "\"\<SopranoSax\>\"", ",", 
-                   "\"\<Clarinet\>\""}], "}"}]}], "]"}], ",", "\n", 
-               RowBox[{"Spacer", "[", 
-                RowBox[{"87", " ", "0.7"}], "]"}], ",", "\n", "\n", 
-               RowBox[{"Button", "[", 
-                RowBox[{"\"\<Play\>\"", ",", 
-                 RowBox[{"EmitSound", "[", 
-                  RowBox[{"Sound", "[", 
-                   RowBox[{"SoundNote", "[", 
+                  RowBox[{"Magnify", "[", 
+                   RowBox[{
+                    RowBox[{"Dynamic", "[", "spartito", "]"}], ",", "4"}], 
+                   "]"}], "}"}], "]"}]}], "\n", "}"}], "]"}], ",", "\n", "\n", 
+             RowBox[{"Spacer", "[", 
+              RowBox[{"87", "  ", "0.7"}], "]"}], ",", "\n", "\n", "\n", 
+             RowBox[{"Column", "[", 
+              RowBox[{"{", "\n", 
+               RowBox[{
+                RowBox[{"PopupMenu", "[", 
+                 RowBox[{
+                  RowBox[{"Dynamic", "[", "instrument", "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "\"\<SteelGuitar\>\"", ",", "\"\<Banjo\>\"", ",", 
+                    "\"\<Contrabass\>\"", ",", "\"\<Oboe\>\"", ",", 
+                    "\"\<Piano\>\"", ",", "\"\<SopranoSax\>\"", ",", 
+                    "\"\<Clarinet\>\""}], "}"}]}], "]"}], ",", "\n", 
+                RowBox[{"Spacer", "[", 
+                 RowBox[{"87", " ", "0.7"}], "]"}], ",", "\n", "\n", 
+                RowBox[{"Button", "[", 
+                 RowBox[{"\"\<Play\>\"", ",", 
+                  RowBox[{"EmitSound", "[", 
+                   RowBox[{"Sound", "[", 
+                    RowBox[{"SoundNote", "[", 
                     RowBox[{
                     RowBox[{"list", "[", 
                     RowBox[{"[", "noteInd", "]"}], "]"}], ",", "1", ",", 
                     "instrument"}], " ", "]"}], "]"}], "]"}]}], "]"}], ",", 
-               "\n", "    ", 
-               RowBox[{"Spacer", "[", 
-                RowBox[{"50", " ", "0.7"}], "]"}], ",", "\n", "\n", "    ", 
-               RowBox[{"Button", "[", 
-                RowBox[{"\"\<Next Lesson\>\"", ",", 
-                 RowBox[{
-                 "Print", "[", "\"\<To do refresh panel for next lesson\>\"", 
-                  "]"}]}], "]"}], "\n", " ", ",", 
-               RowBox[{"Spacer", "[", 
-                RowBox[{"50", " ", "0.7"}], "]"}], ",", "\n", 
-               RowBox[{"RadioButtonBar", "[", 
-                RowBox[{
-                 RowBox[{"Dynamic", "[", "labelList", "]"}], ",", 
-                 RowBox[{"{", 
+                "\n", "    ", 
+                RowBox[{"Spacer", "[", 
+                 RowBox[{"50", " ", "0.7"}], "]"}], ",", "\n", "\n", "    ", 
+                RowBox[{"Button", "[", 
+                 RowBox[{"\"\<Next Lesson\>\"", ",", 
                   RowBox[{
-                   RowBox[{"euList", "\[Rule]", "\"\<EU notes\>\""}], ",", 
-                   RowBox[{"usList", "\[Rule]", "\"\<US notes\>\""}]}], 
-                  "}"}]}], "]"}]}], " ", "\n", "\n", "}"}], "]"}]}], " ", 
-           "\n", "\n", "\n", "}"}], "]"}], ",", 
-         RowBox[{"ImageSize", "\[Rule]", "700"}]}], "]"}]}]}], "\n", "]"}]}], 
-   
-   StyleBox["\[IndentingNewLine]",
-    FontSize->16], 
+                  "Print", "[", "\"\<To do refresh panel for next lesson\>\"",
+                    "]"}]}], "]"}], "\n", " ", ",", 
+                RowBox[{"Spacer", "[", 
+                 RowBox[{"50", " ", "0.7"}], "]"}], ",", "\n", 
+                RowBox[{"RadioButtonBar", "[", 
+                 RowBox[{
+                  RowBox[{"Dynamic", "[", "labelList", "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"euList", "\[Rule]", "\"\<EU notes\>\""}], ",", 
+                    RowBox[{"usList", "\[Rule]", "\"\<US notes\>\""}]}], 
+                   "}"}]}], "]"}]}], " ", "\n", "\n", "}"}], "]"}]}], " ", 
+            "\n", "\n", "\n", "}"}], "]"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "700"}]}], "]"}]}]}], "\n", 
+      "]"}]}]}], 
    StyleBox["\[IndentingNewLine]",
     FontSize->16], 
    StyleBox[
     RowBox[{"showNotes", "[", 
      RowBox[{"notesHarmony", ",", "\"\<e\>\""}], "]"}],
+    FontSize->16], 
+   StyleBox["\[IndentingNewLine]",
     FontSize->16]}]}]], "Input",
  CellChangeTimes->{{3.828607261589456*^9, 3.8286072665435305`*^9}, {
    3.828607443554761*^9, 3.8286076082098975`*^9}, {3.8286076669034348`*^9, 
@@ -467,177 +403,91 @@ Cell[BoxData[
    3.82919690442135*^9}, {3.8291969492924385`*^9, 3.8291971183808656`*^9}, {
    3.829197154945269*^9, 3.829197209161708*^9}, 3.82919731716683*^9, {
    3.8291973836496525`*^9, 3.8291973881212287`*^9}, {3.8291975153843184`*^9, 
-   3.8291975574087143`*^9}, {3.8291976202905755`*^9, 
-   3.829198016933854*^9}},ExpressionUUID->"5f34716a-cd97-48d0-964a-\
+   3.8291975574087143`*^9}, {3.8291976202905755`*^9, 3.829198016933854*^9}, {
+   3.8293604363479624`*^9, 3.8293604373181005`*^9}, {3.8293619743782663`*^9, 
+   3.829362039413094*^9}, {3.829362103887432*^9, 3.829362104760961*^9}, {
+   3.829362176140948*^9, 3.829362211514289*^9}, 3.8293623416438584`*^9, {
+   3.8293623743062544`*^9, 3.829362402141922*^9}, {3.829362440978871*^9, 
+   3.829362442576726*^9}, {3.829362619865629*^9, 3.829362620528179*^9}, {
+   3.8293628004416475`*^9, 3.8293628072856655`*^9}, {3.8293642258872323`*^9, 
+   3.8293644225988035`*^9}, {3.829364606397854*^9, 3.829364610229162*^9}, {
+   3.829364706268222*^9, 3.82936471166757*^9}, {3.829364893038022*^9, 
+   3.8293648998077545`*^9}, {3.8293651556758347`*^9, 
+   3.8293651785848503`*^9}, {3.8293653012405443`*^9, 
+   3.8293653022890644`*^9}, {3.829365554514162*^9, 
+   3.8293655738842382`*^9}},ExpressionUUID->"5f34716a-cd97-48d0-964a-\
 4d7ea92e1ae8"],
 
 Cell[BoxData[
- DynamicModuleBox[{
-  MusicUtilities`Private`list$$ = {{"C6", "D6"}, {"D6", "E6"}, {"E6", "F6"}}, 
-  MusicUtilities`Private`prevLabel$$ = Dynamic[
-   Part[MusicUtilities`Private`labelList, MusicUtilities`Private`noteInd - 
-    1]], MusicUtilities`Private`nextLabel$$ = "--", 
-  MusicUtilities`Private`instrument$$ = "SteelGuitar"}, 
-  PanelBox[
-   TemplateBox[{"",TemplateBox[{50.4}, "Spacer1"],TagBox[
-      GridBox[{{
-         TemplateBox[{
-           ButtonBox[
-            DynamicBox[
-             ToBoxes[MusicUtilities`Private`prevLabel$$, StandardForm]], 
-            ButtonFunction :> 
-            If[MusicUtilities`Private`noteInd > 2, 
-              MusicUtilities`Private`nextLabel$$ = 
-               Part[MusicUtilities`Private`labelList, 
-                 MusicUtilities`Private`noteInd]; EmitSound[
-                Sound[
-                 SoundNote[
-                  Part[
-                  MusicUtilities`Private`list$$, 
-                   MusicUtilities`Private`noteInd], 1, 
-                  MusicUtilities`Private`instrument$$]]]; 
-              SubtractFrom[MusicUtilities`Private`noteInd, 1]; 
-              MusicUtilities`Private`prevLabel$$ = Dynamic[
-                 Part[
-                 MusicUtilities`Private`labelList, 
-                  MusicUtilities`Private`noteInd - 1]], 
-              If[
-              MusicUtilities`Private`noteInd > 1, 
-               MusicUtilities`Private`nextLabel$$ = Dynamic[
-                  Part[
-                  MusicUtilities`Private`labelList, 
-                   MusicUtilities`Private`noteInd + 1]]; EmitSound[
-                 Sound[
-                  SoundNote[
-                   Part[
-                   MusicUtilities`Private`list$$, 
-                    MusicUtilities`Private`noteInd], 1, 
-                   MusicUtilities`Private`instrument$$]]]; 
-               SubtractFrom[MusicUtilities`Private`noteInd, 1]; 
-               MusicUtilities`Private`prevLabel$$ = "--"]], Appearance -> 
-            Automatic, Evaluator -> Automatic, Method -> "Preemptive"], 
-           TemplateBox[{121.8}, "Spacer1"], 
+ PanelBox[
+  TemplateBox[{TagBox[
+     GridBox[{{
+        StyleBox[
+         DynamicBox[
+          ToBoxes[InstrumentQuiz`Private`picture, StandardForm]], 
+         Magnification -> 4 Inherited, StripOnInput -> False]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+      "Column", 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],TagBox[
+     GridBox[{{
+        TemplateBox[{
+          InterpretationBox[
            StyleBox[
-            DynamicBox[
-             ToBoxes[
-              Part[
-              MusicUtilities`Private`labelList, 
-               MusicUtilities`Private`noteInd], StandardForm]], FontFamily -> 
-            "Arial-Bold", 14, StripOnInput -> False], 
-           TemplateBox[{121.8}, "Spacer1"], 
-           ButtonBox[
-            DynamicBox[
-             ToBoxes[MusicUtilities`Private`nextLabel$$, StandardForm]], 
-            ButtonFunction :> 
-            If[MusicUtilities`Private`noteInd < 
-              Length[MusicUtilities`Private`list$$] - 1, 
-              MusicUtilities`Private`prevLabel$$ = 
-               Part[MusicUtilities`Private`labelList, 
-                 MusicUtilities`Private`noteInd]; 
-              AddTo[MusicUtilities`Private`noteInd, 1]; EmitSound[
-                Sound[
-                 SoundNote[
-                  Part[
-                  MusicUtilities`Private`list$$, 
-                   MusicUtilities`Private`noteInd], 1, 
-                  MusicUtilities`Private`instrument$$]]]; 
-              MusicUtilities`Private`nextLabel$$ = Dynamic[
-                 Part[
-                 MusicUtilities`Private`labelList, 
-                  MusicUtilities`Private`noteInd + 1]], 
-              If[
-              MusicUtilities`Private`noteInd < 
-               Length[MusicUtilities`Private`list$$], 
-               MusicUtilities`Private`prevLabel$$ = Dynamic[
-                  Part[
-                  MusicUtilities`Private`labelList, 
-                   MusicUtilities`Private`noteInd - 1]]; 
-               AddTo[MusicUtilities`Private`noteInd, 1]; EmitSound[
-                 Sound[
-                  SoundNote[
-                   Part[
-                   MusicUtilities`Private`list$$, 
-                    MusicUtilities`Private`noteInd], 1, 
-                   MusicUtilities`Private`instrument$$]]]; 
-               MusicUtilities`Private`nextLabel$$ = "--"]], Appearance -> 
-            Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, 
-          "RowDefault"]}, {
-         TemplateBox[{60.9}, "Spacer1"]}, {
-         TemplateBox[{
-           StyleBox[
-            DynamicBox[
-             ToBoxes[MusicUtilities`Private`spartito, StandardForm]], 
-            Magnification -> 4 Inherited, StripOnInput -> False]}, 
-          "RowDefault"]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-       DefaultBaseStyle -> "Column", 
-       GridBoxItemSize -> {
-        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
-     TemplateBox[{60.9}, "Spacer1"],TagBox[
-      GridBox[{{
-         PopupMenuBox[
-          Dynamic[MusicUtilities`Private`instrument$$], {
-          "SteelGuitar" -> "\"SteelGuitar\"", "Banjo" -> "\"Banjo\"", 
-           "Contrabass" -> "\"Contrabass\"", "Oboe" -> "\"Oboe\"", "Piano" -> 
-           "\"Piano\"", "SopranoSax" -> "\"SopranoSax\"", "Clarinet" -> 
-           "\"Clarinet\""}]}, {
-         TemplateBox[{60.9}, "Spacer1"]}, {
-         ButtonBox["\"Play\"", ButtonFunction :> EmitSound[
-            Sound[
-             SoundNote[
-              Part[
-              MusicUtilities`Private`list$$, MusicUtilities`Private`noteInd], 
-              1, MusicUtilities`Private`instrument$$]]], Appearance -> 
-          Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, {
-         TemplateBox[{35.}, "Spacer1"]}, {
-         ButtonBox[
-         "\"Next Lesson\"", ButtonFunction :> 
-          Print["To do refresh panel for next lesson"], Appearance -> 
-          Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, {
-         TemplateBox[{35.}, "Spacer1"]}, {
-         InterpretationBox[
-          StyleBox[
-           RowBox[{
-             GridBox[{{
-                RadioButtonBox[
-                 Dynamic[
-                 MusicUtilities`Private`labelList], {{{"Do6", "Re6"}, {
-                   "Re6", "Mi6"}, {"Mi6", "Fa6"}}}, DefaultBaseStyle -> 
-                 "RadioButtonBar"], 
-                StyleBox[
-                "\"EU notes\"", "RadioButtonBarLabel", StripOnInput -> 
-                 False]}}, AutoDelete -> False, 
-              GridBoxItemSize -> {
-               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-              ColumnAlignments -> Left, ColumnSpacings -> 0.3], "  ", 
-             GridBox[{{
-                RadioButtonBox[
-                 Dynamic[
-                 MusicUtilities`Private`labelList], {{{"C6", "D6"}, {
-                   "D6", "E6"}, {"E6", "F6"}}}, DefaultBaseStyle -> 
-                 "RadioButtonBar"], 
-                StyleBox[
-                "\"US notes\"", "RadioButtonBarLabel", StripOnInput -> 
-                 False]}}, AutoDelete -> False, 
-              GridBoxItemSize -> {
-               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-              ColumnAlignments -> Left, ColumnSpacings -> 0.3]}], "Deploy"], 
-          RadioButtonBar[
-           Dynamic[
-           MusicUtilities`Private`labelList], {{{"Do6", "Re6"}, {
-              "Re6", "Mi6"}, {"Mi6", "Fa6"}} -> 
-            "EU notes", {{"C6", "D6"}, {"D6", "E6"}, {"E6", "F6"}} -> 
-            "US notes"}]]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-       DefaultBaseStyle -> "Column", 
-       GridBoxItemSize -> {
-        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]},
-    "RowDefault"],
-   ImageSize->700],
-  DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{{3.829197922694135*^9, 3.8291979587526803`*^9}, {
-  3.829197991445442*^9, 3.829198019483441*^9}, {3.829198108019684*^9, 
-  3.8291981268088875`*^9}},ExpressionUUID->"32cf2184-d658-4b42-9478-\
-39ab358177d6"]
+            RowBox[{
+              GridBox[{{
+                 RadioButtonBox[
+                  Dynamic[InstrumentQuiz`Private`choosen], {"Clarinetto"}, 
+                  DefaultBaseStyle -> "RadioButtonBar"], 
+                 StyleBox[
+                 "\"Clarinetto\"", "RadioButtonBarLabel", StripOnInput -> 
+                  False]}}, AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               ColumnAlignments -> Left, ColumnSpacings -> 0.3], "  ", 
+              GridBox[{{
+                 RadioButtonBox[
+                  Dynamic[InstrumentQuiz`Private`choosen], {"Batteria"}, 
+                  DefaultBaseStyle -> "RadioButtonBar"], 
+                 StyleBox[
+                 "\"Batteria\"", "RadioButtonBarLabel", StripOnInput -> 
+                  False]}}, AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               ColumnAlignments -> Left, ColumnSpacings -> 0.3]}], "Deploy"], 
+           
+           RadioButtonBar[
+            Dynamic[InstrumentQuiz`Private`choosen], {
+            "Clarinetto", "Batteria"}]]}, "RowDefault"]}, {
+        TemplateBox[{
+          ButtonBox[
+          "\"Submit\"", ButtonFunction :> 
+           If[InstrumentQuiz`Private`choosen == InstrumentQuiz`Private`name, 
+             MessageDialog["You nailed it!"], 
+             MessageDialog["Wrong answer!"]], Appearance -> Automatic, 
+           Evaluator -> Automatic, Method -> "Preemptive"]}, "RowDefault"]}, {
+       
+        TemplateBox[{
+          ButtonBox[
+          "\"Next\"", 
+           ButtonFunction :> (InstrumentQuiz`MakeInstrumentQuiz[]; Null), 
+           Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+           "Preemptive"]}, "RowDefault"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+      "Column", 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]},
+   "RowDefault"],
+  ImageSize->700]], "Output",
+ CellChangeTimes->{{3.8293652979175324`*^9, 
+  3.8293653026499357`*^9}},ExpressionUUID->"3b14bb10-ebad-4bba-af5b-\
+89dacc7aaee7"]
 }, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.8293623509416475`*^9, 
+  3.829362352304204*^9}},ExpressionUUID->"ba39361b-d49d-47eb-a843-\
+57797b0126f4"],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.8289383605722103`*^9, 3.8289383613624077`*^9}, {
@@ -809,8 +659,8 @@ Cell[BoxData[
    3.8286682021046066`*^9},ExpressionUUID->"f9dff5b0-c476-4fa0-bb13-\
 8f3d5e0447d7"]
 },
-WindowSize->{1920, 1037},
-WindowMargins->{{Automatic, 7}, {Automatic, 65}},
+WindowSize->{1920, 997},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
 Magnification:>1.15 Inherited,
 FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
 StyleDefinitions->"Default.nb"
@@ -827,22 +677,23 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 22318, 449, 2357, "Input",ExpressionUUID->"5f34716a-cd97-48d0-964a-4d7ea92e1ae8"],
-Cell[22901, 473, 7683, 165, 257, "Output",ExpressionUUID->"32cf2184-d658-4b42-9478-39ab358177d6"]
+Cell[580, 22, 20830, 396, 1989, "Input",ExpressionUUID->"5f34716a-cd97-48d0-964a-4d7ea92e1ae8"],
+Cell[21413, 420, 2738, 63, 273, "Output",ExpressionUUID->"3b14bb10-ebad-4bba-af5b-89dacc7aaee7"]
 }, Open  ]],
-Cell[30599, 641, 310, 5, 33, "Input",ExpressionUUID->"a41e4693-c478-4255-ab59-77e89410d506"],
-Cell[30912, 648, 5463, 86, 172, "Input",ExpressionUUID->"5cbb7716-cdc5-4e36-bd52-cc862402cf0a"],
-Cell[36378, 736, 118, 3, 36, "Item",ExpressionUUID->"23a08be6-b3e6-4e85-afc1-50a9d4f97382"],
-Cell[36499, 741, 152, 3, 33, "Input",ExpressionUUID->"2a0f74dd-d4a1-41f8-baa0-74ea80642a9e"],
-Cell[36654, 746, 398, 6, 57, "Input",ExpressionUUID->"a00721b1-1592-4e40-b42f-3b93b8c4be78"],
-Cell[37055, 754, 682, 10, 57, "Input",ExpressionUUID->"65583e38-c62c-42fe-b6cf-e01eaf44e22c"],
-Cell[37740, 766, 149, 3, 57, "Input",ExpressionUUID->"b59a76e5-3088-4413-b676-8d8448d36a57"],
-Cell[37892, 771, 152, 3, 33, "Input",ExpressionUUID->"cd386ec7-b090-4b7c-9523-57822199ceb6"],
-Cell[38047, 776, 128, 3, 33, "Input",ExpressionUUID->"8837ecfc-4cef-4f5b-8989-9e6b4e7f7293"],
-Cell[38178, 781, 282, 5, 33, "Input",ExpressionUUID->"31333d11-120a-46b7-adfa-b250039672a2"],
-Cell[38463, 788, 120, 3, 36, "Item",ExpressionUUID->"4829f920-96ee-4a76-9cb8-f7b5b37da10e"],
-Cell[38586, 793, 231, 4, 33, "Input",ExpressionUUID->"92b99eef-4aa8-4fa1-839c-3b3c6bb29939"],
-Cell[38820, 799, 564, 10, 136, "Input",ExpressionUUID->"f9dff5b0-c476-4fa0-bb13-8f3d5e0447d7"]
+Cell[24166, 486, 154, 3, 33, "Input",ExpressionUUID->"ba39361b-d49d-47eb-a843-57797b0126f4"],
+Cell[24323, 491, 310, 5, 33, "Input",ExpressionUUID->"a41e4693-c478-4255-ab59-77e89410d506"],
+Cell[24636, 498, 5463, 86, 172, "Input",ExpressionUUID->"5cbb7716-cdc5-4e36-bd52-cc862402cf0a"],
+Cell[30102, 586, 118, 3, 36, "Item",ExpressionUUID->"23a08be6-b3e6-4e85-afc1-50a9d4f97382"],
+Cell[30223, 591, 152, 3, 33, "Input",ExpressionUUID->"2a0f74dd-d4a1-41f8-baa0-74ea80642a9e"],
+Cell[30378, 596, 398, 6, 57, "Input",ExpressionUUID->"a00721b1-1592-4e40-b42f-3b93b8c4be78"],
+Cell[30779, 604, 682, 10, 57, "Input",ExpressionUUID->"65583e38-c62c-42fe-b6cf-e01eaf44e22c"],
+Cell[31464, 616, 149, 3, 57, "Input",ExpressionUUID->"b59a76e5-3088-4413-b676-8d8448d36a57"],
+Cell[31616, 621, 152, 3, 33, "Input",ExpressionUUID->"cd386ec7-b090-4b7c-9523-57822199ceb6"],
+Cell[31771, 626, 128, 3, 33, "Input",ExpressionUUID->"8837ecfc-4cef-4f5b-8989-9e6b4e7f7293"],
+Cell[31902, 631, 282, 5, 33, "Input",ExpressionUUID->"31333d11-120a-46b7-adfa-b250039672a2"],
+Cell[32187, 638, 120, 3, 36, "Item",ExpressionUUID->"4829f920-96ee-4a76-9cb8-f7b5b37da10e"],
+Cell[32310, 643, 231, 4, 33, "Input",ExpressionUUID->"92b99eef-4aa8-4fa1-839c-3b3c6bb29939"],
+Cell[32544, 649, 564, 10, 103, "Input",ExpressionUUID->"f9dff5b0-c476-4fa0-bb13-8f3d5e0447d7"]
 }
 ]
 *)
