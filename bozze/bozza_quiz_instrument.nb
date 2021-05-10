@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      6211,        164]
-NotebookOptionsPosition[      5374,        142]
-NotebookOutlinePosition[      5721,        157]
-CellTagsIndexPosition[      5678,        154]
+NotebookDataLength[      5235,        139]
+NotebookOptionsPosition[      4806,        123]
+NotebookOutlinePosition[      5153,        138]
+CellTagsIndexPosition[      5110,        135]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -38,110 +38,91 @@ Cell[BoxData[
    "\[IndentingNewLine]", 
    RowBox[{"MakeInstrumentQuiz", "[", "]"}]}]}]], "Input",
  CellChangeTimes->{{3.8293665089168477`*^9, 3.829366509413537*^9}, {
-  3.829366580107825*^9, 3.8293665821329174`*^9}, {3.82936747806782*^9, 
-  3.8293674788042746`*^9}, {3.8293677431428843`*^9, 3.8293677451363935`*^9}, {
-  3.829368442461444*^9, 3.8293684440199127`*^9}, {3.829620555391019*^9, 
-  3.829620558720127*^9}},ExpressionUUID->"6357cdc1-e110-47d2-8ada-\
+   3.829366580107825*^9, 3.8293665821329174`*^9}, {3.82936747806782*^9, 
+   3.8293674788042746`*^9}, {3.8293677431428843`*^9, 
+   3.8293677451363935`*^9}, {3.829368442461444*^9, 3.8293684440199127`*^9}, {
+   3.829620555391019*^9, 3.829620558720127*^9}, 3.829648045547969*^9, 
+   3.8296490245149407`*^9, {3.829649905257476*^9, 3.829649905819846*^9}, {
+   3.8296515543308916`*^9, 3.8296515548441973`*^9}, 3.8296517938299093`*^9, 
+   3.829652148543336*^9, {3.829652291401153*^9, 3.8296522948876715`*^9}, {
+   3.8296523270359488`*^9, 
+   3.8296523286942606`*^9}},ExpressionUUID->"6357cdc1-e110-47d2-8ada-\
 945cf1dd1344"],
 
 Cell[BoxData[
  PanelBox[
-  TemplateBox[{TagBox[
-     GridBox[{{
-        StyleBox[
-         DynamicBox[
-          ToBoxes[InstrumentQuiz`Private`picture, StandardForm]], 
-         Magnification -> 4.5 Inherited, StripOnInput -> False]}}, 
-      GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
-      "Column", 
-      GridBoxItemSize -> {
-       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
-    TemplateBox[{157.5}, "Spacer1"],TagBox[
-     GridBox[{{
-        TemplateBox[{
-          DynamicBox[
-           ToBoxes[
-            RadioButtonBar[
-             Dynamic[InstrumentQuiz`Private`choosen], 
-             InstrumentQuiz`Private`toChoose, Appearance -> "Vertical"], 
-            StandardForm]]}, "RowDefault"]}, {
-        TemplateBox[{
+  TagBox[GridBox[{
+     {
+      TemplateBox[{
+       StyleBox[
+        "\"L'Oboe \[EGrave] uno strumento ad ancia semplice.\"", FontFamily -> 
+         "Arial-Bold", 16, StripOnInput -> False]},
+       "RowDefault"]},
+     {
+      TemplateBox[{157.5},
+       "Spacer1"]},
+     {
+      TemplateBox[{InterpretationBox[
+         StyleBox[
+          RowBox[{
+            GridBox[{{
+               RadioButtonBox[
+                Dynamic[InstrumentQuiz`Private`userAnswer], {"V"}, 
+                DefaultBaseStyle -> "RadioButtonBar"], 
+               StyleBox[
+               "\"Vero\"", "RadioButtonBarLabel", StripOnInput -> False]}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             ColumnAlignments -> Left, ColumnSpacings -> 0.3], "  ", 
+            GridBox[{{
+               RadioButtonBox[
+                Dynamic[InstrumentQuiz`Private`userAnswer], {"F"}, 
+                DefaultBaseStyle -> "RadioButtonBar"], 
+               StyleBox[
+               "\"Falso\"", "RadioButtonBarLabel", StripOnInput -> False]}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             ColumnAlignments -> Left, ColumnSpacings -> 0.3]}], "Deploy"], 
+         RadioButtonBar[
+          Dynamic[InstrumentQuiz`Private`userAnswer], {
+          "V" -> "Vero", "F" -> "Falso"}]]},
+       "RowDefault"]},
+     {
+      TemplateBox[{TemplateBox[{
           ButtonBox[
           "\"Submit\"", ButtonFunction :> 
-           If[InstrumentQuiz`Private`choosen == InstrumentQuiz`Private`name, 
-             MessageDialog["You nailed it!"], 
-             MessageDialog["Wrong answer!"]], Appearance -> Automatic, 
-           Evaluator -> Automatic, Method -> "Preemptive"]}, "RowDefault"]}, {
-        TemplateBox[{
+           If[InstrumentQuiz`Private`userAnswer == 
+             InstrumentQuiz`Private`answer, 
+             InstrumentQuiz`Private`answered = True; MessageDialog[
+               StringJoin["Esatto! ", InstrumentQuiz`Private`explain]], 
+             InstrumentQuiz`Private`answered = True; MessageDialog[
+               StringJoin["Sbagliato! ", InstrumentQuiz`Private`explain]], 
+             MessageDialog["Seleziona una risposta!"]], Appearance -> 
+           Automatic, Evaluator -> Automatic, Method -> "Preemptive"], 
           ButtonBox[
-          "\"Next\"", 
-           ButtonFunction :> (InstrumentQuiz`MakeInstrumentQuiz[]; Null), 
+          "\"Next\"", ButtonFunction :> 
+           If[InstrumentQuiz`Private`answered == True, 
+             InstrumentQuiz`MakeInstrumentQuiz[], 
+             MessageDialog["Devi prima rispondere alla domanda!"], 
+             MessageDialog["Devi prima rispondere alla domanda!"]], 
            Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-           "Preemptive"]}, "RowDefault"]}}, 
-      GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
-      "Column", 
-      GridBoxItemSize -> {
-       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
-    TemplateBox[{10.5}, "Spacer1"]},
-   "RowDefault"],
+           "Preemptive"]}, "RowDefault"]},
+       "RowDefault"]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Column"],
   ImageSize->700]], "Output",
- CellChangeTimes->{
-  3.829366582777793*^9, {3.829366617117709*^9, 3.8293666401054077`*^9}, 
-   3.829366686317146*^9, {3.8293668157505426`*^9, 3.82936684194564*^9}, {
-   3.829366946452093*^9, 3.8293669472117643`*^9}, {3.8293670373913503`*^9, 
-   3.829367053044324*^9}, {3.82936719351622*^9, 3.8293671967704177`*^9}, {
-   3.8293674759866047`*^9, 3.8293675326078353`*^9}, {3.829367624250837*^9, 
-   3.8293676426539083`*^9}, {3.8293677203356314`*^9, 3.8293677594677253`*^9}, 
-   3.829367820812972*^9, {3.8293678533440905`*^9, 3.8293678553562794`*^9}, {
-   3.8293679352387996`*^9, 3.82936793720883*^9}, 3.829367973146739*^9, {
-   3.8293680196049633`*^9, 3.8293680356439233`*^9}, 3.8293680773804812`*^9, {
-   3.8293681131262183`*^9, 3.8293681184987807`*^9}, 3.8293681486167593`*^9, {
-   3.8293681819326334`*^9, 3.829368203339786*^9}, 3.829368248057764*^9, {
-   3.8293684379684863`*^9, 3.829368472318435*^9}, {3.829620415732334*^9, 
-   3.829620472703417*^9}, {3.8296205335160193`*^9, 
-   3.829620563805541*^9}},ExpressionUUID->"e22ba53e-1a27-47c1-9ff6-\
-a470e650c5ad"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"RANDOM@ \"\>", "\[InvisibleSpace]", "2"}],
-  SequenceForm["RANDOM@ ", 2],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.829620905737138*^9},ExpressionUUID->"7242d7d9-1c23-4c53-a134-\
-9e3455e6443a"]
-}, Open  ]],
-
-Cell[BoxData["\[IndentingNewLine]"], "Input",
- CellChangeTimes->{
-  3.829367758634981*^9},ExpressionUUID->"8ef3dd46-c297-4c1e-9c82-\
-ad287b669ce4"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- GraphicsBox[{},
-  ContentSelectable->True,
-  ImageSize->{480, 360},
-  PlotRange->{{0, 480/360}, {0, 1}}]], "Input",ExpressionUUID->"b797bab2-a471-\
-4561-beac-95595a0e0ab5"],
-
-Cell[BoxData[
- GraphicsBox[{},
-  ContentSelectable->True,
-  ImageSize->{480, 360},
-  PlotRange->NCache[{{0, 
-      Rational[4, 3]}, {0, 1}}, {{0, 1.3333333333333333`}, {0, 
-     1}}]]], "Output",
- CellChangeTimes->{
-  3.829367973355785*^9, 3.8293681820346565`*^9, 3.8293684380635056`*^9, {
-   3.8296204159296455`*^9, 3.829620468993797*^9}, {3.829620533649661*^9, 
-   3.8296205605986347`*^9}},ExpressionUUID->"75356de5-b2a5-467b-acbf-\
-3465b98f5bd2"]
+ CellChangeTimes->{{3.82965228474265*^9, 
+  3.829652332051736*^9}},ExpressionUUID->"2ed23f9c-2107-4768-bfe4-\
+8cf6610a35a8"]
 }, Open  ]]
 },
-WindowSize->{1920, 997},
-WindowMargins->{{-8, Automatic}, {Automatic, 0}},
+WindowSize->{958, 1028},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
 FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
 StyleDefinitions->"Default.nb"
 ]
@@ -157,14 +138,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 982, 22, 105, "Input",ExpressionUUID->"6357cdc1-e110-47d2-8ada-945cf1dd1344"],
-Cell[1565, 46, 2710, 56, 296, "Output",ExpressionUUID->"e22ba53e-1a27-47c1-9ff6-a470e650c5ad"],
-Cell[4278, 104, 254, 7, 22, "Print",ExpressionUUID->"7242d7d9-1c23-4c53-a134-9e3455e6443a"]
-}, Open  ]],
-Cell[4547, 114, 147, 3, 48, "Input",ExpressionUUID->"8ef3dd46-c297-4c1e-9c82-ad287b669ce4"],
-Cell[CellGroupData[{
-Cell[4719, 121, 187, 5, 373, "Input",ExpressionUUID->"b797bab2-a471-4561-beac-95595a0e0ab5"],
-Cell[4909, 128, 449, 11, 410, "Output",ExpressionUUID->"75356de5-b2a5-467b-acbf-3465b98f5bd2"]
+Cell[580, 22, 1292, 27, 105, "Input",ExpressionUUID->"6357cdc1-e110-47d2-8ada-945cf1dd1344"],
+Cell[1875, 51, 2915, 69, 159, "Output",ExpressionUUID->"2ed23f9c-2107-4768-bfe4-8cf6610a35a8"]
 }, Open  ]]
 }
 ]
