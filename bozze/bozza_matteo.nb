@@ -1,0 +1,470 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24473,        462]
+NotebookOptionsPosition[     23659,        442]
+NotebookOutlinePosition[     24007,        457]
+CellTagsIndexPosition[     23964,        454]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"SetDirectory", "[", 
+     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"instruments", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Pianoforte\>\"", ",", " ", "\"\<Sassofono\>\"", ",", " ", 
+       "\"\<Chitarra\>\"", ",", " ", "\"\<Violoncello\>\"", ",", " ", 
+       "\"\<Tromba\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"images", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+       "Import", "[", "\"\<..\\\\immagini\\\\pianoforte.jpg\>\"", "]"}], ",", 
+       "  ", 
+       RowBox[{
+       "Import", "[", "\"\<..\\\\immagini\\\\\\sassofono.jpg\>\"", "]"}], ",",
+        " ", 
+       RowBox[{
+       "Import", "[", "\"\<..\\\\immagini\\\\\\chitarra.jpg\>\"", "]"}], ",", 
+       " ", 
+       RowBox[{
+       "Import", "[", "\"\<..\\\\immagini\\\\\\violoncello.jpg\>\"", "]"}], 
+       ",", " ", 
+       RowBox[{
+       "Import", "[", "\"\<..\\\\immagini\\\\\\tromba.jpg\>\"", "]"}]}], 
+      "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"captions", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Il pianoforte \[EGrave] uno strumento musicale a corde percosse \
+mediante martelletti, azionati da una tastiera. L'origine del termine \
+\[EGrave] italiana ed \[EGrave] riferito alla possibilit\[AGrave] di suonare \
+note a volumi diversi in base al tocco, effetto non ottenibile in strumenti a \
+tastiera precedenti, quali il clavicembalo.\n\nLa tastiera \[EGrave] di norma \
+composta da 88 tasti, 52 bianchi e 36 neri. I bianchi rappresentano le note: \
+do, re, mi, fa, sol, la e si. I neri individuano generalmente le alterazioni \
+(note bemolli o diesis). Il pianoforte \[EGrave] il pi\[UGrave] diffuso \
+strumento appartenente ai cordofoni a corde percosse; altri membri sono il \
+clavicordo, oggi utilizzato prevalentemente per l'esecuzione filologica della \
+musica d'epoca, e il fortepiano, progenitore del pianoforte.\n\nIl suono pu\
+\[OGrave] essere modificato anche mediante pedali (solitamente tre), che \
+azionano particolari meccanismi. In un moderno pianoforte a coda troviamo, da \
+sinistra a destra, l'una corda, il tonale e quello di risonanza. Nei \
+pianoforti verticali il pedale centrale aziona la sordina, che frappone una \
+striscia di feltro fra le corde e i martelli per attutire il suono. Solo il \
+primo e il terzo pedale sono presenti su tutti i pianoforti.\>\"", ",", " ", 
+       "\"\<Il sassofono, saxofono, o, semplicemente, sax, \[EGrave] uno \
+strumento musicale aerofono ad ancia semplice. Il sassofono fa parte della \
+famiglia dei legni e non degli ottoni poich\[EAcute], sebbene il corpo dello \
+strumento sia normalmente di metallo (spesso proprio di ottone), l'emissione \
+del suono \[EGrave] provocata dalla vibrazione di un'ancia ricavata da canna \
+comune (Arundo donax). La lunghezza della colonna d'aria vibrante, e quindi \
+l'altezza del suono prodotto, viene modificata attraverso dei fori, \
+controllati da chiavi, sul corpo dello strumento. Fu inventato da Adolphe \
+Sax, da cui ha preso il nome, nel 1840 e brevettato il 22 giugno del 1846. Ha \
+avuto una grandissima e veloce espansione in moltissimi generi musicali \
+grazie alle sue doti di espressivit\[AGrave] e duttilit\[AGrave].\n\nIn \
+generale la famiglia dei sax \[EGrave] presente in quasi tutti i generi \
+musicali moderni, anche se meno nella musica elettronica in generale. La \
+tendenza verso la musica sintetica e campionata ha solo scalfito la sua \
+popolarit\[AGrave]. A causa della sua recente invenzione, nella musica \
+classica il sassofono \[EGrave] un po' penalizzato dalla limitata \
+letteratura, ma \[EGrave] tuttavia presente, anche con ruoli di rilievo, \
+nelle orchestre sinfoniche: si ricordi l'assolo per sax alto in Il Vecchio \
+Castello dai Quadri di un'esposizione di Mussorgskij orchestrati da Maurice \
+Ravel nel 1922. Inoltre esiste un crescente corpus di musica cameristica \
+originale per sassofoni, spesso in quartetto, e di trascrizioni. Dotato di \
+una voce potente e di grande proiezione di suono, il sassofono ha un vasto \
+uso bandistico, ad esempio \[EGrave] molto impiegato nelle bande militari \
+statunitensi, e per questo motivo fu quasi subito presente nelle prime \
+formazioni jazz, un genere musicale di cui \[EGrave] diventato il simbolo \
+internazionale.\>\"", ",", 
+       "\"\<Le tre corde pi\[UGrave] sottili sono in plastica; le tre pi\
+\[UGrave] grosse sono di nylon rivestito di metallo, o talvolta di seta \
+rivestita di metallo. In passato, le corde erano di budello di agnello. \
+L'amplificazione \[EGrave] ottenuta per risonanza dal corpo vuoto a forma di \
+otto (la cassa armonica), mentre la tavola superiore \[EGrave] responsabile \
+dello spostamento d'aria. Il cavigliere (o paletta) \[EGrave] leggermente \
+inclinato all'indietro. Secondo la posizione tradizionale usata per la musica \
+classica, questo tipo di chitarra si suona da seduti, con le dita, poggiando \
+lo strumento sulla gamba sinistra, leggermente rialzata tramite un apposito \
+poggiapiede.\n\nSi possono anche trovare chitarre classiche a spalla mancante \
+per facilitare lo spostamento nelle zone pi\[UGrave] alte della tastiera, e \
+amplificate. Le chitarre flamenco sono molto simili per costruzione; hanno \
+una protezione di plastica trasparente sopra e sotto la buca (detta golpero) \
+per garantire l'integrit\[AGrave] del sottile legno della tavola armonica dai \
+colpi con le dita caratteristici di questo stile (vedi golpe e \
+rasgueado).\>\"", ",", " ", 
+       "\"\<Il violoncello \[EGrave] uno strumento musicale del gruppo dei \
+cordofoni a corde sfregate (ad arco), appartenente alla famiglia degli archi; \
+\[EGrave] dotato di quattro corde, accordate ad intervalli di quinta giusta. \
+Presentano dei tagli ad \\\"effe\\\" sulla tavola armonica (o piano \
+armonico).\n\nLa sottofamiglia dei \\\"violini\\\" si differenzia \
+cos\[IGrave] dalla sottofamiglia delle \\\"viole\\\" che comprende invece la \
+viola da gamba e altri strumenti antichi con tagli a \\\"C\\\", accordati per \
+quarte e terze, con corde in numero variabile da tre, a sei-sette o pi\
+\[UGrave]. Si suona da seduti tenendo lo strumento tra le gambe, poggiato su \
+un puntale presente nella parte inferiore dello strumento. L'esecutore \
+conduce l'arco trasversalmente sulle corde.\n\nIl violoncello moderno \
+possiede quattro corde accordate ad intervalli di quinta giusta: la corda del \
+La (cantino), del Re, del Sol e del Do. La corda del La emette un suono tre \
+semitoni pi\[UGrave] in basso del Do centrale e la corda del Do \[EGrave] due \
+ottave pi\[UGrave] basse del Do centrale. L'accordatura dello strumento \
+\[EGrave] dunque una ottava sotto a quella della viola.\n\nIl violoncello \
+\[EGrave] strettamente associato alla musica classica, \[EGrave] parte \
+dell'orchestra d'archi e dell'orchestra sinfonica, del quartetto d'archi e di \
+molte altre formazioni di musica da camera. Molti sono i concerti e le sonate \
+scritte per violoncello. Viene usato in minor misura anche nella musica \
+leggera, nel rock, heavy metal, e meno comunemente nella musica \
+popolare.\>\"", ",", " ", 
+       "\"\<La tromba \[EGrave] uno strumento antichissimo, se ne trovano \
+testimonianze in varie epoche e culture dove, seppure costruita in vari \
+materiali, la tecnica di base per suonarla era sempre la stessa: utilizzare \
+le labbra per creare delle vibrazioni nella colonna d\[CloseCurlyQuote]aria.\n\
+Probabilmente per il suono squillante, anche il suo utilizzo era simile un po\
+\[CloseCurlyQuote]ovunque: spesso la tromba funge da segnale, un modo per \
+portare un messaggio o un ordine da una persona ad altre persone a grande \
+distanza fra loro; per comunicare: gli allevatori europei usano i corni delle \
+Alpi per chiamarsi attraverso le montagne; dalle legioni Romane alla \
+Cavalleria degli Stati Uniti le trombe sono state una parte essenziale della \
+vita militare.\n\nLa tromba che conosciamo oggi \[EGrave] uno strumento \
+costruito in ottone (per questo motivo fa parte della famiglia degli ottoni), \
+con un tubo avvolto e aperto alla fine in una campana, un bocchino separato e \
+tre pistoni che, premuti dal suonatore, modificano il percorso dell'aria \
+alterandone la lunghezza. Con solo tre pistoni si possono suonare tutte le \
+note! La sua estensione \[EGrave] di circa due ottave e mezzo ma il limite \
+non \[EGrave] dato tanto dallo strumento quanto dal trombettista.\n\nCi sono \
+trombe costruite in varie tonalit\[AGrave] (cio\[EGrave] con la nota base di \
+partenza della scala differente), quella pi\[UGrave] usata \[EGrave] la \
+TROMBA in SI bemolle, seguita da quella in DO.\>\""}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Manipulate", "[", 
+      RowBox[{
+       RowBox[{"Part", "[", 
+        RowBox[{"instruments", ",", "n"}], "]"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", " ", "1", ",", " ", "5", ",", " ", "1"}], "}"}]}], 
+      "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Manipulate", "[", 
+      RowBox[{
+       RowBox[{"ActionMenu", "[", 
+        RowBox[{"\"\<click\>\"", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\"\<one\>\"", "\[RuleDelayed]", 
+            RowBox[{"(", " ", 
+             RowBox[{"Print", "[", 
+              RowBox[{"instruments", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "]"}], ")"}]}], ",", 
+           RowBox[{"\"\<two\>\"", "\[RuleDelayed]", 
+            RowBox[{"(", 
+             RowBox[{"x", "=", "2"}], ")"}]}]}], "}"}], ",", 
+         RowBox[{"Appearance", "\[Rule]", "stru"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"stru", ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "Automatic", ",", "\"\<PopupMenu\>\"", ",", "\"\<Button\>\"", ",", 
+           "\"\<Framed\>\"", ",", "None"}], "}"}]}], "}"}]}], "]"}], ";"}], 
+    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"Panel", "[", 
+    RowBox[{
+     RowBox[{"SetterBar", "[", 
+      RowBox[{
+       RowBox[{"Dynamic", "[", "y", "]"}], ",", " ", "instruments"}], "]"}], 
+     ",", " ", 
+     RowBox[{"ImageSize", "\[Rule]", "Full"}], ",", " ", 
+     RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Panel", "[", 
+    RowBox[{
+     RowBox[{"Dynamic", "[", 
+      RowBox[{"Labeled", "[", 
+       RowBox[{
+        RowBox[{"ImageResize", "[", 
+         RowBox[{
+          RowBox[{"images", "[", 
+           RowBox[{"[", 
+            RowBox[{"First", "[", 
+             RowBox[{"First", "[", 
+              RowBox[{"Position", "[", 
+               RowBox[{"instruments", ",", "y"}], "]"}], "]"}], "]"}], "]"}], 
+           "]"}], ",", " ", "300"}], "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"Text", "[", 
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{"captions", "[", 
+             RowBox[{"[", 
+              RowBox[{"First", "[", 
+               RowBox[{"First", "[", 
+                RowBox[{"Position", "[", 
+                 RowBox[{"instruments", ",", "y"}], "]"}], "]"}], "]"}], 
+              "]"}], "]"}], ",", " ", 
+            RowBox[{"LineIndent", "\[Rule]", " ", "0"}]}], "]"}], "]"}], " ", 
+         "}"}], ",", " ", 
+        RowBox[{"{", "Right", "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"FrameMargins", "\[Rule]", "50"}]}], "]"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "answer", " ", "=", " ", "\"\<Quale strumento hai appena sentito?\>\""}],
+      ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Panel", "[", 
+       RowBox[{
+        RowBox[{"RadioButtonBar", "[", 
+         RowBox[{
+          RowBox[{"Dynamic", "[", "y", "]"}], ",", " ", "instruments"}], 
+         "]"}], ",", " ", 
+        RowBox[{"Text", "[", 
+         RowBox[{"Style", "[", 
+          RowBox[{"answer", ",", " ", "Bold"}], "]"}], "]"}], ",", " ", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}], ",", " ", 
+        RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"Panel", "[", 
+       RowBox[{
+        RowBox[{"PopupMenu", "[", 
+         RowBox[{
+          RowBox[{"Dynamic", "[", "y", "]"}], ",", " ", "instruments"}], 
+         "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"Text", "[", 
+          RowBox[{"Style", "[", 
+           RowBox[{"answer", ",", " ", "Bold"}], "]"}], "]"}], "}"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{"Top", ",", " ", "Center"}], "}"}]}], "]"}]}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.829020466579805*^9, 3.8290205134084053`*^9}, 
+   3.829020585351778*^9, {3.8290207435711837`*^9, 3.829020765675213*^9}, {
+   3.829020864654651*^9, 3.8290208772337627`*^9}, {3.829020912727415*^9, 
+   3.8290209186342297`*^9}, {3.829021231124868*^9, 3.829021308520113*^9}, {
+   3.8290213641025224`*^9, 3.829021366409552*^9}, {3.8290213994106736`*^9, 
+   3.8290214106702256`*^9}, {3.829021593319162*^9, 3.8290216299027934`*^9}, {
+   3.8290216907065597`*^9, 3.8290217703202868`*^9}, {3.8290219252618856`*^9, 
+   3.8290220262762585`*^9}, {3.829022568487562*^9, 3.829022615221386*^9}, {
+   3.8290226610047965`*^9, 3.8290226797224913`*^9}, {3.8290233223799505`*^9, 
+   3.8290233275045333`*^9}, 3.8290233999836235`*^9, 3.8290235311336455`*^9, 
+   3.8290236225212307`*^9, {3.829023665822934*^9, 3.829023671760686*^9}, {
+   3.829024517621468*^9, 3.829024640267141*^9}, {3.829024903789002*^9, 
+   3.829024953917635*^9}, {3.8290250386918154`*^9, 3.8290250858780704`*^9}, {
+   3.829025201703461*^9, 3.8290252307260904`*^9}, {3.8291316162257185`*^9, 
+   3.829131690906997*^9}, {3.829132015343254*^9, 3.829132053689813*^9}, {
+   3.8291323422872524`*^9, 3.829132382775516*^9}, {3.8291324299247437`*^9, 
+   3.8291324567622776`*^9}, 3.829132602848338*^9, {3.829132818839121*^9, 
+   3.8291328472660728`*^9}, {3.829133170458809*^9, 3.829133174524374*^9}, {
+   3.8291333602034516`*^9, 3.8291333871502*^9}, {3.8291337780918627`*^9, 
+   3.829133794092045*^9}, {3.8291339348396473`*^9, 3.8291339507639017`*^9}, {
+   3.829134030805711*^9, 3.8291340319233985`*^9}, {3.829134085231*^9, 
+   3.829134092363175*^9}, {3.829134609418188*^9, 3.8291346273765154`*^9}, {
+   3.8291346693977985`*^9, 3.8291346896675625`*^9}, {3.82913472053833*^9, 
+   3.829134771160709*^9}, {3.829134907641467*^9, 3.829134968327076*^9}, {
+   3.8291352099630113`*^9, 3.8291352936908054`*^9}, {3.829135375485183*^9, 
+   3.8291354837881327`*^9}, 3.829135527307167*^9, {3.829135604518935*^9, 
+   3.8291356063641367`*^9}, {3.8291356369679465`*^9, 
+   3.8291356579303923`*^9}, {3.829135691733206*^9, 3.8291357197262425`*^9}, {
+   3.8291364888518*^9, 3.8291364990979548`*^9}, {3.8291367055455694`*^9, 
+   3.8291368302146797`*^9}, {3.8291370179950647`*^9, 
+   3.8291370719628525`*^9}, {3.829137167184297*^9, 3.829137184696395*^9}, {
+   3.8291372157737236`*^9, 3.8291372295950975`*^9}, {3.829138021150688*^9, 
+   3.8291381083162165`*^9}, {3.8291381852493043`*^9, 3.829138230881563*^9}, {
+   3.829138271266872*^9, 3.829138271693244*^9}, {3.8291385951692133`*^9, 
+   3.8291387201174*^9}, {3.8291387518959856`*^9, 3.8291388161791396`*^9}, {
+   3.8291389101678185`*^9, 3.829138942978151*^9}, {3.8291389754008512`*^9, 
+   3.829138978767065*^9}, {3.829139093818458*^9, 3.8291390994654694`*^9}, {
+   3.82913918102482*^9, 3.8291392187704935`*^9}, {3.8291392563508844`*^9, 
+   3.8291392598095703`*^9}, {3.8291403509184217`*^9, 3.829140465682372*^9}, {
+   3.8291409016538696`*^9, 3.8291409044793525`*^9}, {3.8291409776850896`*^9, 
+   3.8291410188531275`*^9}, {3.8291445757857327`*^9, 3.829144617370318*^9}, 
+   3.829144724203429*^9, {3.8291460218543124`*^9, 3.8291460343363056`*^9}, {
+   3.829146065464987*^9, 3.8291461154428577`*^9}, 3.829146149197611*^9, {
+   3.8291462016377563`*^9, 3.829146227277399*^9}, 3.8291462783186836`*^9, {
+   3.829147120557396*^9, 3.829147133308352*^9}, 3.829147532608467*^9, {
+   3.829147598910137*^9, 3.829147603039598*^9}, {3.82918904808209*^9, 
+   3.829189071061201*^9}, {3.829189164749012*^9, 3.8291891706878605`*^9}, {
+   3.829189437083708*^9, 3.8291894718929734`*^9}, {3.829189510870947*^9, 
+   3.829189513547969*^9}, 3.8291895531550875`*^9, {3.829189597062859*^9, 
+   3.8291896116730814`*^9}, {3.8291897737435303`*^9, 
+   3.8291897816719055`*^9}, {3.829189910394575*^9, 3.8291899110539675`*^9}, {
+   3.829190202516588*^9, 3.829190255729743*^9}, {3.829190304810844*^9, 
+   3.829190338691597*^9}, {3.829190440143181*^9, 3.829190449345578*^9}, {
+   3.829190581990818*^9, 3.829190630881134*^9}, {3.829190939436569*^9, 
+   3.829190998102409*^9}, {3.8291913324767046`*^9, 3.829191437295347*^9}, {
+   3.8291915305572395`*^9, 3.8291915530081816`*^9}, {3.829191680957178*^9, 
+   3.829191754239216*^9}, {3.8291922621114388`*^9, 3.8291923242603836`*^9}, {
+   3.8291923896580505`*^9, 3.8291924169113817`*^9}, {3.829192629336729*^9, 
+   3.8291926857818317`*^9}, {3.829192756601573*^9, 3.8291927571503086`*^9}, {
+   3.829194473221596*^9, 3.829194502724478*^9}, {3.8291945351473937`*^9, 
+   3.829194675948907*^9}, {3.8291947678079643`*^9, 3.8291948024152603`*^9}, {
+   3.829194875328927*^9, 3.8291949104250827`*^9}, {3.829195259245826*^9, 
+   3.829195262338116*^9}, {3.829195315015202*^9, 3.8291953340467253`*^9}, {
+   3.829195620729636*^9, 3.8291956427102995`*^9}, 3.829195688603181*^9, {
+   3.829195961232074*^9, 3.829195983800441*^9}, {3.8291960329085145`*^9, 
+   3.829196052632785*^9}, {3.8291962452789326`*^9, 3.829196248515856*^9}, {
+   3.8296192603148417`*^9, 3.8296192876111703`*^9}, {3.829620177220539*^9, 
+   3.829620209145551*^9}},ExpressionUUID->"a8288653-95db-4d5e-a4a7-\
+bc54b53bd6c3"],
+
+Cell[BoxData[
+ PanelBox[
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {
+       SetterBox[Dynamic[$CellContext`y], {
+        "Pianoforte"}, "\<\"Pianoforte\"\>"], 
+       SetterBox[Dynamic[$CellContext`y], {"Sassofono"}, "\<\"Sassofono\"\>"], 
+       SetterBox[Dynamic[$CellContext`y], {"Chitarra"}, "\<\"Chitarra\"\>"], 
+       SetterBox[Dynamic[$CellContext`y], {
+        "Violoncello"}, "\<\"Violoncello\"\>"], 
+       SetterBox[Dynamic[$CellContext`y], {"Tromba"}, "\<\"Tromba\"\>"]}
+     },
+     BaselinePosition->{1, 1},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Deployed->True],
+   SetterBar[
+    Dynamic[$CellContext`y], {
+    "Pianoforte", "Sassofono", "Chitarra", "Violoncello", "Tromba"}]],
+  Alignment->Center,
+  ImageSize->Full]], "Output",
+ CellChangeTimes->{
+  3.8291462317376084`*^9, {3.829146271408681*^9, 3.829146283056286*^9}, 
+   3.829147139243374*^9, 3.829147536814928*^9, 3.8291476069162474`*^9, 
+   3.829155610819619*^9, 3.829188779462925*^9, {3.8291890572654705`*^9, 
+   3.829189075152048*^9}, 3.8291891742169304`*^9, {3.8291895017788534`*^9, 
+   3.8291895178791714`*^9}, 3.8291896158521338`*^9, 3.82918978530767*^9, 
+   3.8291899148570113`*^9, {3.8291902111418633`*^9, 3.829190261085688*^9}, {
+   3.8291903117627163`*^9, 3.829190347284319*^9}, 3.8291904646045494`*^9, {
+   3.8291905940708847`*^9, 3.8291906355336323`*^9}, {3.829190952068393*^9, 
+   3.829190961953574*^9}, 3.8291910057230988`*^9, 3.8291913520575294`*^9, 
+   3.8291913821983633`*^9, 3.8291914487882032`*^9, 3.8291915570274506`*^9, {
+   3.8291916903820744`*^9, 3.8291917575210094`*^9}, {3.8291922758732204`*^9, 
+   3.829192300119978*^9}, {3.829192393686239*^9, 3.8291924207822742`*^9}, 
+   3.8291926894683847`*^9, 3.8291927612175035`*^9, 3.829194465950012*^9, 
+   3.829194509386736*^9, 3.829194579792867*^9, 3.8291946199051914`*^9, 
+   3.829194681018424*^9, {3.829194902472712*^9, 3.8291949152590303`*^9}, 
+   3.8291952657406855`*^9, 3.8291953380797243`*^9, 3.829195637035414*^9, 
+   3.829195725279771*^9, 3.8291959904103427`*^9, {3.8291960440365353`*^9, 
+   3.829196056090106*^9}, 3.829196252698567*^9, 
+   3.8296192924680476`*^9},ExpressionUUID->"2d2ceceb-dcfd-4397-8984-\
+bc64f984c5e3"],
+
+Cell[BoxData[
+ PanelBox[
+  DynamicBox[ToBoxes[
+    Labeled[
+     ImageResize[
+      Part[$CellContext`images, 
+       First[
+        First[
+         Position[$CellContext`instruments, $CellContext`y]]]], 300], {
+      Text[
+       Style[
+        Part[$CellContext`captions, 
+         First[
+          First[
+           Position[$CellContext`instruments, $CellContext`y]]]], LineIndent -> 
+        0]]}, {Right}], StandardForm],
+   ImageSizeCache->{1313., {151., 157.}}],
+  FrameMargins->50]], "Output",
+ CellChangeTimes->{
+  3.8291462317376084`*^9, {3.829146271408681*^9, 3.829146283056286*^9}, 
+   3.829147139243374*^9, 3.829147536814928*^9, 3.8291476069162474`*^9, 
+   3.829155610819619*^9, 3.829188779462925*^9, {3.8291890572654705`*^9, 
+   3.829189075152048*^9}, 3.8291891742169304`*^9, {3.8291895017788534`*^9, 
+   3.8291895178791714`*^9}, 3.8291896158521338`*^9, 3.82918978530767*^9, 
+   3.8291899148570113`*^9, {3.8291902111418633`*^9, 3.829190261085688*^9}, {
+   3.8291903117627163`*^9, 3.829190347284319*^9}, 3.8291904646045494`*^9, {
+   3.8291905940708847`*^9, 3.8291906355336323`*^9}, {3.829190952068393*^9, 
+   3.829190961953574*^9}, 3.8291910057230988`*^9, 3.8291913520575294`*^9, 
+   3.8291913821983633`*^9, 3.8291914487882032`*^9, 3.8291915570274506`*^9, {
+   3.8291916903820744`*^9, 3.8291917575210094`*^9}, {3.8291922758732204`*^9, 
+   3.829192300119978*^9}, {3.829192393686239*^9, 3.8291924207822742`*^9}, 
+   3.8291926894683847`*^9, 3.8291927612175035`*^9, 3.829194465950012*^9, 
+   3.829194509386736*^9, 3.829194579792867*^9, 3.8291946199051914`*^9, 
+   3.829194681018424*^9, {3.829194902472712*^9, 3.8291949152590303`*^9}, 
+   3.8291952657406855`*^9, 3.8291953380797243`*^9, 3.829195637035414*^9, 
+   3.829195725279771*^9, 3.8291959904103427`*^9, {3.8291960440365353`*^9, 
+   3.829196056090106*^9}, 3.829196252698567*^9, 
+   3.829619292552704*^9},ExpressionUUID->"e862b959-fa9d-44ff-9c2a-\
+d762f8d5063d"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.829133343482776*^9, 3.8291333434993553`*^9}, 
+   3.829133419555234*^9},ExpressionUUID->"11a761cb-2eaf-4546-af2a-\
+5661074280d5"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.8291334217247367`*^9, 
+  3.8291334217685733`*^9}},ExpressionUUID->"2921e266-a9c1-452f-bcf1-\
+0bb40ae7ca99"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{{3.8285873815904675`*^9, 3.828587400963376*^9}, {
+  3.829019368331455*^9, 3.8290194126096*^9}, {3.8290199841216264`*^9, 
+  3.829020015295435*^9}, {3.829020092059429*^9, 3.8290201326592064`*^9}, {
+  3.8290201850355396`*^9, 3.8290202174375076`*^9}, {3.8290203075341935`*^9, 
+  3.8290203364234033`*^9}, {3.829020471950168*^9, 
+  3.8290205109503007`*^9}},ExpressionUUID->"043e735f-98ed-4b9f-84c6-\
+96ce13cbda4f"]
+},
+WindowSize->{1536, 781},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 17900, 309, 1473, "Input",ExpressionUUID->"a8288653-95db-4d5e-a4a7-bc54b53bd6c3"],
+Cell[18483, 333, 2417, 47, 63, "Output",ExpressionUUID->"2d2ceceb-dcfd-4397-8984-bc64f984c5e3"],
+Cell[20903, 382, 1925, 38, 435, "Output",ExpressionUUID->"e862b959-fa9d-44ff-9c2a-d762f8d5063d"]
+}, Open  ]],
+Cell[22843, 423, 177, 3, 28, "Input",ExpressionUUID->"11a761cb-2eaf-4546-af2a-5661074280d5"],
+Cell[23023, 428, 156, 3, 28, "Input",ExpressionUUID->"2921e266-a9c1-452f-bcf1-0bb40ae7ca99"],
+Cell[23182, 433, 473, 7, 48, "Input",ExpressionUUID->"043e735f-98ed-4b9f-84c6-96ce13cbda4f"]
+}
+]
+*)
+
