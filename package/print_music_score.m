@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     51991,       1306]
-NotebookOptionsPosition[     50853,       1277]
-NotebookOutlinePosition[     51233,       1293]
-CellTagsIndexPosition[     51190,       1290]
+NotebookDataLength[     29877,        740]
+NotebookOptionsPosition[     29133,        720]
+NotebookOutlinePosition[     29511,        736]
+CellTagsIndexPosition[     29468,        733]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -53,7 +53,7 @@ Cell[BoxData[
   RowBox[{
    RowBox[{
     RowBox[{"BeginPackage", "[", "\"\<MusicScore`\>\"", "]"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\n", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{"SetDirectory", "[", 
@@ -61,7 +61,7 @@ Cell[BoxData[
        RowBox[{
         RowBox[{"NotebookDirectory", "[", "]"}], ",", 
         RowBox[{"\"\<package\\\\\>\"", " ", "->", " ", "\"\<\>\""}]}], "]"}], 
-      "]"}], ";"}], "*)"}], "\n", "\[IndentingNewLine]", 
+      "]"}], ";"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"PrintPart", "::", "usage"}], "=", 
@@ -69,50 +69,6 @@ Cell[BoxData[
 noteList, they have to be sub list with a number next to note e.g. \
 {{notes..},{notes..}}.\>\""}], " ", ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"Sharpize", "::", "usage"}], "=", 
-     "\"\<Sharpize [notesList_]\nNeeds for now\>\""}], " ", ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"NoteImg", "::", "usage"}], "=", 
-     "\"\<NoteImg [notesList_]\nNeeds for now\>\""}], " ", ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"NoteDistance", "::", "usage"}], "=", 
-     "\"\<NoteDistance [notesList_]\nNeeds for now\>\""}], " ", ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"NoteSpaces", "::", "usage"}], "=", 
-     "\"\<NoteSpaces [notesList_]\nNeeds for now\>\""}], " ", ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"NotePreorderQ", "::", "usage"}], "=", 
-     "\"\<NotePreorderQ [notesList_]\nNeeds for now\>\""}], " ", ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"NoteSpacesPreorderQ", "::", "usage"}], "=", 
-     "\"\<NoteSpacesPreorderQ [notesList_]\nNeeds for now\>\""}], " ", ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"PrintChord", "::", "usage"}], "=", 
-     "\"\<PrintChord [notesList_]\nNeeds for now\>\""}], " ", ";"}], "\n", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"PrintNote", "::", "usage"}], "=", 
-     "\"\<PrintNote [notesList_]\nNeeds for now\>\""}], " ", ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"PrintPartPre", "::", "usage"}], "=", 
-     "\"\<PrintPartPre [notesList_]\nNeeds for now\>\""}], " ", ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"$path", " ", "=", " ", 
      RowBox[{"StringReplace", "[", 
@@ -155,7 +111,7 @@ noteList, they have to be sub list with a number next to note e.g. \
     RowBox[{"$bemolle", " ", "=", 
      RowBox[{"Import", "[", 
       RowBox[{"$path", " ", "<>", "\"\<immagini\\\\bemolle.png\>\""}], 
-      "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+      "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"$AmNatList", "=", 
      RowBox[{"{", 
@@ -171,13 +127,10 @@ noteList, they have to be sub list with a number next to note e.g. \
        "\"\<D#\>\"", ",", "  ", "\"\<E\>\"", ",", " ", "\"\<F\>\"", ",", " ", 
        "\"\<F#\>\"", ",", " ", "\"\<G\>\"", ",", " ", "\"\<G#\>\"", ",", 
        "  ", "\"\<A\>\"", ",", " ", "\"\<A#\>\"", ",", "  ", "\"\<B\>\""}], 
-      "}"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+      "}"}]}], ";"}], "\n", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"Sharpize", "[", "n_", "]"}], ":=", "n"}], ";"}], 
@@ -625,7 +578,7 @@ noteList, they have to be sub list with a number next to note e.g. \
          "]"}]}], "]"}], "[", 
       RowBox[{"[", 
        RowBox[{"-", "1"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"PrintChord", "[", 
@@ -669,481 +622,7 @@ noteList, they have to be sub list with a number next to note e.g. \
       RowBox[{"PrintPartPre", "[", 
        RowBox[{"p", ",", " ", "0", ",", " ", "$chiave"}], "]"}], "[", 
       RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"Sharpize", "[", "n_", "]"}], ":=", "n"}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"Sharpize", "[", 
-       RowBox[{"n_", "/;", " ", 
-        RowBox[{
-         RowBox[{"StringTake", "[", 
-          RowBox[{"n", ",", " ", 
-           RowBox[{"-", "1"}]}], "]"}], "\[Equal]", "\"\<b\>\""}]}], "]"}], 
-      " ", ":=", " ", 
-      RowBox[{"StringJoin", "[", 
-       RowBox[{
-        RowBox[{"$AmNatList", "[", 
-         RowBox[{"[", 
-          RowBox[{
-           RowBox[{"Mod", "[", 
-            RowBox[{
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                RowBox[{"Position", "[", 
-                 RowBox[{"$AmNatList", ",", " ", 
-                  RowBox[{"StringTake", "[", 
-                   RowBox[{"n", ",", " ", "1"}], "]"}]}], "]"}], "[", 
-                RowBox[{"[", "1", "]"}], "]"}], "[", 
-               RowBox[{"[", "1", "]"}], "]"}], "+", "5"}], ",", " ", "7"}], 
-            "]"}], "+", "1"}], "]"}], "]"}], ",", " ", "\"\<#\>\""}], "]"}]}],
-      ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"NoteImg", "[", 
-       RowBox[{
-        RowBox[{"n_", "/;", " ", 
-         RowBox[{
-          RowBox[{"!", 
-           RowBox[{"StringContainsQ", "[", 
-            RowBox[{"n", ",", "\"\<#\>\""}], "]"}]}], " ", "&&", " ", 
-          RowBox[{"!", 
-           RowBox[{"StringContainsQ", "[", 
-            RowBox[{"n", ",", "\"\<b\>\""}], "]"}]}]}]}], ",", " ", 
-        RowBox[{"img_", " ", ":", "$note"}]}], "]"}], ":=", 
-      RowBox[{"ImageCompose", "[", 
-       RowBox[{"$blank", ",", " ", "img", ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"119", ",", " ", "84.5"}], "}"}]}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"NoteImg", "[", 
-       RowBox[{
-        RowBox[{"n_", "/;", 
-         RowBox[{"StringContainsQ", "[", 
-          RowBox[{"n", ",", " ", "\"\<#\>\""}], "]"}]}], " ", ",", " ", 
-        RowBox[{"img_", " ", ":", "$note"}]}], "]"}], " ", ":=", " ", 
-      RowBox[{"ImageCompose", "[", 
-       RowBox[{
-        RowBox[{"ImageCompose", "[", 
-         RowBox[{"$blank", ",", " ", "$note", ",", " ", 
-          RowBox[{"{", 
-           RowBox[{"119", ",", " ", "84.5"}], "}"}]}], "]"}], ",", " ", 
-        "$diesis", ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"70", ",", " ", "83"}], "}"}]}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"NoteImg", "[", 
-       RowBox[{
-        RowBox[{"n_", "/;", 
-         RowBox[{"StringContainsQ", "[", 
-          RowBox[{"n", ",", " ", "\"\<b\>\""}], "]"}]}], " ", ",", " ", 
-        RowBox[{"img_", " ", ":", "$note"}]}], "]"}], " ", ":=", " ", 
-      RowBox[{"ImageCompose", "[", 
-       RowBox[{
-        RowBox[{"ImageCompose", "[", 
-         RowBox[{"$blank", ",", " ", "$note", ",", " ", 
-          RowBox[{"{", 
-           RowBox[{"119", ",", " ", "84.5"}], "}"}]}], "]"}], ",", " ", 
-        "$bemolle", ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"70", ",", " ", "100"}], "}"}]}], "]"}]}], ";", 
-     "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"NoteDistance", "[", 
-       RowBox[{"a_", ",", " ", 
-        RowBox[{"b_:", "\"\<C4\>\""}]}], "]"}], " ", ":=", " ", 
-      RowBox[{
-       RowBox[{"12", 
-        RowBox[{"FromDigits", "[", 
-         RowBox[{"StringTake", "[", 
-          RowBox[{"a", ",", " ", 
-           RowBox[{"-", "1"}]}], "]"}], "]"}]}], "-", " ", 
-       RowBox[{"12", 
-        RowBox[{"FromDigits", "[", 
-         RowBox[{"StringTake", "[", 
-          RowBox[{"b", ",", " ", 
-           RowBox[{"-", "1"}]}], "]"}], "]"}]}], " ", "+", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"Position", "[", 
-          RowBox[{"$AmSharpList", ",", " ", 
-           RowBox[{"Sharpize", "[", 
-            RowBox[{"StringTake", "[", 
-             RowBox[{"a", ",", " ", 
-              RowBox[{"{", 
-               RowBox[{"1", ",", 
-                RowBox[{"-", "2"}]}], "}"}]}], "]"}], "]"}]}], "]"}], "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "[", 
-        RowBox[{"[", "1", "]"}], "]"}], "-", " ", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"Position", "[", 
-          RowBox[{"$AmSharpList", ",", 
-           RowBox[{"Sharpize", "[", 
-            RowBox[{"StringTake", "[", 
-             RowBox[{"b", ",", " ", 
-              RowBox[{"{", 
-               RowBox[{"1", ",", 
-                RowBox[{"-", "2"}]}], "}"}]}], "]"}], "]"}]}], "]"}], "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "[", 
-        RowBox[{"[", "1", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"NoteSpaces", "[", 
-       RowBox[{"a_", ",", " ", 
-        RowBox[{"b_:", "\"\<C4\>\""}]}], "]"}], " ", ":=", " ", 
-      RowBox[{
-       RowBox[{"7", 
-        RowBox[{"FromDigits", "[", 
-         RowBox[{"StringTake", "[", 
-          RowBox[{"a", ",", " ", 
-           RowBox[{"-", "1"}]}], "]"}], "]"}]}], "-", " ", 
-       RowBox[{"7", 
-        RowBox[{"FromDigits", "[", 
-         RowBox[{"StringTake", "[", 
-          RowBox[{"b", ",", " ", 
-           RowBox[{"-", "1"}]}], "]"}], "]"}]}], " ", "+", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"Position", "[", 
-          RowBox[{"$AmNatList", ",", " ", 
-           RowBox[{"StringTake", "[", 
-            RowBox[{"a", ",", " ", "1"}], "]"}]}], "]"}], "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "[", 
-        RowBox[{"[", "1", "]"}], "]"}], "-", " ", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"Position", "[", 
-          RowBox[{"$AmNatList", ",", " ", 
-           RowBox[{"StringTake", "[", 
-            RowBox[{"b", ",", " ", "1"}], "]"}]}], "]"}], "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "[", 
-        RowBox[{"[", "1", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"NotePreorderQ", "[", 
-       RowBox[{"a_", ",", " ", 
-        RowBox[{"b_:", "\"\<C4\>\""}]}], "]"}], " ", ":=", " ", 
-      RowBox[{
-       RowBox[{"NoteDistance", "[", 
-        RowBox[{"a", ",", " ", "b"}], "]"}], "\[LessEqual]", "0"}]}], ";", 
-     "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"NoteSpacesPreorderQ", "[", 
-       RowBox[{"a_", ",", " ", 
-        RowBox[{"b_:", "\"\<C4\>\""}]}], "]"}], " ", ":=", " ", 
-      RowBox[{
-       RowBox[{"NoteSpaces", "[", 
-        RowBox[{"a", ",", " ", "b"}], "]"}], "\[LessEqual]", "0"}]}], ";", 
-     "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"PrintNote", "[", 
-       RowBox[{"o_", ",", " ", 
-        RowBox[{"n_", "/;", 
-         RowBox[{
-          RowBox[{"NotePreorderQ", "[", 
-           RowBox[{"n", ",", " ", "\"\<G5\>\""}], "]"}], "&&", " ", 
-          RowBox[{"!", 
-           RowBox[{"NotePreorderQ", "[", 
-            RowBox[{"n", ",", "\"\<C4\>\""}], "]"}]}]}]}], ",", " ", 
-        RowBox[{"back_:", "$chiave"}]}], "]"}], ":=", 
-      RowBox[{"ImageCompose", "[", 
-       RowBox[{"back", ",", " ", 
-        RowBox[{"NoteImg", "[", 
-         RowBox[{"n", ",", "$note"}], "]"}], ",", "  ", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"300", "+", 
-           RowBox[{"150", "*", "o"}]}], ",", 
-          RowBox[{"372", "+", 
-           RowBox[{"13.2", "*", 
-            RowBox[{"NoteSpaces", "[", 
-             RowBox[{"n", ",", " ", "\"\<D4\>\""}], "]"}]}]}]}], " ", "}"}]}],
-        "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"PrintNote", "[", " ", 
-       RowBox[{"o_", ",", " ", 
-        RowBox[{"n_", "/;", 
-         RowBox[{
-          RowBox[{"NotePreorderQ", "[", 
-           RowBox[{"n", ",", " ", "\"\<B3\>\""}], "]"}], "&&", " ", 
-          RowBox[{"!", 
-           RowBox[{"NotePreorderQ", "[", 
-            RowBox[{"n", ",", "\"\<E2\>\""}], "]"}]}]}]}], ",", " ", 
-        RowBox[{"back_:", "$chiave"}]}], "]"}], ":=", 
-      RowBox[{"ImageCompose", "[", 
-       RowBox[{"back", ",", " ", 
-        RowBox[{"NoteImg", "[", 
-         RowBox[{"n", ",", "$note"}], "]"}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"300", "+", 
-           RowBox[{"150", "*", "o"}]}], ",", 
-          RowBox[{"104", "+", 
-           RowBox[{"13.2", "*", 
-            RowBox[{"NoteSpaces", "[", 
-             RowBox[{"n", ",", " ", "\"\<F2\>\""}], "]"}]}]}]}], " ", "}"}]}],
-        "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"PrintNote", "[", " ", 
-       RowBox[{"o_", ",", " ", 
-        RowBox[{"n_", "/;", 
-         RowBox[{
-          RowBox[{"NotePreorderQ", "[", 
-           RowBox[{"n", ",", " ", "\"\<C4\>\""}], "]"}], "&&", " ", 
-          RowBox[{"NotePreorderQ", "[", 
-           RowBox[{"\"\<C4\>\"", ",", "n"}], "]"}]}]}], ",", " ", 
-        RowBox[{"back_:", "$chiave"}]}], "]"}], ":=", 
-      RowBox[{"ImageCompose", "[", 
-       RowBox[{"back", ",", " ", 
-        RowBox[{"NoteImg", "[", 
-         RowBox[{"n", ",", "$notebarra"}], "]"}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"300", "+", 
-           RowBox[{"150", "*", "o"}]}], ",", "304"}], "}"}]}], "]"}]}], ";", 
-     "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"PrintNote", "[", 
-       RowBox[{"o_", ",", " ", 
-        RowBox[{"n_", "/;", 
-         RowBox[{
-          RowBox[{"NotePreorderQ", "[", 
-           RowBox[{"\"\<Ab5\>\"", ",", " ", "n"}], "]"}], "&&", 
-          RowBox[{
-           RowBox[{"Mod", "[", 
-            RowBox[{
-             RowBox[{"NoteSpaces", "[", 
-              RowBox[{"n", ",", " ", "\"\<G5\>\""}], "]"}], ",", " ", "2"}], 
-            "]"}], "\[Equal]", "1"}]}]}], ",", " ", 
-        RowBox[{"back_:", "$chiave"}]}], "]"}], ":=", 
-      RowBox[{
-       RowBox[{"FoldList", "[", "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"ImageCompose", "[", 
-           RowBox[{"#1", ",", " ", "$barra", ",", "  ", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"320", "+", 
-               RowBox[{"150", "*", "o"}]}], ",", 
-              RowBox[{"473.8", "+", 
-               RowBox[{"13.2", "*", "#2"}]}]}], " ", "}"}]}], "]"}], "&"}], 
-         ",", "\[IndentingNewLine]", 
-         RowBox[{"ImageCompose", "[", 
-          RowBox[{"back", ",", " ", 
-           RowBox[{"NoteImg", "[", 
-            RowBox[{"n", ",", "$notebarra"}], "]"}], ",", "  ", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"300", "+", 
-              RowBox[{"150", "*", "o"}]}], ",", 
-             RowBox[{"372", "+", 
-              RowBox[{"13.2", "*", 
-               RowBox[{"NoteSpaces", "[", 
-                RowBox[{"n", ",", " ", "\"\<D4\>\""}], "]"}]}]}]}], " ", 
-            "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
-         RowBox[{"Range", "[", 
-          RowBox[{"2", ",", " ", 
-           RowBox[{
-            RowBox[{"NoteSpaces", "[", 
-             RowBox[{"n", ",", " ", "\"\<F5\>\""}], "]"}], "-", "2"}], ",", 
-           " ", "2"}], "]"}]}], "]"}], "[", 
-       RowBox[{"[", 
-        RowBox[{"-", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"PrintNote", "[", 
-       RowBox[{"o_", ",", " ", 
-        RowBox[{"n_", "/;", 
-         RowBox[{
-          RowBox[{"NotePreorderQ", "[", 
-           RowBox[{"\"\<Ab5\>\"", ",", " ", "n"}], "]"}], "&&", 
-          RowBox[{
-           RowBox[{"Mod", "[", 
-            RowBox[{
-             RowBox[{"NoteSpaces", "[", 
-              RowBox[{"n", ",", " ", "\"\<G5\>\""}], "]"}], ",", " ", "2"}], 
-            "]"}], "\[Equal]", "0"}]}]}], ",", " ", 
-        RowBox[{"back_:", "$chiave"}]}], "]"}], ":=", 
-      RowBox[{
-       RowBox[{"FoldList", "[", "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"ImageCompose", "[", 
-           RowBox[{"#1", ",", " ", "$barra", ",", "  ", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"320", "+", 
-               RowBox[{"150", "*", "o"}]}], ",", 
-              RowBox[{"473.8", "+", 
-               RowBox[{"13.2", "*", "#2"}]}]}], " ", "}"}]}], "]"}], "&"}], 
-         ",", "\[IndentingNewLine]", 
-         RowBox[{"ImageCompose", "[", 
-          RowBox[{"back", ",", " ", 
-           RowBox[{"NoteImg", "[", 
-            RowBox[{"n", ",", "$note"}], "]"}], ",", "  ", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"300", "+", 
-              RowBox[{"150", "*", "o"}]}], ",", 
-             RowBox[{"372", "+", 
-              RowBox[{"13.2", "*", 
-               RowBox[{"NoteSpaces", "[", 
-                RowBox[{"n", ",", " ", "\"\<D4\>\""}], "]"}]}]}]}], " ", 
-            "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
-         RowBox[{"Range", "[", 
-          RowBox[{"2", ",", " ", 
-           RowBox[{"NoteSpaces", "[", 
-            RowBox[{"n", ",", " ", "\"\<F5\>\""}], "]"}], ",", " ", "2"}], 
-          "]"}]}], "]"}], "[", 
-       RowBox[{"[", 
-        RowBox[{"-", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"PrintNote", "[", 
-       RowBox[{"o_", ",", " ", 
-        RowBox[{"n_", "/;", 
-         RowBox[{
-          RowBox[{"NotePreorderQ", "[", 
-           RowBox[{"n", ",", " ", "\"\<Fb2\>\""}], "]"}], "&&", 
-          RowBox[{
-           RowBox[{"Mod", "[", 
-            RowBox[{
-             RowBox[{"NoteSpaces", "[", 
-              RowBox[{"n", ",", " ", "\"\<F2\>\""}], "]"}], ",", " ", "2"}], 
-            "]"}], "\[Equal]", "1"}]}]}], ",", " ", 
-        RowBox[{"back_:", "$chiave"}]}], "]"}], ":=", 
-      RowBox[{
-       RowBox[{"FoldList", "[", "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"ImageCompose", "[", 
-           RowBox[{"#1", ",", " ", "$barra", ",", "  ", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"320", "+", 
-               RowBox[{"150", "*", "o"}]}], ",", 
-              RowBox[{"87", "-", 
-               RowBox[{"13.2", "*", 
-                RowBox[{"(", 
-                 RowBox[{"#2", "-", "1"}], ")"}]}]}]}], " ", "}"}]}], "]"}], 
-          "&"}], ",", "\[IndentingNewLine]", 
-         RowBox[{"ImageCompose", "[", 
-          RowBox[{"back", ",", " ", 
-           RowBox[{"NoteImg", "[", 
-            RowBox[{"n", ",", "$notebarra"}], "]"}], ",", "  ", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"300", "+", 
-              RowBox[{"150", "*", "o"}]}], ",", 
-             RowBox[{"104", "-", 
-              RowBox[{"13.2", "*", 
-               RowBox[{"NoteSpaces", "[", 
-                RowBox[{"\"\<F2\>\"", ",", " ", "n"}], "]"}]}]}]}], " ", 
-            "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
-         RowBox[{"Range", "[", 
-          RowBox[{"2", ",", " ", 
-           RowBox[{"NoteSpaces", "[", 
-            RowBox[{"\"\<F2\>\"", ",", " ", "n"}], "]"}], ",", " ", "2"}], 
-          "]"}]}], "]"}], "[", 
-       RowBox[{"[", 
-        RowBox[{"-", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"PrintNote", "[", 
-       RowBox[{"o_", ",", " ", 
-        RowBox[{"n_", "/;", 
-         RowBox[{
-          RowBox[{"NotePreorderQ", "[", 
-           RowBox[{"n", ",", " ", "\"\<Fb2\>\""}], "]"}], "&&", 
-          RowBox[{
-           RowBox[{"Mod", "[", 
-            RowBox[{
-             RowBox[{"NoteSpaces", "[", 
-              RowBox[{"n", ",", " ", "\"\<F2\>\""}], "]"}], ",", " ", "2"}], 
-            "]"}], "\[Equal]", "0"}]}]}], ",", " ", 
-        RowBox[{"back_:", "$chiave"}]}], "]"}], ":=", 
-      RowBox[{
-       RowBox[{"FoldList", "[", "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"ImageCompose", "[", 
-           RowBox[{"#1", ",", " ", "$barra", ",", "  ", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"320", "+", 
-               RowBox[{"150", "*", "o"}]}], ",", 
-              RowBox[{"87", "-", 
-               RowBox[{"13.2", "*", 
-                RowBox[{"(", 
-                 RowBox[{"#2", "-", "1"}], ")"}]}]}]}], " ", "}"}]}], "]"}], 
-          "&"}], ",", "\[IndentingNewLine]", 
-         RowBox[{"ImageCompose", "[", 
-          RowBox[{"back", ",", " ", 
-           RowBox[{"NoteImg", "[", 
-            RowBox[{"n", ",", "$note"}], "]"}], ",", "  ", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"300", "+", 
-              RowBox[{"150", "*", "o"}]}], ",", 
-             RowBox[{"104", "-", 
-              RowBox[{"13.2", "*", 
-               RowBox[{"NoteSpaces", "[", 
-                RowBox[{"\"\<F2\>\"", ",", " ", "n"}], "]"}]}]}]}], " ", 
-            "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
-         RowBox[{"Range", "[", 
-          RowBox[{"2", ",", " ", 
-           RowBox[{"NoteSpaces", "[", 
-            RowBox[{"\"\<F2\>\"", ",", " ", "n"}], "]"}], ",", " ", "2"}], 
-          "]"}]}], "]"}], "[", 
-       RowBox[{"[", 
-        RowBox[{"-", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"PrintChord", "[", 
-       RowBox[{"o_", ",", " ", "c_", ",", " ", 
-        RowBox[{"back_:", "$chiave"}]}], "]"}], " ", ":=", 
-      RowBox[{"Fold", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"PrintNote", "[", 
-          RowBox[{"o", ",", " ", "#2", ",", " ", "#1"}], "]"}], "&"}], ",", 
-        " ", "back", ",", " ", "c"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"PrintPartPre", "[", 
-       RowBox[{"p_", ",", 
-        RowBox[{"o_:", "0"}], ",", " ", 
-        RowBox[{"back_:", "$chiave"}]}], "]"}], " ", ":=", " ", 
-      RowBox[{"Fold", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"#1", "[", 
-             RowBox[{"[", "1", "]"}], "]"}], "+", "1"}], ",", " ", 
-           RowBox[{"PrintChord", "[", 
-            RowBox[{
-             RowBox[{"#1", "[", 
-              RowBox[{"[", "1", "]"}], "]"}], ",", " ", "#2", ",", " ", 
-             RowBox[{"#1", "[", 
-              RowBox[{"[", "2", "]"}], "]"}]}], " ", "]"}]}], "}"}], "&"}], 
-        ",", " ", 
-        RowBox[{"{", " ", 
-         RowBox[{"0", ",", " ", "back"}], "}"}], ",", " ", "p"}], "  ", 
-       "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"PrintPart", "[", "p_", "]"}], " ", ":=", " ", 
-      RowBox[{
-       RowBox[{"PrintPartPre", "[", 
-        RowBox[{"p", ",", " ", "0", ",", " ", "$chiave"}], "]"}], "[", 
-       RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "*)"}], "\[IndentingNewLine]",
-    "\n", 
+   "\[IndentingNewLine]", 
    RowBox[{"End", "[", "]"}], "\n", 
    RowBox[{"EndPackage", "[", "]"}], "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.8287613376108556`*^9, 3.828761581367326*^9}, {
@@ -1208,75 +687,39 @@ noteList, they have to be sub list with a number next to note e.g. \
    3.8296279053911133`*^9, 3.829627947252513*^9}, {3.829628063010292*^9, 
    3.8296280719843655`*^9}, {3.829628152656449*^9, 3.829628185219815*^9}, {
    3.829628227413541*^9, 3.829628297535626*^9}, {3.829628341789742*^9, 
-   3.8296283618625126`*^9}},ExpressionUUID->"ce393230-dca9-4cb9-9b38-\
+   3.8296283618625126`*^9}, {3.8296441498783054`*^9, 
+   3.8296441534341865`*^9}, {3.829644185382656*^9, 3.8296441871796675`*^9}, {
+   3.8296442469479933`*^9, 3.8296442496261234`*^9}, 3.8296442956197104`*^9, {
+   3.8296443562941175`*^9, 
+   3.8296443855586653`*^9}},ExpressionUUID->"ce393230-dca9-4cb9-9b38-\
 a73fba6403fa"],
 
 Cell[BoxData["\<\"MusicScore`Private`\"\>"], "Output",
  CellChangeTimes->{{3.8296282512023153`*^9, 3.829628299884274*^9}, {
-   3.82962836434976*^9, 3.8296283809435043`*^9}, 
-   3.8296284238364005`*^9},ExpressionUUID->"1d8f3c13-73d4-402d-af9c-\
-777360d993b0"]
+   3.82962836434976*^9, 3.8296283809435043`*^9}, 3.8296284238364005`*^9, {
+   3.8296441965822835`*^9, 3.8296442086214046`*^9}, 
+   3.8296443886399937`*^9},ExpressionUUID->"6968cd88-7176-4ed7-a99e-\
+3b81544c5037"]
 }, Open  ]],
 
-Cell[CellGroupData[{
-
-Cell[BoxData["\"\<C:\\\\Users\\\\riccardo\\\\Desktop\\\\riccardo\\\\Universit\
-\[AGrave]\\\\computazionale_progetto\\\\vessicchio_tour\\\\immagini\\\\chiave.\
-png\>\""], "Input",
- CellChangeTimes->{
-  3.8296282479456673`*^9},ExpressionUUID->"6237db40-4621-4a6d-a129-\
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.8296282479456673`*^9, 
+  3.829644200081072*^9},ExpressionUUID->"6237db40-4621-4a6d-a129-\
 178c03ff0ddd"],
 
-Cell[BoxData["\<\"C:\\\\Users\\\\riccardo\\\\Desktop\\\\riccardo\\\\Universit\
-\[AGrave]\\\\computazionale_progetto\\\\vessicchio_tour\\\\immagini\\\\chiave.\
-png\"\>"], "Output",
- CellChangeTimes->{
-  3.829628188405628*^9, 3.8296282513056703`*^9, {3.82962829199224*^9, 
-   3.8296282999630127`*^9}, {3.8296283644270043`*^9, 3.829628381018194*^9}, 
-   3.829628423905386*^9},ExpressionUUID->"c1df31d9-79cc-49d5-9d40-\
-3ab35c6c3eba"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData["\"\<C:\\\\Users\\\\riccardo\\\\Desktop\\\\riccardo\\\\Universit\
-\[AGrave]\\\\computazionale_progetto\\\\vessicchio_tour\\\\immagini\\\\chiave.\
-png\>\""], "Input",
+Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.8296281852228394`*^9, 3.829628185227013*^9}, 
-   3.829628247956626*^9},ExpressionUUID->"b270e15b-b6e8-423e-a0a6-\
+   3.829628247956626*^9, 
+   3.8296442022855444`*^9},ExpressionUUID->"b270e15b-b6e8-423e-a0a6-\
 679d34d7a844"],
 
-Cell[BoxData["\<\"C:\\\\Users\\\\riccardo\\\\Desktop\\\\riccardo\\\\Universit\
-\[AGrave]\\\\computazionale_progetto\\\\vessicchio_tour\\\\immagini\\\\chiave.\
-png\"\>"], "Output",
- CellChangeTimes->{
-  3.829628251333605*^9, {3.8296282920252857`*^9, 3.8296282999926224`*^9}, {
-   3.8296283644562836`*^9, 3.829628381048627*^9}, 
-   3.8296284239210467`*^9},ExpressionUUID->"23da831c-d73f-41dc-88c3-\
-0525e77d6c59"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData["\"\<C:\\\\Users\\\\riccardo\\\\Desktop\\\\riccardo\\\\Universit\
-\[AGrave]\\\\computazionale_progetto\\\\vessicchio_tour\\\\immagini\\\\chiave.\
-png\>\""], "Input",
- CellChangeTimes->{
-  3.8296282479596243`*^9},ExpressionUUID->"9f660c53-7282-4384-aee1-\
-558b28ac4224"],
-
-Cell[BoxData["\<\"C:\\\\Users\\\\riccardo\\\\Desktop\\\\riccardo\\\\Universit\
-\[AGrave]\\\\computazionale_progetto\\\\vessicchio_tour\\\\immagini\\\\chiave.\
-png\"\>"], "Output",
- CellChangeTimes->{
-  3.829628251362137*^9, {3.82962829205589*^9, 3.8296283000260715`*^9}, {
-   3.8296283644876785`*^9, 3.8296283813108573`*^9}, 
-   3.8296284239522886`*^9},ExpressionUUID->"cdd42104-1602-4fd8-9276-\
-13e7b05adbde"]
-}, Open  ]]
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.8296282479596243`*^9, 
+  3.829644206610074*^9},ExpressionUUID->"9f660c53-7282-4384-aee1-\
+558b28ac4224"]
 },
-WindowSize->{1920, 1037},
-WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+WindowSize->{958, 1028},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
 Magnification:>1.25 Inherited,
 FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
 StyleDefinitions->"Default.nb"
@@ -1293,21 +736,12 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 47732, 1189, 3780, "Input",ExpressionUUID->"ce393230-dca9-4cb9-9b38-a73fba6403fa"],
-Cell[48315, 1213, 258, 4, 40, "Output",ExpressionUUID->"1d8f3c13-73d4-402d-af9c-777360d993b0"]
+Cell[580, 22, 27680, 672, 2604, "Input",ExpressionUUID->"ce393230-dca9-4cb9-9b38-a73fba6403fa"],
+Cell[28263, 696, 336, 5, 40, "Output",ExpressionUUID->"6968cd88-7176-4ed7-a99e-3b81544c5037"]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[48610, 1222, 282, 5, 35, "Input",ExpressionUUID->"6237db40-4621-4a6d-a129-178c03ff0ddd"],
-Cell[48895, 1229, 430, 7, 40, "Output",ExpressionUUID->"c1df31d9-79cc-49d5-9d40-3ab35c6c3eba"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[49362, 1241, 329, 5, 35, "Input",ExpressionUUID->"b270e15b-b6e8-423e-a0a6-679d34d7a844"],
-Cell[49694, 1248, 411, 7, 40, "Output",ExpressionUUID->"23da831c-d73f-41dc-88c3-0525e77d6c59"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[50142, 1260, 282, 5, 35, "Input",ExpressionUUID->"9f660c53-7282-4384-aee1-558b28ac4224"],
-Cell[50427, 1267, 410, 7, 40, "Output",ExpressionUUID->"cdd42104-1602-4fd8-9276-13e7b05adbde"]
-}, Open  ]]
+Cell[28614, 704, 152, 3, 35, "Input",ExpressionUUID->"6237db40-4621-4a6d-a129-178c03ff0ddd"],
+Cell[28769, 709, 205, 4, 35, "Input",ExpressionUUID->"b270e15b-b6e8-423e-a0a6-679d34d7a844"],
+Cell[28977, 715, 152, 3, 35, "Input",ExpressionUUID->"9f660c53-7282-4384-aee1-558b28ac4224"]
 }
 ]
 *)
