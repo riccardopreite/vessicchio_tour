@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     29877,        740]
-NotebookOptionsPosition[     29133,        720]
-NotebookOutlinePosition[     29511,        736]
-CellTagsIndexPosition[     29468,        733]
+NotebookDataLength[     29925,        741]
+NotebookOptionsPosition[     29181,        721]
+NotebookOutlinePosition[     29559,        737]
+CellTagsIndexPosition[     29516,        734]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -52,8 +52,8 @@ Cell[BoxData[
   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
-    RowBox[{"BeginPackage", "[", "\"\<MusicScore`\>\"", "]"}], ";"}], 
-   "\[IndentingNewLine]", "\n", 
+    RowBox[{"BeginPackage", "[", "\"\<MusicScore`\>\"", "]"}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{"SetDirectory", "[", 
@@ -111,7 +111,7 @@ noteList, they have to be sub list with a number next to note e.g. \
     RowBox[{"$bemolle", " ", "=", 
      RowBox[{"Import", "[", 
       RowBox[{"$path", " ", "<>", "\"\<immagini\\\\bemolle.png\>\""}], 
-      "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
    RowBox[{
     RowBox[{"$AmNatList", "=", 
      RowBox[{"{", 
@@ -127,7 +127,7 @@ noteList, they have to be sub list with a number next to note e.g. \
        "\"\<D#\>\"", ",", "  ", "\"\<E\>\"", ",", " ", "\"\<F\>\"", ",", " ", 
        "\"\<F#\>\"", ",", " ", "\"\<G\>\"", ",", " ", "\"\<G#\>\"", ",", 
        "  ", "\"\<A\>\"", ",", " ", "\"\<A#\>\"", ",", "  ", "\"\<B\>\""}], 
-      "}"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+      "}"}]}], ";"}], "\[IndentingNewLine]", "\n", 
    RowBox[{
     RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
@@ -697,9 +697,10 @@ a73fba6403fa"],
 Cell[BoxData["\<\"MusicScore`Private`\"\>"], "Output",
  CellChangeTimes->{{3.8296282512023153`*^9, 3.829628299884274*^9}, {
    3.82962836434976*^9, 3.8296283809435043`*^9}, 3.8296284238364005`*^9, {
-   3.8296441965822835`*^9, 3.8296442086214046`*^9}, 
-   3.8296443886399937`*^9},ExpressionUUID->"6968cd88-7176-4ed7-a99e-\
-3b81544c5037"]
+   3.8296441965822835`*^9, 3.8296442086214046`*^9}, 3.8296443886399937`*^9, 
+   3.8298013604769*^9, 
+   3.8298014236995935`*^9},ExpressionUUID->"ee1c6bc5-4fcf-4f55-8da1-\
+ea6272e639e6"]
 }, Open  ]],
 
 Cell[BoxData[""], "Input",
@@ -737,11 +738,11 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 27680, 672, 2604, "Input",ExpressionUUID->"ce393230-dca9-4cb9-9b38-a73fba6403fa"],
-Cell[28263, 696, 336, 5, 40, "Output",ExpressionUUID->"6968cd88-7176-4ed7-a99e-3b81544c5037"]
+Cell[28263, 696, 384, 6, 40, "Output",ExpressionUUID->"ee1c6bc5-4fcf-4f55-8da1-ea6272e639e6"]
 }, Open  ]],
-Cell[28614, 704, 152, 3, 35, "Input",ExpressionUUID->"6237db40-4621-4a6d-a129-178c03ff0ddd"],
-Cell[28769, 709, 205, 4, 35, "Input",ExpressionUUID->"b270e15b-b6e8-423e-a0a6-679d34d7a844"],
-Cell[28977, 715, 152, 3, 35, "Input",ExpressionUUID->"9f660c53-7282-4384-aee1-558b28ac4224"]
+Cell[28662, 705, 152, 3, 35, "Input",ExpressionUUID->"6237db40-4621-4a6d-a129-178c03ff0ddd"],
+Cell[28817, 710, 205, 4, 35, "Input",ExpressionUUID->"b270e15b-b6e8-423e-a0a6-679d34d7a844"],
+Cell[29025, 716, 152, 3, 68, "Input",ExpressionUUID->"9f660c53-7282-4384-aee1-558b28ac4224"]
 }
 ]
 *)
