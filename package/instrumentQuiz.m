@@ -30,6 +30,9 @@ Create some random exercise with T/F questions.";
 MakeNameQuiz::usage="MakeInstrumentQuiz []
 Create some random exercise check name of an instrument.";
 
+MakeSoundQuiz::usage="MakeSoundQuiz []
+Create some random exercise check the instrument that played the melody.";
+
 $instrumentList::usage="$instrumentList
 Is the global luist of instrument.";
 
@@ -44,6 +47,7 @@ $instrumentList = {
 {"Violino","Corda"},
 {"Violoncello","Corda"}
 };
+$instrumentSoundList = {{"Piano", "Pianoforte"}, {"BaritoneSax","Sassofono"}, {"Guitar","Chitarra"}, {"Cello", "Violoncello"}, {"Trumpet", "Tromba"}};
 
 
 quizList = {
@@ -261,7 +265,120 @@ Return[panelType];
 
 ]
 
+MakeSoundQuiz[] := DynamicModule[
+{list = $instrumentSoundList,random = 0, sub = Null},
+toChooseSound = {"Pianoforte","Sassofono","Chitarra","Violoncello", "Tromba"};
+SeedRandom[];
+random = RandomInteger[{1,Length[list]}];
+(*Random choice of a instrument*)
+sub = list[[random]];
+answerSound = sub[[2]];
+instrument = sub[[1]];
+choosenSound = "";
+answeredSound = False;
+panel = Panel[
+Row[{
+Column[{
+Dynamic[
+Sound[{
+SoundNote["E4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["A4", 0.25, instrument],
+SoundNote[None, 0.50, instrument],
+SoundNote["F4", 0.25, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["F4", 0.25, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote[None, 0.50, instrument],
+SoundNote["F4", 0.25, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["F4", 0.25, instrument],
+SoundNote["A4", 0.25, instrument],
+SoundNote[None, 0.50, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote["C4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote["C4", 0.25, instrument],
+SoundNote["B4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote[None, 0.50, instrument],
+SoundNote["C4", 0.25, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["A4", 0.25, instrument],
+SoundNote[None, 0.50, instrument],
+SoundNote["F4", 0.25, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["F4", 0.25, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote[None, 0.50, instrument],
+SoundNote["F4", 0.25, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["F4", 0.25, instrument],
+SoundNote["A4", 0.25, instrument],
+SoundNote[None, 0.50, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote["C4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote["C4", 0.25, instrument],
+SoundNote["B4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote[None, 0.50, instrument],
+SoundNote["C4", 0.25, instrument],
+SoundNote["B4", 0.25, instrument],
+SoundNote["C4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote["C4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote[None, 0.50, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote["C4", 0.25, instrument],
+SoundNote["B4", 0.25, instrument],
+SoundNote["A4", 0.25, instrument],
+SoundNote["F4", 0.25, instrument],
+SoundNote[None, 0.50, instrument],
+SoundNote["E4", 0.50, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["F4", 0.25, instrument],
+SoundNote["E4", 0.25, instrument],
+SoundNote["D4", 0.25, instrument],
+SoundNote[None, 0.50, instrument],
+SoundNote["E4", 1, instrument]
+}]
+]
+}],
+Spacer[225 0.7],
+Column[{
+Row[{Dynamic[RadioButtonBar[Dynamic[choosenSound],toChooseSound,Appearance->"Vertical"]]}],
+Row[{
+Button["Submit",
+If[choosenSound == answerSound,
+answeredSound = True; MessageDialog["Esatto!"],
+MessageDialog["Sbagliato!"],
+MessageDialog["Seleziona una risposta!"]
+]
+]
+}],
+Row[{
+Button["Next",
+If[answeredSound == True,
+					MakeSoundQuiz[],
+					MessageDialog["Devi prima rispondere alla domanda!"],
+					MessageDialog["Devi prima rispondere alla domanda!"]
+]
+]
+}]
+}],
+Spacer[15 0.7]
+}]
+,ImageSize->700]
 
+]
 
 
 End[]

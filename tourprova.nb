@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   1732216,      28677]
-NotebookOptionsPosition[   1729214,      28617]
-NotebookOutlinePosition[   1729562,      28632]
-CellTagsIndexPosition[   1729519,      28629]
+NotebookDataLength[   1739152,      28812]
+NotebookOptionsPosition[   1736014,      28749]
+NotebookOutlinePosition[   1736362,      28764]
+CellTagsIndexPosition[   1736319,      28761]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28237,9 +28237,11 @@ Cell[BoxData[
    3.829805282039563*^9, {3.8298129020411863`*^9, 3.829812914560774*^9}, {
    3.829812952953004*^9, 3.8298129725534554`*^9}, 3.8298130075848413`*^9, 
    3.829813141809142*^9, {3.829813216081564*^9, 3.829813234027808*^9}, {
-   3.829813277754289*^9, 3.8298132859570265`*^9}, 3.829814125356161*^9, 
-   3.8298145569139204`*^9},ExpressionUUID->"fafe097f-62f7-4d8b-b1cc-\
-0675df67c005"]
+   3.829813277754289*^9, 3.8298132859570265`*^9}, 3.829814125356161*^9, {
+   3.8298145569139204`*^9, 3.8298094919870186`*^9}, 3.8298095516816177`*^9, 
+   3.829809611717956*^9, 3.829809646112356*^9, 3.829809728825175*^9, 
+   3.8298098559951377`*^9},ExpressionUUID->"b2b2842d-dd69-4151-97c2-\
+d8fe42ef287d"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -28341,9 +28343,11 @@ Cell[BoxData[
    3.8298129021212015`*^9, 3.82981291463479*^9}, {3.8298129530210204`*^9, 
    3.829812972620472*^9}, 3.8298130076466303`*^9, 3.8298131418761563`*^9, {
    3.829813216144576*^9, 3.8298132340977483`*^9}, {3.8298132778253036`*^9, 
-   3.829813286028043*^9}, 3.829814125554205*^9, 
-   3.8298145572069845`*^9},ExpressionUUID->"abdff0f6-8490-4739-8480-\
-5ca0f423f8d2"]
+   3.829813286028043*^9}, 3.829814125554205*^9, {3.8298145572069845`*^9, 
+   3.8298094921544514`*^9}, 3.829809551757387*^9, 3.829809611789606*^9, 
+   3.8298096461845922`*^9, 3.8298097289031096`*^9, 
+   3.8298098560678263`*^9},ExpressionUUID->"b8e2587c-b970-4427-9b26-\
+88141d28b4f4"]
 }, Open  ]]
 }, Open  ]],
 
@@ -28429,9 +28433,11 @@ Cell[BoxData[
    3.8298129146718087`*^9}, {3.8298129530540276`*^9, 3.829812972652479*^9}, 
    3.829813007677774*^9, 3.829813141907164*^9, {3.8298132161765833`*^9, 
    3.829813234132264*^9}, {3.829813277860312*^9, 3.8298132860630503`*^9}, 
-   3.829814125594225*^9, 
-   3.829814557283934*^9},ExpressionUUID->"eae951cb-d63d-4b66-8088-\
-30badd8ab032"]
+   3.829814125594225*^9, {3.829814557283934*^9, 3.8298094921908455`*^9}, 
+   3.829809551789301*^9, 3.829809611819682*^9, 3.829809646218858*^9, 
+   3.829809728931888*^9, 
+   3.829809856096749*^9},ExpressionUUID->"58af3062-bd89-4cc6-81b1-\
+c2028cb3e8ed"]
 }, Open  ]]
 }, Open  ]],
 
@@ -28534,9 +28540,11 @@ Cell[BoxData[
    3.8298129147110405`*^9}, {3.829812953089035*^9, 3.8298129726824837`*^9}, 
    3.829813007708852*^9, 3.829813141937169*^9, {3.829813216209591*^9, 
    3.8298132341662703`*^9}, {3.8298132778953204`*^9, 3.8298132860990567`*^9}, 
-   3.8298141256502285`*^9, 
-   3.829814557346953*^9},ExpressionUUID->"783df319-5906-4913-b7cd-\
-85e19d6eb92b"]
+   3.8298141256502285`*^9, {3.829814557346953*^9, 3.8298094922290983`*^9}, 
+   3.829809551821724*^9, 3.8298096118495655`*^9, 3.829809646249201*^9, 
+   3.8298097289620976`*^9, 
+   3.8298098561263638`*^9},ExpressionUUID->"fd7eea41-d818-4b86-a4e1-\
+1dc5b27c5cc8"]
 }, Open  ]]
 }, Open  ]],
 
@@ -28556,12 +28564,136 @@ Cell[TextData[{
   3.8298018604366198`*^9}},ExpressionUUID->"e43f5e00-97ff-4607-8469-\
 8d9fa3c0aa5b"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
- RowBox[{"(*", 
-  RowBox[{"MakeSoundQuiz", "[", "]"}], "*)"}]], "Input",
- CellChangeTimes->{{3.8298018640402*^9, 
-  3.8298018758293533`*^9}},ExpressionUUID->"8bbcacc7-7a60-4d59-acf8-\
-bba92dca8bea"]
+ RowBox[{"MakeSoundQuiz", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.8298018640402*^9, 3.8298018758293533`*^9}, {
+  3.8298094819796257`*^9, 
+  3.8298094837910023`*^9}},ExpressionUUID->"8bbcacc7-7a60-4d59-acf8-\
+bba92dca8bea"],
+
+Cell[BoxData[
+ DynamicModuleBox[{
+  Private`list$$ = {{"Piano", "Pianoforte"}, {"BaritoneSax", "Sassofono"}, {
+   "Guitar", "Chitarra"}, {"Cello", "Violoncello"}, {"Trumpet", "Tromba"}}, 
+  Private`random$$ = 3, InstrumentQuiz`sub$$ = {"Guitar", "Chitarra"}}, 
+  PanelBox[
+   TemplateBox[{TagBox[
+      GridBox[{{
+         DynamicBox[
+          ToBoxes[
+           Sound[{
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["A4", 0.25, Private`instrument], 
+             SoundNote[None, 0.5, Private`instrument], 
+             SoundNote["F4", 0.25, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["F4", 0.25, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote[None, 0.5, Private`instrument], 
+             SoundNote["F4", 0.25, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["F4", 0.25, Private`instrument], 
+             SoundNote["A4", 0.25, Private`instrument], 
+             SoundNote[None, 0.5, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote["C4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote["C4", 0.25, Private`instrument], 
+             SoundNote["B4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote[None, 0.5, Private`instrument], 
+             SoundNote["C4", 0.25, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["A4", 0.25, Private`instrument], 
+             SoundNote[None, 0.5, Private`instrument], 
+             SoundNote["F4", 0.25, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["F4", 0.25, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote[None, 0.5, Private`instrument], 
+             SoundNote["F4", 0.25, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["F4", 0.25, Private`instrument], 
+             SoundNote["A4", 0.25, Private`instrument], 
+             SoundNote[None, 0.5, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote["C4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote["C4", 0.25, Private`instrument], 
+             SoundNote["B4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote[None, 0.5, Private`instrument], 
+             SoundNote["C4", 0.25, Private`instrument], 
+             SoundNote["B4", 0.25, Private`instrument], 
+             SoundNote["C4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote["C4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote[None, 0.5, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote["C4", 0.25, Private`instrument], 
+             SoundNote["B4", 0.25, Private`instrument], 
+             SoundNote["A4", 0.25, Private`instrument], 
+             SoundNote["F4", 0.25, Private`instrument], 
+             SoundNote[None, 0.5, Private`instrument], 
+             SoundNote["E4", 0.5, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["F4", 0.25, Private`instrument], 
+             SoundNote["E4", 0.25, Private`instrument], 
+             SoundNote["D4", 0.25, Private`instrument], 
+             SoundNote[None, 0.5, Private`instrument], 
+             SoundNote["E4", 1, Private`instrument]}], StandardForm]]}}, 
+       GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+       "Column", 
+       GridBoxItemSize -> {
+        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+     TemplateBox[{157.5}, "Spacer1"],TagBox[
+      GridBox[{{
+         TemplateBox[{
+           DynamicBox[
+            ToBoxes[
+             RadioButtonBar[
+              Dynamic[Private`choosenSound], Private`toChooseSound, 
+              Appearance -> "Vertical"], StandardForm]]}, "RowDefault"]}, {
+         TemplateBox[{
+           ButtonBox[
+           "\"Submit\"", ButtonFunction :> 
+            If[Private`choosenSound == Private`answerSound, 
+              Private`answeredSound = True; MessageDialog["Esatto!"], 
+              MessageDialog["Sbagliato!"], 
+              MessageDialog["Seleziona una risposta!"]], Appearance -> 
+            Automatic, Evaluator -> Automatic, Method -> "Preemptive"]}, 
+          "RowDefault"]}, {
+         TemplateBox[{
+           ButtonBox[
+           "\"Next\"", ButtonFunction :> If[Private`answeredSound == True, 
+              InstrumentQuiz`MakeSoundQuiz[], 
+              MessageDialog["Devi prima rispondere alla domanda!"], 
+              MessageDialog["Devi prima rispondere alla domanda!"]], 
+            Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+            "Preemptive"]}, "RowDefault"]}}, 
+       GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+       "Column", 
+       GridBoxItemSize -> {
+        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+     TemplateBox[{10.5}, "Spacer1"]},
+    "RowDefault"],
+   ImageSize->700],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{3.8298094922893333`*^9, 3.829809551848652*^9, 
+  3.829809611874755*^9, 3.8298096462754617`*^9, 3.8298097289892387`*^9, 
+  3.829809856150301*^9},ExpressionUUID->"edad1d1d-4ef7-4175-8f37-\
+3c70cd819d66"]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -28644,41 +28776,44 @@ Cell[CellGroupData[{
 Cell[1704025, 27993, 1872, 57, 1074, "Section",ExpressionUUID->"2f37792e-01e7-4d52-9ad8-1d53f89b6473"],
 Cell[CellGroupData[{
 Cell[1705922, 28054, 209, 4, 28, "Input",ExpressionUUID->"58679b6e-22f9-4848-993a-4ee5e925e587"],
-Cell[1706134, 28060, 8979, 181, 224, "Output",ExpressionUUID->"fafe097f-62f7-4d8b-b1cc-0675df67c005"]
+Cell[1706134, 28060, 9127, 183, 224, "Output",ExpressionUUID->"b2b2842d-dd69-4151-97c2-d8fe42ef287d"]
 }, Open  ]],
-Cell[1715128, 28244, 194, 4, 28, "Input",ExpressionUUID->"f0d68f5c-ae3c-4dec-baff-e45d5dc8e85a"]
+Cell[1715276, 28246, 194, 4, 28, "Input",ExpressionUUID->"f0d68f5c-ae3c-4dec-baff-e45d5dc8e85a"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1715371, 28254, 677, 21, 379, "Title",ExpressionUUID->"c8a7910a-5665-40b3-9d3e-a0594dcc07b8"],
+Cell[1715519, 28256, 677, 21, 379, "Title",ExpressionUUID->"c8a7910a-5665-40b3-9d3e-a0594dcc07b8"],
 Cell[CellGroupData[{
-Cell[1716073, 28279, 186, 4, 28, "Input",ExpressionUUID->"275454dd-2b15-4e3d-a060-9822e91381bc"],
-Cell[1716262, 28285, 3001, 60, 344, "Output",ExpressionUUID->"abdff0f6-8490-4739-8480-5ca0f423f8d2"]
+Cell[1716221, 28281, 186, 4, 28, "Input",ExpressionUUID->"275454dd-2b15-4e3d-a060-9822e91381bc"],
+Cell[1716410, 28287, 3151, 62, 322, "Output",ExpressionUUID->"b8e2587c-b970-4427-9b26-88141d28b4f4"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1719312, 28351, 406, 12, 87, "Title",ExpressionUUID->"9216d169-c7af-4f34-b918-4b984293dac9"],
+Cell[1719610, 28355, 406, 12, 87, "Title",ExpressionUUID->"9216d169-c7af-4f34-b918-4b984293dac9"],
 Cell[CellGroupData[{
-Cell[1719743, 28367, 188, 4, 28, "Input",ExpressionUUID->"5249e63e-f5fb-4667-97c8-88123611ed7d"],
-Cell[1719934, 28373, 2978, 60, 296, "Output",ExpressionUUID->"eae951cb-d63d-4b66-8088-30badd8ab032"]
+Cell[1720041, 28371, 188, 4, 28, "Input",ExpressionUUID->"5249e63e-f5fb-4667-97c8-88123611ed7d"],
+Cell[1720232, 28377, 3122, 62, 322, "Output",ExpressionUUID->"58af3062-bd89-4cc6-81b1-c2028cb3e8ed"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1722961, 28439, 416, 12, 87, "Title",ExpressionUUID->"97da44c5-e329-4f32-a8d0-0d7f7b7f2d89"],
+Cell[1723403, 28445, 416, 12, 87, "Title",ExpressionUUID->"97da44c5-e329-4f32-a8d0-0d7f7b7f2d89"],
 Cell[CellGroupData[{
-Cell[1723402, 28455, 184, 4, 28, "Input",ExpressionUUID->"e6addd30-0126-47c3-81bc-8f10a353dd71"],
-Cell[1723589, 28461, 3542, 77, 126, "Output",ExpressionUUID->"783df319-5906-4913-b7cd-85e19d6eb92b"]
+Cell[1723844, 28461, 184, 4, 28, "Input",ExpressionUUID->"e6addd30-0126-47c3-81bc-8f10a353dd71"],
+Cell[1724031, 28467, 3692, 79, 126, "Output",ExpressionUUID->"fd7eea41-d818-4b86-a4e1-1dc5b27c5cc8"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1727180, 28544, 409, 12, 87, "Title",ExpressionUUID->"e43f5e00-97ff-4607-8469-8d9fa3c0aa5b"],
-Cell[1727592, 28558, 212, 5, 28, "Input",ExpressionUUID->"8bbcacc7-7a60-4d59-acf8-bba92dca8bea"]
+Cell[1727772, 28552, 409, 12, 87, "Title",ExpressionUUID->"e43f5e00-97ff-4607-8469-8d9fa3c0aa5b"],
+Cell[CellGroupData[{
+Cell[1728206, 28568, 240, 5, 28, "Input",ExpressionUUID->"8bbcacc7-7a60-4d59-acf8-bba92dca8bea"],
+Cell[1728449, 28575, 6143, 119, 202, "Output",ExpressionUUID->"edad1d1d-4ef7-4175-8f37-3c70cd819d66"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1727841, 28568, 551, 18, 395, "Title",ExpressionUUID->"df89275c-cc7d-4099-9f38-303f7b9b4718"],
-Cell[1728395, 28588, 211, 5, 28, "Input",ExpressionUUID->"476033d3-29bc-4da9-86a2-c2c6a8ff0cae"]
+Cell[1734641, 28700, 551, 18, 395, "Title",ExpressionUUID->"df89275c-cc7d-4099-9f38-303f7b9b4718"],
+Cell[1735195, 28720, 211, 5, 28, "Input",ExpressionUUID->"476033d3-29bc-4da9-86a2-c2c6a8ff0cae"]
 }, Open  ]],
-Cell[1728621, 28596, 589, 19, 381, "Title",ExpressionUUID->"72360510-5c8c-4718-bac7-611fd7614c37"]
+Cell[1735421, 28728, 589, 19, 381, "Title",ExpressionUUID->"72360510-5c8c-4718-bac7-611fd7614c37"]
 }
 ]
 *)
