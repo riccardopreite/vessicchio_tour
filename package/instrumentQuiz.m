@@ -18,8 +18,6 @@ BeginPackage["InstrumentQuiz`"];
 path = StringReplace[NotebookDirectory[],"package\\" -> ""];
 
 
-MakeInstrumentQuiz::usage="MakeInstrumentQuiz []
-Create some random exercise  with instrument, check name, type of an instrument.";
 
 MakeTypeQuiz::usage="MakeInstrumentQuiz []
 Create some random exercise  with type of an instrument.";
@@ -39,7 +37,7 @@ Is the global luist of instrument.";
 $instrumentList = { 
 {"Batteria","Percussione"},
 {"Clarinetto","Fiato"},
-{"Piano","Tastiera"},
+{"Piano","Corda"},
 {"Pianola","Tastiera"},
 {"Sassofono soprano","Fiato"},
 {"Tamburo","Percussione"},
@@ -107,11 +105,6 @@ $instrumentListName = $instrumentList;
 
 Begin["Private`"];
 
-MakeInstrumentQuiz[] := Module[
-{random = 0,ret = Null},
-SeedRandom[];
-tempquizList = quizList;
-]
 
 
 MakeTFQuiz[] := Module[
@@ -140,20 +133,23 @@ Column[{
 		Spacer[225 0.7],
 		Row[{RadioButtonBar[Dynamic[userAnswer],{"V"->"Vero","F"->"Falso"}] }],
 		Row[{ 
-			Button["Submit",
+			Button["Invio",
 				If[userAnswer == answer,
 					answered = True; MessageDialog["Esatto! " <> explain],
 					answered = True; MessageDialog["Sbagliato! " <> explain],
 					MessageDialog["Seleziona una risposta!"]
 				]
 			],
-			Button["Next",
+			Spacer[80 0.7],
+			Button["Avanti",
 				If[answered == True,
 					MakeTFQuiz[],
 					MessageDialog["Devi prima rispondere alla domanda!"],
 					MessageDialog["Devi prima rispondere alla domanda!"]
 				]
-			]
+			],
+			Spacer[20 0.7],
+			Button["Ricarica domande", tempquizList = quizList;MakeTFQuiz[]; ]
 }]
 }]
 	,ImageSize->700];
@@ -164,14 +160,17 @@ Return[panel];
 
 ]
 
-MakeNameQuiz[] := Module[
-{ list = $instrumentListName,random = 0, sub = Null},
+MakeNameQuiz[prev_:0] := Module[
+{ list = $instrumentListName, sub = Null},
 
 SeedRandom[];
-random = RandomInteger[{1,Length[list]}];
+randomName = RandomInteger[{1,Length[list]}];
+If[prev == randomName,
+MakeNameQuiz[prev]
+];
 (*Random choice of a instrument*)
-sub = list[[random]];
-list = Delete[list,random];
+sub = list[[randomName]];
+list = Delete[list,randomName];
 pictureName = sub[[3]];
 name = sub[[1]];
 userAnswerName = Null;
@@ -196,16 +195,17 @@ Spacer[225 0.7],
 Column[{
 Row[{Dynamic[RadioButtonBar[Dynamic[userAnswerName],toChooseName,Appearance->"Vertical"]]}],
 Row[{
-			Button["Submit",
+			Button["Invio",
 				If[userAnswerName == name,
 					answeredName = True; MessageDialog["Esatto!"],
 					answeredName = True; MessageDialog["Sbagliato!"],
 	                                 MessageDialog["Seleziona una risposta!"]
 				]
 			],
-			Button["Next",
+			Spacer[20 0.7],
+			Button["Avanti",
 				If[answeredName == True,
-					MakeNameQuiz[],
+					MakeNameQuiz[randomName],
 					MessageDialog["Devi prima rispondere alla domanda!"],
 					MessageDialog["Devi prima rispondere alla domanda!"]
 ]
@@ -221,13 +221,16 @@ Return[panel];
 ]
 
 
-MakeTypeQuiz[] := Module[
-{ list = $instrumentList,random = 0, sub = Null},
+MakeTypeQuiz[prev_:0] := Module[
+{ list = $instrumentList, sub = Null},
 toChooseType = {"Fiato","Percussione","Tastiera","Corda"};
 SeedRandom[];
-random = RandomInteger[{1,Length[list]}];
+randomType = RandomInteger[{1,Length[list]}];
+If[prev == randomType,
+MakeTypeQuiz[prev]
+];
 (*Random choice of a instrument*)
-sub = list[[random]];
+sub = list[[randomType]];
 pictureType = sub[[3]];
 nameType = sub[[2]];
 userAnswerType = Null;
@@ -242,16 +245,17 @@ Spacer[225 0.7],
 Column[{
 Row[{Dynamic[RadioButtonBar[Dynamic[userAnswerType],toChooseType,Appearance->"Vertical"]]}],
 Row[{
-			Button["Submit",
+			Button["Invio",
 				If[userAnswerType == nameType,
 					answeredType = True; MessageDialog["Esatto!"],
 					answeredType = True; MessageDialog["Sbagliato!"],
 	                                 MessageDialog["Seleziona una risposta!"]
 				]
 			],
-			Button["Next",
+			Spacer[20 0.7],
+			Button["Avanti",
 				If[answeredType == True,
-					MakeTypeQuiz[],
+					MakeTypeQuiz[randomType],
 					MessageDialog["Devi prima rispondere alla domanda!"],
 					MessageDialog["Devi prima rispondere alla domanda!"]
 ]
@@ -265,13 +269,16 @@ Return[panelType];
 
 ]
 
-MakeSoundQuiz[] := DynamicModule[
-{list = $instrumentSoundList,random = 0, sub = Null},
+MakeSoundQuiz[prev_:0] := DynamicModule[
+{list = $instrumentSoundList,sub = Null},
 toChooseSound = {"Pianoforte","Sassofono","Chitarra","Violoncello", "Tromba"};
 SeedRandom[];
-random = RandomInteger[{1,Length[list]}];
+randomSound = RandomInteger[{1,Length[list]}];
+If[prev == randomSound,
+MakeSoundQuiz[prev]
+];
 (*Random choice of a instrument*)
-sub = list[[random]];
+sub = list[[randomSound]];
 answerSound = sub[[2]];
 instrument = sub[[1]];
 choosenSound = "";
@@ -356,7 +363,7 @@ Spacer[225 0.7],
 Column[{
 Row[{Dynamic[RadioButtonBar[Dynamic[choosenSound],toChooseSound,Appearance->"Vertical"]]}],
 Row[{
-Button["Submit",
+Button["Invio",
 If[choosenSound == answerSound,
 answeredSound = True; MessageDialog["Esatto!"],
 MessageDialog["Sbagliato!"],
@@ -365,9 +372,9 @@ MessageDialog["Seleziona una risposta!"]
 ]
 }],
 Row[{
-Button["Next",
+Button["Avanti",
 If[answeredSound == True,
-					MakeSoundQuiz[],
+					MakeSoundQuiz[randomSound],
 					MessageDialog["Devi prima rispondere alla domanda!"],
 					MessageDialog["Devi prima rispondere alla domanda!"]
 ]
