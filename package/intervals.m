@@ -14,7 +14,10 @@
 
 
 BeginPackage["IntervalTheoryAndExercises`"];
-Needs["MusicScore`"];
+
+$pathPlay = StringReplace[NotebookDirectory[],"package\\" -> ""];
+Needs["MusicScore`",$pathPlay <>"package/print_music_score.m"];
+
 IntervalTheory::usage ="Prints a panel containing a short tutorial on musical intervals";
 InteractiveInterval::usage ="Displays a tool that allows the user to listen and visualize the notes comoning any interval. It also allows the user to specify the starting interval, by using its name as argument.";
 IntervalExercise::usage="Called without argumets, it displays an exercise in which the user has to listen an interval and guess its name.";
