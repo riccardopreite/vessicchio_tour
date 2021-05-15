@@ -1,27 +1,33 @@
 (* ::Package:: *)
 
 (* ::Input:: *)
-(*(* :Title:IntervalTheoryAndExercises*)*)
-(*(* :Context:IntervalTheoryAndExercises`*)*)
-(*(* :Author:DD*)*)
-(*(* :Summary: Exercises, theory and tests for learning musical intervals*)*)
-(*(* :Copyright:*)*)
-(*(* :Package Version:1,Maggio 2021*)*)
-(*(* :Mathematica Version:11.2*)*)
-(*(* :History:*)*)
-(*(* :Sources:*)*)
-(*(* :Limitations:*)(* :Discussion:*)*)
+(**)
+
+
+(* :Title:IntervalTheoryAndExercises*)
+(* :Context:IntervalTheoryAndExercises`*)
+(* :Author:DD*)
+(* :Summary: Exercises, theory and tests for learning musical intervals*)
+(* :Copyright:*)
+(* :Package Version:1,Maggio 2021*)
+(* :Mathematica Version:11.2*)
+(* :History:*)
+(* :Sources:*)
+(* :Limitations:*)(* :Discussion:*)
 
 
 BeginPackage["IntervalTheoryAndExercises`"];
 
-$pathPlay = StringReplace[NotebookDirectory[],"package\\" -> ""];
-Needs["MusicScore`",$pathPlay <>"package/print_music_score.m"];
+pathInter = StringReplace[NotebookDirectory[],"package\\" -> ""];
+Needs["MusicScore`",pathInter <>"package/print_music_score.m"];
 
 IntervalTheory::usage ="Prints a panel containing a short tutorial on musical intervals";
 InteractiveInterval::usage ="Displays a tool that allows the user to listen and visualize the notes comoning any interval. It also allows the user to specify the starting interval, by using its name as argument.";
 IntervalExercise::usage="Called without argumets, it displays an exercise in which the user has to listen an interval and guess its name.";
-IntevalTheory[] :=DynamicModule[{intervals, images, captions, buttons, y},
+
+Begin["Private`"];
+
+IntervalTheory[] :=DynamicModule[{intervals, images, captions, buttons, y},
 intervals = {"Prima", "Seconda", "Terza", "Quarta", "Quinta", "Sesta", "Settima", "Ottava"};
 images = {PrintPart[{{"C4"}, {"C4"}}],  PrintPart[{{"C4"}, {"D4"}}], PrintPart[{{"C4"}, {"E4"}}], PrintPart[{{"C4"}, {"F4"}}], PrintPart[{{"C4"}, {"G4"}}], PrintPart[{{"C4"}, {"A4"}}], PrintPart[{{"C4"}, {"B4"}}], PrintPart[{{"C4"}, {"C5"}}]};
 
@@ -69,7 +75,10 @@ Panel[Dynamic[GraphicsRow[{Magnify[images[[First[First[Position[intervals,y]]]]]
 ]
 ]
 
-InteractiveInterval[aa_/; ContainsAny[AllIntervals, {aa}]]:= DynamicModule[{interval, basenote, sign, allnotes},
+InteractiveInterval[] := MakeInterval["P8"]
+
+MakeInterval[aa_/; ContainsAny[AllIntervals, {aa}]]:=
+ DynamicModule[{interval, basenote, sign, allnotes},
 allnotes=Take[AllNotes, {24, -24}];
 basenote=RandomChoice[allnotes];
 interval=aa;

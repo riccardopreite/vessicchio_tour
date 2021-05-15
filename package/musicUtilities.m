@@ -18,6 +18,7 @@ BeginPackage["MusicPlayUtilities`"];
 $pathPlay = StringReplace[NotebookDirectory[],"package\\" -> ""];
 Needs["MusicScore`",$pathPlay <>"package/print_music_score.m"];
 Needs["MusicUtilities`",$pathPlay <>"package/utilities.m"];
+Needs["IntervalTheoryAndExercises`",$pathPlay <>"package/intervals.m"];
 simpleScale = {"C4","D4","E4","F4","G4","A4","B4"};
 instruments = {"Pianoforte", "Sassofono", "Chitarra", "Violoncello", "Tromba"};
 images = {Import[$pathPlay <>"immagini/pianoforte.jpg"],  Import[$pathPlay <>"immagini/sassofono.jpg"], Import[$pathPlay <> "immagini/chitarra.jpg"], Import[$pathPlay <> "immagini/violoncello.jpg"], Import[$pathPlay <> "immagini/tromba.jpg"]};
@@ -89,13 +90,13 @@ Spacer[72 0.7],Column[{
 Row[{
 
 Button[Dynamic[prevLabel], 
+
 If[noteInd > 2,
 nextLabel =labelList[[noteInd]];
-
-EmitSound[Sound[SoundNote[list[[noteInd]],1,instrument ]]];noteInd-= 1; prevLabel = Dynamic[labelList[[noteInd-1]]],
-If[noteInd > 1,
-nextLabel = Dynamic[labelList[[noteInd+1]]];EmitSound[Sound[SoundNote[list[[noteInd]],1,instrument ]]]; noteInd-= 1;  prevLabel = "--"
-]
+EmitSound[Sound[SoundNote[list[[noteInd-1]],1,instrument ]]];noteInd-= 1; prevLabel = Dynamic[labelList[[noteInd-1]]],
+	If[noteInd > 1,
+		nextLabel = Dynamic[labelList[[noteInd+1]]];noteInd-= 1; EmitSound[Sound[SoundNote[list[[noteInd]],1,instrument ]]];   prevLabel = "--"
+	]
 ]
 ],
 Spacer[174 0.7],
