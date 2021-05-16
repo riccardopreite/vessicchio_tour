@@ -131,8 +131,6 @@ Spacer[87 0.7],
 Button["Play",EmitSound[Sound[SoundNote[list[[noteInd]],1,instrument ]]]],
     Spacer[50 0.7],
 
-    Button["Next Lesson",Print["To do refresh panel for next lesson"]]
- ,Spacer[50 0.7],
 RadioButtonBar[Dynamic[labelList],{removeBrackets[euList]->"EU notes",removeBrackets[usList]->"US notes"}] 
 
 }] 

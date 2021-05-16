@@ -45,50 +45,50 @@ $instrumentList = {
 {"Violino","Corda"},
 {"Violoncello","Corda"}
 };
-$instrumentSoundList = {{"Piano", "Pianoforte"}, {"BaritoneSax","Sassofono"}, {"Guitar","Chitarra"}, {"Cello", "Violoncello"}, {"Trumpet", "Tromba"}};
+$instrumentSoundList = {{"Piano", "Pianoforte"}, {"Guitar","Chitarra"}, {"Cello", "Violoncello"}, {"Trumpet", "Tromba"}};
 
 
 quizList = {
 {"L'archetto \[EGrave] una bacchetta di legno con dei fili di metallo tesi.",
-"F",
+"Falso",
 "Falso. Si tratta di una bacchetta di legno con dei crini di cavallo tesi."
 },
 
 {"L'archetto \[EGrave] un accessorio che serve per suonare strumenti dotati di corde come il violino.",
-"V",
+"Vero",
 "Vero. Serve per suonare anche la viola, il violoncello e il contrabbasso."
 },
 
 {"L'ancia \[EGrave] una linguetta mobile che produce il suono di alcuni strumenti a fiato.",
-"V",
+"Vero",
 "Vero. Il suono viene prodotto dalla vibrazione dell'ancia causata dall'ingresso dell'aria."
 },
 
 {"L'Oboe \[EGrave] uno strumento ad ancia semplice.",
-"F",
+"Falso",
 "Falso. L'Oboe \[EGrave] uno strumento ad ancia doppia."
 },
 
 {"Il clarinetto \[EGrave] uno strumento della famiglia degi ottoni.",
-"F",
+"Falso",
 "Falso. Il clarinetto appartiene alla famiglia dei legni."
 },
 {
 "Il pianoforte \[EGrave] uno strumento a corde percosse.",
-"V",
+"Vero",
 "Vero. Le corde vengono percosse da dei martelletti azionati dalla tastiera."
 },
 
 {"Il liuto \[EGrave] uno strumento a corde pizzicate.",
-"V",
+"Vero",
 "Vero. Il liuto \[EGrave] uno strumento europeo del barocco/rinascimento che viene suonato tramite il pizzico delle corde."
 },
 {"Lo xilofono \[EGrave] uno strumento membranofono.",
-"F",
+"Falso",
 "Falso. Lo xilofono \[EGrave] uno strumento idiofono cio\[EGrave] privo di membrana."
 },
 {"Il timpano \[EGrave] uno strumento membranofono.",
-"V",
+"Vero",
 "Vero, Il timpano \[EGrave] considerato il re dei membranofoni."
 }
 
@@ -109,7 +109,7 @@ Begin["Private`"];
 
 MakeTFQuiz[] := Module[
 {random = 0,sub = Null,list = tempquizList},
-
+toChooseTF = {"Vero","Falso"};
 If[Length[list] == 0, 
 text = "Hai completato gli esercizi di vero o falso!";
 pan = Panel[
@@ -131,7 +131,7 @@ tempquizList = Delete[tempquizList,random];
 Column[{
 		Row[{Style[Dynamic[question],FontFamily->"Arial-Bold",16]}],
 		Spacer[225 0.7],
-		Row[{RadioButtonBar[Dynamic[userAnswer],{"V"->"Vero","F"->"Falso"}] }],
+		Row[{RadioButtonBar[Dynamic[userAnswer],toChooseTF ,Appearance->"Orizzontal"] }],
 		Row[{ 
 			Button["Invio",
 				If[userAnswer == answer,
@@ -271,7 +271,7 @@ Return[panelType];
 
 MakeSoundQuiz[prev_:0] := DynamicModule[
 {list = $instrumentSoundList,sub = Null},
-toChooseSound = {"Pianoforte","Sassofono","Chitarra","Violoncello", "Tromba"};
+toChooseSound = {"Pianoforte","Chitarra","Violoncello", "Tromba"};
 SeedRandom[];
 randomSound = RandomInteger[{1,Length[list]}];
 If[prev == randomSound,
