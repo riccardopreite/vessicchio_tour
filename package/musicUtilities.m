@@ -58,17 +58,18 @@ Begin["`Private`"];
 instrumentDescription[]:= DynamicModule[
 {listIn = instruments, listIm = images, label = "Pianoforte",listCaption = captions},
 Panel[Column[{
-Row[{SetterBar[Dynamic[label], listIn]}],
+Row[{Spacer[200 2.3], SetterBar[Dynamic[label], listIn]}],
+Spacer[100 0.5],
 Row[{
 	Dynamic[
 	Labeled[
-	ImageResize[listIm[[First[First[Position[listIn,label]]]]], 300],
-	 {Text[Style[listCaption[[First[First[Position[listIn,label]]]]], LineIndent-> 0]] }
+	ImageResize[listIm[[First[First[Position[listIn,label]]]]], 500],
+	 {Text[Style[listCaption[[First[First[Position[listIn,label]]]]], FontFamily-> "Arial", FontSize->16, LineSpacing->{2, 0}, LineIndent-> 0]] }   
 	 , {Right}]
 	 ]
 	 }]
 }]
-,FrameMargins->50]
+,FrameMargins-> 50]
 ]
 
 showNotes[]:= DynamicModule[
