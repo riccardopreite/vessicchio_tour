@@ -107,6 +107,7 @@ Begin["Private`"];
 
 
 
+(* Funzione usata per la creazione di un quiz vero o falso *)
 MakeTFQuiz[] := Module[
 {random = 0,sub = Null,list = tempquizList},
 toChooseTF = {"Vero","Falso"};
@@ -133,7 +134,9 @@ Column[{
 		Spacer[225 0.7],
 		Row[{RadioButtonBar[Dynamic[userAnswer],toChooseTF ,Appearance->"Orizzontal"] }],
 		Row[{ 
+			(* Bottone utilizzato per controllare se la risposta data \[EGrave] corretta o sbagliata *)
 			Button["Invio",
+				(* Controllo utilizzato per verificare se l'utente ha risposto ed in che modo, con relativa spiegazione *)
 				If[userAnswer == answer,
 					answered = True; MessageDialog["Esatto! " <> explain],
 					answered = True; MessageDialog["Sbagliato! " <> explain],
@@ -141,7 +144,9 @@ Column[{
 				]
 			],
 			Spacer[80 0.7],
+			(* Bottone utilizzato per passare alla successiva esecuzione del quiz vero o falso *)
 			Button["Avanti",
+				(* Controllo utilizzato per verificare se l'utente ha risposto *)
 				If[answered == True,
 					MakeTFQuiz[],
 					MessageDialog["Devi prima rispondere alla domanda!"],
@@ -160,6 +165,7 @@ Return[panel];
 
 ]
 
+(* Funzione usata per la creazione di un quiz sul nome di uno strumento *)
 MakeNameQuiz[prev_:0] := Module[
 { list = $instrumentListName, sub = Null},
 
@@ -195,7 +201,9 @@ Spacer[225 0.7],
 Column[{
 Row[{Dynamic[RadioButtonBar[Dynamic[userAnswerName],toChooseName,Appearance->"Vertical"]]}],
 Row[{
+			(* Bottone utilizzato per controllare se la risposta data \[EGrave] corretta o sbagliata *)
 			Button["Invio",
+				(* Controllo utilizzato per verificare se l'utente ha risposto ed in che modo *)
 				If[userAnswerName == name,
 					answeredName = True; MessageDialog["Esatto!"],
 					answeredName = True; MessageDialog["Sbagliato!"],
@@ -203,7 +211,9 @@ Row[{
 				]
 			],
 			Spacer[20 0.7],
+			(* Bottone utilizzato per passare alla successiva esecuzione del quiz sui nomi *)
 			Button["Avanti",
+			(* Controllo utilizzato per verificare se l'utente ha precedentemente dato la risposta corretta, altrimenti deve continuare fino a risposta corretta prima di poter proseguire *)
 				If[answeredName == True,
 					MakeNameQuiz[randomName],
 					MessageDialog["Devi prima rispondere alla domanda!"],
@@ -221,6 +231,7 @@ Return[panel];
 ]
 
 
+(* Funzione usata per la creazione di un quiz di tipo *)
 MakeTypeQuiz[prev_:0] := Module[
 { list = $instrumentList, sub = Null},
 toChooseType = {"Fiato","Percussione","Tastiera","Corda"};
@@ -245,7 +256,9 @@ Spacer[225 0.7],
 Column[{
 Row[{Dynamic[RadioButtonBar[Dynamic[userAnswerType],toChooseType,Appearance->"Vertical"]]}],
 Row[{
+			(* Bottone utilizzato per controllare se la risposta data \[EGrave] corretta o sbagliata *)
 			Button["Invio",
+				(* Controllo utilizzato per verificare se l'utente ha risposto ed in che modo *)
 				If[userAnswerType == nameType,
 					answeredType = True; MessageDialog["Esatto!"],
 					answeredType = True; MessageDialog["Sbagliato!"],
@@ -253,7 +266,9 @@ Row[{
 				]
 			],
 			Spacer[20 0.7],
+			(* Bottone utilizzato per passare alla successiva esecuzione del quiz sui tipi *)
 			Button["Avanti",
+				(* Controllo utilizzato per verificare se l'utente ha precedentemente dato la risposta corretta, altrimenti deve continuare fino a risposta corretta prima di poter proseguire *)
 				If[answeredType == True,
 					MakeTypeQuiz[randomType],
 					MessageDialog["Devi prima rispondere alla domanda!"],
@@ -269,25 +284,30 @@ Return[panelType];
 
 ]
 
+(* Funzione usata per la creazione di un quiz musicale *)
 MakeSoundQuiz[prev_:0] := DynamicModule[
 {list = $instrumentSoundList,sub = Null},
 toChooseSound = {"Pianoforte","Chitarra","Violoncello", "Tromba"};
 SeedRandom[];
+(* Scelta casuale dello strumento che ripeter\[AGrave] la melodia *)
 randomSound = RandomInteger[{1,Length[list]}];
+(* If utilizzato per evitare che la melodia possa essere eseguita con lo stesso strumento rispetto alla prova precedente *)
 If[prev == randomSound,
 MakeSoundQuiz[prev]
 ];
-(*Random choice of a instrument*)
 sub = list[[randomSound]];
 answerSound = sub[[2]];
 instrument = sub[[1]];
 choosenSound = "";
 answeredSound = False;
+(* Creazione del panel per il quiz musicale *)
 panel = Panel[
 Row[{
 Column[{
 Dynamic[
+(* Barra per la riproduzione del ritornello della canzone "The Final Countdown" *)
 Sound[{
+(* Nella prima parte viene selezionata la nota da riprodurre, nella seconda l'intervallo di tempo e nell'ultima lo strumento *)
 SoundNote["E5", 0.125, instrument],
 SoundNote["D5", 0.125, instrument],
 SoundNote["E5", 0.50, instrument],
@@ -410,9 +430,12 @@ SoundNote["E5", 2, instrument]
 }],
 Spacer[225 0.7],
 Column[{
+(* Creazione delle possibili risposte tra cui l'utente dovr\[AGrave] scegliere *)
 Row[{Dynamic[RadioButtonBar[Dynamic[choosenSound],toChooseSound,Appearance->"Vertical"]]}],
 Row[{
+(* Bottone utilizzato per controllare se la risposta data \[EGrave] corretta o sbagliata *)
 Button["Invio",
+(* Controllo utilizzato per verificare se l'utente ha risposto ed in che modo *)
 If[choosenSound == answerSound,
 answeredSound = True; MessageDialog["Esatto!"],
 MessageDialog["Sbagliato!"],
@@ -421,7 +444,9 @@ MessageDialog["Seleziona una risposta!"]
 ]
 }],
 Row[{
+(* Bottone utilizzato per passare alla successiva esecuzione del quiz musicale *)
 Button["Avanti",
+(* Controllo utilizzato per verificare se l'utente ha precedentemente dato la risposta corretta, altrimenti deve continuare fino a risposta corretta prima di poter proseguire *)
 If[answeredSound == True,
 					MakeSoundQuiz[randomSound],
 					MessageDialog["Devi prima rispondere alla domanda!"],
