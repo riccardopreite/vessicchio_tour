@@ -28,9 +28,14 @@ IntervalExercise::usage="Called without argumets, it displays an exercise in whi
 Begin["Private`"];
 
 IntervalTheory[] :=DynamicModule[{intervals, images, captions, buttons, y},
+
+(*intervals contiene i nomi degli intervalli per la barra di buttons che permettono di passare da una scheda all'altra*)
 intervals = {"Prima", "Seconda", "Terza", "Quarta", "Quinta", "Sesta", "Settima", "Ottava"};
+
+(*images contiene le immagini degli intervalli generati con la funzione PrintPart, una per ogni scheda*)
 images = {PrintPart[{{"C4"}, {"C4"}}],  PrintPart[{{"C4"}, {"D4"}}], PrintPart[{{"C4"}, {"E4"}}], PrintPart[{{"C4"}, {"F4"}}], PrintPart[{{"C4"}, {"G4"}}], PrintPart[{{"C4"}, {"A4"}}], PrintPart[{{"C4"}, {"B4"}}], PrintPart[{{"C4"}, {"C5"}}]};
 
+(*buttons contiene liste di bottoni che, se premuti, riproducono gli intervalli. In questo modo, ad ogni schermata possono essere associati pi\[UGrave] bottoni, ad esempio per riprodurre intervalli aumentati o giusti, maggiori o minori dello stesso tipo*)
 buttons={{Button["Riproduci unisono", EmitSound[Sound[{SoundNote["C4"], SoundNote["C4"]}]]]},
 
  {Button["Riproduci M2", EmitSound[Sound[{SoundNote["C4"], SoundNote["D4"]}]]], Button["Riproduci m2", EmitSound[Sound[{SoundNote["C4"], SoundNote["Db4"]}]]]}, 
@@ -48,6 +53,8 @@ buttons={{Button["Riproduci unisono", EmitSound[Sound[{SoundNote["C4"], SoundNot
 {Button["Riproduci P8", EmitSound[Sound[{SoundNote["C4"], SoundNote["C5"]}]]]} 
 
 };
+
+(*captions \[EGrave] una lista che contiene le descrizioni degli intervalli da mostrare a fianco dello spartito con l'intervallo *)
 captions = {"L'intervallo pi\[UGrave] semplice \[EGrave] detto \"unisono\" ed \[EGrave] quello che intercorre fra due note che hanno lo stesso nome,come,ad esempio,due Do.
 Questo intervallo \[EGrave] un intervallo perfetto,per cui la sua sigla \[EGrave] \"P1\"",
 
@@ -67,22 +74,33 @@ L'intervallo di ottava diminuita \"d8\" coincide con l'intervallo di settima mag
 
 };
 
-(*Manipulate[Part[instruments,n], {n, 1, 5, 1}];
-Manipulate[ActionMenu["click",{"one"\[RuleDelayed]( Print[instruments[[1]]]),"two"\[RuleDelayed](x=2)},Appearance\[Rule]stru],{stru,{Automatic,"PopupMenu","Button","Framed",None}}];*)
+(*Il primo panel contiene, allineati al centro i bottoni per cambiare le schede*)
+(*Il secondo panel contiene una Row al cui interno viene mostrata l'immagine dell'intervallo, ed una Column che contiene sulla prima riga la descrizione testuale dell'intervallo
+e sulla seconda riga i Buttons che permettono di riprodurre l'intervallo. Lo stile del testo \[EGrave] stato impostato su Arial 16 per aumentare la leggibilit\[AGrave].
+ImageSize \[Rule] {Full, Automatic} serve per migliorare la resa grafica in modod da allargare orizzontalmente il pannello, lasciano la dimensione "pi\[UGrave] libera" sull'asse verticale.
+Con la chiamata a Dynamic[y], implementiamo il meccanismo per cui, selezionando un pulsante nella riga superiore, si aggiornano gli indici delle liste nel pannello pi\[UGrave] sotto:
+Position cerca il valore di y all'interno del vettore degli intervalli, dunque First[First[Position[intervals,y]]] \[EGrave] l'indice dell'intrvallo corrente.
+*)
 Column[{
 Panel[Row[{SetterBar[Dynamic[y], intervals ]}],Alignment-> Center, ImageSize->{Full, Automatic} ],
 Panel[Dynamic[GraphicsRow[{Magnify[images[[First[First[Position[intervals,y]]]]], 1], Column[{Text[Style[captions[[First[First[Position[intervals,y]]]]], LineIndent-> 0, FontFamily->"Arial", FontSize->16]], GraphicsRow[buttons[[First[First[Position[intervals,y]]]]]]}]}, ImageSize->{Full, Automatic}]],FrameMargins->50, ImageSize->{Full, Automatic}]}
 ]
 ]
 
+(*Semplice wrapper della funzione MakeInterval per visualizzare l'ottava come intervallo iniziale*)
 InteractiveInterval[] := MakeInterval["P8"]
+(* aa \[EGrave] il nome dell'intervallo da mostrare, il parametro \[EGrave] condizionato al fatto che l'intrvallo esista (la lista AllIntrevals \[EGrave] definita in MusicScore)*)
 
 MakeInterval[aa_/; ContainsAny[AllIntervals, {aa}]]:=
  DynamicModule[{interval, basenote, sign, allnotes},
+ (*Tagliamo la lista di tutte le note (definita in MusicScore) per evitare che le note troppo basse o troppo acute vengano usate come basenote per il calcolo dell'intrvallo,
+ restituendo una seconda nota fuori estensione.*)
 allnotes=Take[AllNotes, {24, -24}];
 basenote=RandomChoice[allnotes];
 interval=aa;
 sign="+";
+(*Le righe precedenti iniziano la basenote (la prima da nota da riprodurre), l'intervallo ed il verso ascendente/discendente.
+AddInterval e printPart sono descritte in MusicScore*)
 Panel[Column[{
 Dynamic[Magnify[PrintPart[{{basenote}, {AddInterval[basenote, interval, sign]}}], 4]],
 Row[{TextCell["Intervallo: "], InputField[Dynamic[interval], String], Button["Randomize", interval=RandomChoice[AllIntervals]]}],
@@ -96,13 +114,18 @@ Row[{Button["Play", EmitSound[Sound[{SoundNote[basenote], SoundNote[AddInterval[
 IntervalExercise[]:= DynamicModule[{interval, basenote, sign, allnotes, guessedinterval, msg, part, cintervals , mMintervals, simpleintervals},
 allnotes=Take[AllNotes, {24, -24}];
 allnotes=Select[allnotes, StringContainsQ[#, "#"]==False&];
+(*Le variabili che descrivono la configurazione globale sono generate in maniera molto simile a quella dell'esercizio precedente, ma escludendo le ote con alterazioni.*)
 basenote=RandomChoice[allnotes];
 mMintervals=Select[AllIntervals,(Characters[#][[1]]=="m" || Characters[#][[1]]=="M" ||  Characters[#][[1]]=="P")&];
+(*mMintervals contiene solo intervalli maggiori e minori, sar\[AGrave] usata per la difficolt\[AGrave] intermedia.*)
 Dynamic[msg];
 msg="";
 Dynamic[guessedinterval];
+(*guessedinterval contiene l'intervallo digitato dall'utente*)
 simpleintervals={"M2", "M3", "M4", "P5", "P1", "P8"};
+(* simpleintervals \[EGrave] la lista degli intervalli per la modalit\[AGrave] facile*)
 cintervals=simpleintervals;
+(*cintervals contiene la lista degli intervalli associati alla difficolt\[AGrave]*)
 interval=RandomChoice[cintervals];
 sign=RandomChoice[{"+", "-"}];
 part=PrintPart[{{basenote}}];
@@ -110,14 +133,16 @@ part=PrintPart[{{basenote}}];
 Panel[Column[{
 Row[{TextCell["Difficolt\[AGrave]: "], PopupMenu[Dynamic[cintervals],{
 simpleintervals-> "Facile",
-simpleintervals-> "Intermedio",
-simpleintervals-> "Difficile" }]}],
+mMintervals-> "Intermedio",
+AllIntervals-> "Difficile" }]}],
 Dynamic[Magnify[part, 4]],
 Row[{TextCell["Intervallo: "], InputField[Dynamic[guessedinterval], String], 
 Button["Controlla", 
+(*Se l'intervallo scelto \[EGrave] quello corretto, o mostriamo con la chiamata alla PrintPart, altrimenti scriviamo "risposta errata"*)
 If[guessedinterval==  interval, msg="Risposta corretta";part=PrintPart[{{basenote}, {AddInterval[basenote, interval, sign]}}];,msg="Risposta errata"; ];
 ]}],
 Row[{Button["Play", EmitSound[Sound[{SoundNote[basenote], SoundNote[AddInterval[basenote, interval, sign]]}]]], 
+(*Con il buttono Nuovo Esercizio resettiamo i parametri iniziali, nell'ultima Row mostriamo il contenuto dinamico del messaggio (feedback sulla risposta)*)
 Button["Nuovo esercizio", basenote=RandomChoice[allnotes];
 interval=RandomChoice[cintervals];
 sign=RandomChoice[{"+", "-"}];
