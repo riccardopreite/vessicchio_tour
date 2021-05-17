@@ -55,16 +55,21 @@ Display information about some instrument";
 Begin["`Private`"];
 
 
+(* Funzione usata per mostrare degli strumenti musicali con la relativa descrizione *)
 instrumentDescription[]:= DynamicModule[
 {listIn = instruments, listIm = images, label = "Pianoforte",listCaption = captions},
+(* Creazione del panel *)
 Panel[Column[{
+(* Utilizzo di SetterBar per far scegliere all'utente quale strumento vuole poter approfondire *)
 Row[{Spacer[200 2.3], SetterBar[Dynamic[label], listIn]}],
 Spacer[100 0.5],
 Row[{
 	Dynamic[
+	(* Utilizzo di Labeled per posizionare la descrizione di uno strumento di fianco alla relativa immagine *)
 	Labeled[
 	ImageResize[listIm[[First[First[Position[listIn,label]]]]], 500],
-	 {Text[Style[listCaption[[First[First[Position[listIn,label]]]]], FontFamily-> "Arial", FontSize->16, LineSpacing->{2, 0}, LineIndent-> 0]] }   
+		(* Modifica dello stile del testo (secondo alcune specifiche) per facilitarne la lettura e la comprensione *)
+	 {Text[Style[listCaption[[First[First[Position[listIn,label]]]]], FontFamily-> "Arial", FontSize->16, LineSpacing->{2, 0}, LineIndent-> 0]] }
 	 , {Right}]
 	 ]
 	 }]
