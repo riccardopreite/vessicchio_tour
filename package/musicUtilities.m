@@ -77,19 +77,30 @@ Row[{
 ,FrameMargins-> 50]
 ]
 
+
+(*
+	showNotes crea un Panel con una semplice scala musicale e permette all'utente di ascoltare le note con diversi
+	strumenti e di visualizzare in entrambi i formati (EU/US)
+*)
+
 showNotes[]:= DynamicModule[
 {list = simpleScale,  prevLabel = "--", nextLabel = "--",instrument = "SteelGuitar"},
+(*Preparazione della lista di note per la printPart*)
 spartitoList = createSpartitoList[list];
+(*Generazione spartito*)
 spartito = PrintPart[spartitoList];
 noteInd = 1;
 labelList = {};
 euList = {};
 usList = {};
+(*Settaggio delle due liste di note*)
 euList = toLabelList[list,{},"e"];
 usList = list;
 labelList = euList;
 labelList = removeBrackets[labelList];
-nextLabel = Dynamic[labelList[[noteInd+1]]];
+nextLabel = Dynamic[
+(*Visualizzazione nota*)
+labelList[[noteInd+1]]];
 panel = Panel[Row[
 {
 Spacer[72 0.7],Column[{
@@ -97,6 +108,10 @@ Row[{
 
 Button[Dynamic[prevLabel], 
 
+(*
+	In entrambi i casi di prev e next della nota ci sono due controlli per evitare di andare out of range e per 
+	far visualizzare '--' quando si e' alla prima o ultima nota
+*)
 If[noteInd > 2,
 nextLabel =labelList[[noteInd]];
 EmitSound[Sound[SoundNote[list[[noteInd-1]],1,instrument ]]];noteInd-= 1; prevLabel = Dynamic[labelList[[noteInd-1]]],
@@ -106,6 +121,7 @@ EmitSound[Sound[SoundNote[list[[noteInd-1]],1,instrument ]]];noteInd-= 1; prevLa
 ]
 ],
 Spacer[174 0.7],
+(*Visualizzazione nota attuale*)
 Style[Dynamic[  labelList[[noteInd]]]  ,FontFamily->"Arial-Bold",14],
 Spacer[174 0.7],
 
@@ -123,6 +139,7 @@ prevLabel = Dynamic[labelList[[noteInd-1]]];noteInd+=1; EmitSound[Sound[SoundNot
 
 }],
 Spacer[87  0.7],
+(*Visualizzazione spartito note*)
 Row[{Magnify[Dynamic[spartito],4]}]
 }],
 
@@ -130,12 +147,13 @@ Spacer[87  0.7],
 
 
 Column[{
+(*Selezione strumento*)
 PopupMenu[Dynamic[instrument],{"SteelGuitar","Banjo","Contrabass","Oboe","Piano","SopranoSax","Clarinet"}],
 Spacer[87 0.7],
 
 Button["Play",EmitSound[Sound[SoundNote[list[[noteInd]],1,instrument ]]]],
     Spacer[50 0.7],
-
+(*Cambio formato note, si rimuovono le graffe da attorno alle note*)
 RadioButtonBar[Dynamic[labelList],{removeBrackets[euList]->"EU notes",removeBrackets[usList]->"US notes"}] 
 
 }] 

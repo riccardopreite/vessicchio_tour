@@ -120,18 +120,20 @@ Print[pan];
 Return[pan];
 ,
 SeedRandom[];
-random = RandomInteger[{1,Length[list]}];
+random = RandomInteger[{1,Length[list]}]; (*Scelta elemento*)
 	sub = list[[random]];
 	question =  sub[[1]];
 	answer = sub[[2]];
 	explain = sub[[3]];
 	userAnswer = Null;
 answered = False;
-tempquizList = Delete[tempquizList,random];
+tempquizList = Delete[tempquizList,random]; (*rimozione elemento per evitare ripetizione*)
 	panel = Panel[
 Column[{
+		(*visualizzazione domanda*)
 		Row[{Style[Dynamic[question],FontFamily->"Arial-Bold",16]}],
 		Spacer[225 0.7],
+		(*scelta risposta*)
 		Row[{RadioButtonBar[Dynamic[userAnswer],toChooseTF ,Appearance->"Orizzontal"] }],
 		Row[{ 
 			(* Bottone utilizzato per controllare se la risposta data \[EGrave] corretta o sbagliata *)
@@ -154,6 +156,7 @@ Column[{
 				]
 			],
 			Spacer[20 0.7],
+			(*per ricaricare la lista di domande*)
 			Button["Ricarica domande", tempquizList = quizList;MakeTFQuiz[]; ]
 }]
 }]
@@ -169,10 +172,10 @@ Return[panel];
 MakeNameQuiz[prev_:0] := Module[
 { list = $instrumentListName, sub = Null},
 
-SeedRandom[];
+SeedRandom[]; (*Ogni volta diverso per cercare di generare sempre numeri random*)
 randomName = RandomInteger[{1,Length[list]}];
 If[prev == randomName,
-MakeNameQuiz[prev]
+MakeNameQuiz[prev] (*Evitare ripetizione*)
 ];
 (*Random choice of a instrument*)
 sub = list[[randomName]];
@@ -238,7 +241,7 @@ toChooseType = {"Fiato","Percussione","Tastiera","Corda"};
 SeedRandom[];
 randomType = RandomInteger[{1,Length[list]}];
 If[prev == randomType,
-MakeTypeQuiz[prev]
+MakeTypeQuiz[prev] (*Evitare ripetizione*)
 ];
 (*Random choice of a instrument*)
 sub = list[[randomType]];
