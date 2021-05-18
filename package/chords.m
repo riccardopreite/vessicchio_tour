@@ -18,10 +18,14 @@ BeginPackage["chords`"];
 pathChords = StringReplace[NotebookDirectory[],"package\\" -> ""];
 
 
+(* in accordiMinori e accordiMaggiori ci sono tutti gli accordi minori e maggiori *)
 accordiMinori = {{"C", "Eb", "G"},{"D", "F", "A"},{"E", "G","B" },{"F", "Ab", "C"},{"G", "Bb", "D"},{"A", "C", "E"},{"B", "D", "F#"}};
 accordiMaggiori = {{"C", "E", "G"},{"D", "F#", "A"},{"E", "G#","B" },{"F", "A", "C"},{"G", "B", "D"},{"A", "C#", "E"},{"B", "D#", "F#"}};
+(* numberOfChoords \[EGrave] il numero di accordi *)
 numberOfChoords = 7;
+(* notesEU contiene le note in formato europeo e non americano *)
 notesEU = {"Do","Re","Mi","Fa","Sol","La","Si"};
+(* noteInd contiene l'indice dell'accordo corrente *)
 noteInd=1;
 nextLabel = "Next";
 prevLabel= "Prev";
@@ -38,12 +42,14 @@ Begin["Private`"];
 ChordsExercise[] := Module[
 {},
 correzione = "";
+(* accordi contiene tutti gli accordi. Nelle prime 7 posizioni ci sono gli accordi minori, nelle altre posizioni ci sono gli accordi maggiori*)
 accordi = {
 (* Minori *)
 {"C", "Eb", "G"},{"D", "F", "A"},{"E", "G","B" },{"F", "Ab", "C"},{"G", "Bb", "D"},{"A", "C", "E"},{"B", "D", "F#"},
 (* Maggiori *)
 {"C", "E", "G"},{"D", "F#", "A"},{"E", "G#","B" },{"F", "A", "C"},{"G", "B", "D"},{"A", "C#", "E"},{"B", "D#", "F#"}
 };
+(* genera un numero da 1 a 14 random per scegliere quale accordo riprodurre. Se il numero generato \[EGrave] tra 1 e 7 compresi allora l'accordo \[EGrave] quello minore, altreimenti sar\[AGrave] un accordo maggiore*)
 randomInteger = RandomInteger[{1, 14}];
 Panel[
 Column[{
@@ -146,6 +152,7 @@ Row[
 
 PopupMenu[Dynamic[strumento], {"SteelGuitar","BaritoneSax","Trumpet","Piano","Cello"}],
 Spacer[120 0.7],
+(* canzone del sole *)
 Button["Play",EmitSound[Sound[
 {
 SoundNote[None, 0.25, strumento],
