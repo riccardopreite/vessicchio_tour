@@ -18,7 +18,7 @@ BeginPackage["MusicPlayUtilities`"];
 $pathPlay = StringReplace[NotebookDirectory[],"package\\" -> ""];
 Needs["MusicScore`",$pathPlay <>"package/print_music_score.m"];
 Needs["MusicUtilities`",$pathPlay <>"package/utilities.m"];
-Needs["IntervalTheoryAndExercises`",$pathPlay <>"package/intervals.m"];
+(*Needs["IntervalTheoryAndExercises`",$pathPlay <>"package/intervals.m"];*)
 simpleScale = {"C4","D4","E4","F4","G4","A4","B4"};
 instruments = {"Pianoforte", "Sassofono", "Chitarra", "Violoncello", "Tromba"};
 images = {Import[$pathPlay <>"immagini/pianoforte.jpg"],  Import[$pathPlay <>"immagini/sassofono.jpg"], Import[$pathPlay <> "immagini/chitarra.jpg"], Import[$pathPlay <> "immagini/violoncello.jpg"], Import[$pathPlay <> "immagini/tromba.jpg"]};
