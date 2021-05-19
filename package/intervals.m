@@ -130,7 +130,7 @@ interval=RandomChoice[cintervals];
 sign=RandomChoice[{"+", "-"}];
 part=PrintPart[{{basenote}}];
 
-Panel[Column[{
+Row[{Panel[Column[{
 Row[{TextCell["Difficolt\[AGrave]: "], PopupMenu[Dynamic[cintervals],{
 simpleintervals-> "Facile",
 mMintervals-> "Intermedio",
@@ -150,7 +150,7 @@ part=PrintPart[{{basenote}}];
 msg=""; ]}],
 Row[{TextCell[Dynamic[msg]]}]
 }
-]]
+]], TextCell[RawBoxes[Cell[BoxData[GridBox[{{RowBox[{StyleBox["Nome", FontWeight -> "Bold"], StyleBox[" ", FontWeight -> "Plain"], StyleBox["esteso", FontWeight -> "Bold"]}], StyleBox["Distanza", FontWeight -> "Bold"], StyleBox["Sigla", FontWeight -> "Bold"]}, {StyleBox["Unisono", FontWeight -> "Plain"], StyleBox[RowBox[{"0", " ", "semitoni"}], FontWeight -> "Plain"], StyleBox["P1", FontWeight -> "Plain"]}, {StyleBox["Seconda", FontWeight -> "Plain"], StyleBox[RowBox[{RowBox[{"1", "semitono", " ", RowBox[{"(", "minore", ")"}]}], "\[IndentingNewLine]", RowBox[{"1", "tono", " ", RowBox[{"(", "Maggiore", ")"}]}]}], FontWeight -> "Plain"], StyleBox[RowBox[{"m2", "\[IndentingNewLine]", "M2"}], FontWeight -> "Plain"]}, {StyleBox["Terza", FontWeight -> "Plain"], StyleBox[RowBox[{RowBox[{"1", " ", "tono", " ", "e", " ", "1", " ", "semitono", " ", RowBox[{"(", "minore", ")"}]}], "\[IndentingNewLine]", RowBox[{"2", " ", "toni", " ", RowBox[{"(", "Maggiore", ")"}]}]}], FontWeight -> "Plain"], StyleBox[RowBox[{"m2", "\[IndentingNewLine]", "M2"}], FontWeight -> "Plain"]}, {StyleBox["Quarta", FontWeight -> "Plain"], StyleBox[RowBox[{RowBox[{"2", " ", "toni", " ", "e", " ", "1", " ", "semitono", RowBox[{"(", "giusta", ")"}]}], "\[IndentingNewLine]", RowBox[{"3", " ", "toni", " ", RowBox[{"(", "aumentata", ")"}]}]}], FontWeight -> "Plain"], StyleBox[RowBox[{"P4", "\[IndentingNewLine]", "A4"}], FontWeight -> "Plain"]}, {StyleBox["Quinta", FontWeight -> "Plain"], StyleBox[RowBox[{RowBox[{"3", " ", "toni", " ", RowBox[{"(", "diminuita", ")"}]}], "\[IndentingNewLine]", RowBox[{"3", " ", "toni", " ", "e", " ", "1", " ", "semitono", RowBox[{"(", "giusta", ")"}]}]}], FontWeight -> "Plain"], StyleBox[RowBox[{"d5", "\[IndentingNewLine]", "P5"}], FontWeight -> "Plain"]}, {StyleBox["Sesta", FontWeight -> "Plain"], StyleBox[RowBox[{RowBox[{"4", " ", "toni", " ", RowBox[{"(", "minore", ")"}]}], "\[IndentingNewLine]", RowBox[{"4", " ", "toni", " ", "e", " ", "1", " ", "semitono", " ", RowBox[{"(", "Maggiore", ")"}]}]}], FontWeight -> "Plain"], StyleBox[RowBox[{"m6", "\[IndentingNewLine]", "M6"}], FontWeight -> "Plain"]}, {StyleBox["Settima", FontWeight -> "Plain"], StyleBox[RowBox[{RowBox[{"5", " ", "toni", " ", RowBox[{"(", "minore", ")"}]}], "\[IndentingNewLine]", RowBox[{"5", " ", "toni", " ", "e", " ", "1", " ", "semitono", " ", RowBox[{"(", "Maggiore", ")"}]}]}], FontWeight -> "Plain"], StyleBox[RowBox[{"m7", "\[IndentingNewLine]", "M7"}], FontWeight -> "Plain"]}, {StyleBox["Ottava", FontWeight -> "Plain"], StyleBox[RowBox[{"6", " ", "toni"}], FontWeight -> "Plain"], StyleBox["P8", FontWeight -> "Plain"]}}]], "ItemParagraph", FontFamily -> "Arial Narrow", FontSize -> 16]], "Text", CellChangeTimes -> {{3.8301639516113253`*^9, 3.830164315444492*^9}, {3.8301644985830684`*^9, 3.830164525824435*^9}}]}]
 ]
 End[]
 EndPackage[]
