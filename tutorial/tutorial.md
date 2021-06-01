@@ -38,14 +38,14 @@ Nell'esercizio sugli intervalli (in figura \ref{fig:intervallia}) è possibile n
 
 ![Esercizio sull'ascolto degli accordi.\label{fig:accordit}](immagini/accordit.jpg)
 
-Nell'esercizio di ascolto sugli accordi (in figura \ref{fig:accordit}) è possibile navigare le sette note della scala di Do maggiore con i pulsanti centrali. Nella sezione di destra è possibile scegliere uno strumento con cui sarà riprodurre l'accordo maggiore o minore con i due pulsanti "Play Maggiore" e "Play Minore" sulla destra.
+Nell'esercizio di ascolto sugli accordi (in figura \ref{fig:accordit}) è possibile navigare le sette note della scala di Do maggiore con i pulsanti centrali. Nella sezione di destra è possibile scegliere uno strumento con cui sarà riprodotto l'accordo maggiore o minore con i due pulsanti "Play Maggiore" e "Play Minore" sulla destra.
 
 ### Strumenti musicali
 \label{sec:strumenti}
 
 ![Pannello descrittivo sugli strumenti musicali.\label{fig:strumentit}](immagini/strumentit.jpg)
 
-Nel pannello descrittivo sugli strumenti (in figura \ref{fig:intervallit}) è possibile navigare alcuni celebri strumenti musicali premendo i pulsanti in alto. Nella sezione di sinistra viene mostrata un'immagine dello strumento selezionato sullo spartito a partire dal Do centrale (C4). Sulla destra vengono descritte le principali caratteristiche dello strumento selezionato.
+Nel pannello descrittivo sugli strumenti (in figura \ref{fig:strumentit}) è possibile navigare alcuni celebri strumenti musicali premendo i pulsanti in alto. Nella sezione di sinistra viene mostrata un'immagine dello strumento selezionato. Sulla destra vengono descritte le principali caratteristiche di quello strumento.
 
 ### Esercizio di ascolto e lettura
 \label{sec:ascolto}
@@ -86,7 +86,7 @@ A destra del pannello è visualizzata una tabella in cui viene riassunta la nome
 
 Premendo il pulsante "Play" viene riprodotto l'intervallo, dopodiché all'utente è chiesto di inserire il nome dell'intervallo in sigla, i.e. secondo la nomenclatura nella terza colonna della tabella di destra.
 
-Premendo il pulsante "Controlla", viene visualizzato un feedback sulla risposta dell'utente. 
+Premendo il pulsante "Controlla", viene visualizzato un feedback sulla risposta dell'utente.
 
 - In caso di risposta corretta, viene visualizzata anche la seconda nota sull'immagine dello spartito.
 - In caso di risposta errata, in basso a sinistra viene visualizzato un messaggio di errore, ma non la risposta corretta, cosicché l'utente possa provare a rispondere nuovamente.
@@ -100,6 +100,4 @@ Premendo il pulsante "Nuovo esercizio", viene generato automaticamente un nuovo 
 
 L'esercizio di ascolto sugli accordi ha lo scopo di verificare le competenze apprese nella sezione \ref{sec:accordi}.
 
-Premendo il pulsante "Play" viene riprodotto un accordi. L'utente deve selezionare se l'accordo ascoltato è maggiore o minore. Premendo il pulsante "Correggi" viene controllata la risposta: in base alla risposta, viene visualizzato il messaggio "Corretto!" o "Sbagliato!". Premendo il pulsante "Next" è possibile generare un nuovo esercizio.
-
-
+Premendo il pulsante "Play" viene riprodotto un accordo. L'utente deve selezionare se l'accordo ascoltato è maggiore o minore. Premendo il pulsante "Correggi" viene controllata la risposta: in base alla risposta, viene visualizzato il messaggio "Corretto!" o "Sbagliato!". Premendo il pulsante "Next" è possibile generare un nuovo esercizio.
