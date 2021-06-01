@@ -102,7 +102,7 @@ sign="+";
 (*Le righe precedenti iniziano la basenote (la prima da nota da riprodurre), l'intervallo ed il verso ascendente/discendente.
 AddInterval e printPart sono descritte in MusicScore*)
 Panel[Column[{
-Dynamic[Magnify[PrintPart[{{basenote}, {AddInterval[basenote, interval, sign]}}], 4]],
+Dynamic[Magnify[PrintPart[{{Capitalize[basenote]}, {AddInterval[Capitalize[basenote], interval, sign]}}], 4]],
 Row[{TextCell["Intervallo: "], InputField[Dynamic[interval], String], Button["Randomize", interval=RandomChoice[AllIntervals]]}],
 Row[{TextCell["Nota base: "],InputField[Dynamic[basenote], String], Button["Randomize", basenote = RandomChoice[allnotes]]}],
 Row[{TextCell["Verso (+/-): "],InputField[Dynamic[sign], String], Button["Randomize", sign = RandomChoice[{"+", "-"}]]}],

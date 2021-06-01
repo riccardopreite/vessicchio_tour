@@ -31,8 +31,9 @@ NoteSpacesPreorderQ::usage= "Given any two notes in American notation, it return
 PrintPart::usage = "Given a list of lists of notes, it represents the notes that are in the same SUB-list vertically aligned (as a chord) horizontally separed by the other sublists. For example
 PrintPart[{{\"D4\", \"F4\", \"G4\", \"B4\"}, {\"C4\", \"E4\", \"G4\", \"C4\"}}] will print a nice ending :-).";
 IntervalSemitones::usage ="Given the name of an interval, it will return the distance, in semitones between the two notes of the interval. For example IntervalSemitones[\"P8\"] will return 12.";
-AddInterval::usage = "Given a note, an interval and a sign (in {\"+\", \"-\"}), it will compute the result of adding the interval to the note. For example AddInterval[\"C4\", \"P8\", \"-\"] will return \"C3\"."
+AddInterval::usage = "Given a note, an interval and a sign (in {\"+\", \"-\"}), it will compute the result of adding the interval to the note. For example AddInterval[\"C4\", \"P8\", \"-\"] will return \"C3\".";
 AllIntervals::usage = "To Do";
+IsNote::usage ="Returns true iff the given input is a correct note name according to the American syntax";
 
 
 
@@ -40,7 +41,6 @@ pathNote = StringReplace[NotebookDirectory[],"package\\" -> ""];
 chiave = Import[pathNote <>"immagini\\chiave.png"];
 nota = Import[pathNote <>"immagini\\nota_senza_barra.png"];
 notaBarra = Import[pathNote <>"immagini\\nota_barra.png"];
-Print[notaBarra];
 barra = Import[pathNote <>"immagini\\barra.png"];
 blank = Import[pathNote <>"immagini\\blank.png"];
 diesis = Import[pathNote <>"immagini\\diesis.png"];
@@ -67,7 +67,7 @@ AllIntervals=Flatten[Map[#[[1]]&, IntervalMap]];
 (*Di defalut il risultato \[EGrave] None, altrimenti, se il nome dell'intervallo esiste, ed il verso \[EGrave] ascendente o discendente, si prende la prima nota, la si rappresenta in forma # anzich\[EAcute] bemolle, 
 la si cerca nella lista di tutte e note, sommando la differenza di semitoni espressa dall'intervallo in IntervalMap, o sottraendola, si ottiene la seconda nota*)
 AddInterval[n_, i_, a_]:=None; 
-AddInterval[n_, i_/;ContainsAny[AllIntervals, {i}], a_/; a=="+" || a=="-"] := AllNotes[[Position[AllNotes, Sharpize[n]][[1]][[1]]+If[a!="-", IntervalSemitones[i], -IntervalSemitones[i]]]];
+AddInterval[n_/;ContainsAny[Take[AllNotes, {24, -24}], {n}], i_/;ContainsAny[AllIntervals, {i}], a_/; a=="+" || a=="-"] := AllNotes[[Position[AllNotes, Sharpize[n]][[1]][[1]]+If[a!="-", IntervalSemitones[i], -IntervalSemitones[i]]]];
 
 (*Rimuove le alterazioni*)
 Bequadro[n_/; StringLength[n]>2]:= StringJoin[StringTake[n,{1, 1}], StringTake[n, -1]]; 
@@ -99,12 +99,23 @@ NotePreorderQ[a_, b_:"C4"] := NoteDistance[a, b]<=0;
 
 NoteSpacesPreorderQ[a_, b_:"C4"] := NoteSpaces[a, b]<=0;
 
+
+IsNote[n_/; !(Head[n]===String)] := False;
+IsNote[n_/; n=="C8"] := True;
+IsNote[n_/; StringLength[n]>3] := False;
+IsNote[n_/; StringLength[n]==3] := ContainsAny[AmNatList, {StringTake[n, 1]}] && (StringTake[n, {2}]=="b" || StringTake[n, {2}]=="#") && FromDigits[StringTake[n, {3}]]<=7 && FromDigits[StringTake[n, {3}]]>=0
+IsNote[n_/; StringLength[n]==2] := ContainsAny[AmNatList, {StringTake[n, 1]}] && (FromDigits[StringTake[n, {2}]]<=7 && FromDigits[StringTake[n, {2}]]>=0)
+IsNote[n_/; StringLength[n]<2] := False;
+
+(*_In caso che ci sia da stampre una nota None (caso di errore), non viene effettuata alcuna stampa*)
+PrintNote[o_, n_/;!IsNote[n], back_:chiave]:=back;
+
 (*La PrintNote \[EGrave] il primo mattone per la stampa della nota, ha diverse definizioni a seconda del fatto che la nota sia o meno all'interno dello spartito
   e che sia con o senza barra. In generale funziona calcolando la posizion della nota all'iterno dello spartito in base alla sua altezza calcolata con NoteSpaces ed i suo offset da sinista, calcolato con il parametro o.
   L'immagine di sfondo \[EGrave] un aprametro facoltativo perch\[EAcute] permette in qusto modo definizioni pi\[UGrave] snelle delle funzoni successive, con Fold.*)
-PrintNote[o_, n_/;SameQ[n, None]==False &&NoteSpacesPreorderQ[n, "G5"]&& !NoteSpacesPreorderQ[n,"C4"], back_:chiave]:=ImageCompose[back, NoteImg[n,nota],  {300+150*o,372+13.2*NoteSpaces[n, "D4"] }];
-PrintNote[ o_, n_/;SameQ[n, None]==False &&NoteSpacesPreorderQ[n, "B3"]&& !NoteSpacesPreorderQ[n,"E2"], back_:chiave]:=ImageCompose[back, NoteImg[n,nota], {300+150*o,104+13.2*NoteSpaces[n, "F2"] }];
-PrintNote[ o_, n_/;SameQ[n, None]==False &&NoteSpacesPreorderQ[n, "C4"]&& NoteSpacesPreorderQ["C4",n], back_:chiave]:=ImageCompose[back, NoteImg[n,notaBarra], {300+150*o,304}];
+PrintNote[o_, n_/;NoteSpacesPreorderQ[n, "G5"]&& !NoteSpacesPreorderQ[n,"C4"], back_:chiave]:=ImageCompose[back, NoteImg[n,nota],  {300+150*o,372+13.2*NoteSpaces[n, "D4"] }];
+PrintNote[ o_, n_/;NoteSpacesPreorderQ[n, "B3"]&& !NoteSpacesPreorderQ[n,"E2"], back_:chiave]:=ImageCompose[back, NoteImg[n,nota], {300+150*o,104+13.2*NoteSpaces[n, "F2"] }];
+PrintNote[ o_, n_/;NoteSpacesPreorderQ[n, "C4"]&& NoteSpacesPreorderQ["C4",n], back_:chiave]:=ImageCompose[back, NoteImg[n,notaBarra], {300+150*o,304}];
 
 (*Le quattro definizioni successive, oltre che a stampare la nota sullo spartito, calcolano anche se la nota ha o non ha la barra (Mod[NoteSpaces[n, "G5"], 2]==1)
 e per mezzo della Fold (che funziona come la reduce del lisp) stampano anche le barre sopra o sotto lo spartito.
@@ -112,28 +123,27 @@ ImageCompose[#1, barra, ...] \[EGrave] la funzione di riduzione applicata dalla 
 all'inizio lo spartito con la nota, aggiunge le barre orizzontali ad un offset calcolato espresso lineare nel valore 
 ridotto (la lista Range[...]).
 *)
-PrintNote[o_, n_/;SameQ[n, None]==False &&NoteSpacesPreorderQ["Ab5", n]&&Mod[NoteSpaces[n, "G5"], 2]==1, back_:chiave]:=FoldList[
+PrintNote[o_, n_/;NoteSpacesPreorderQ["Ab5", n]&&Mod[NoteSpaces[n, "G5"], 2]==1, back_:chiave]:=FoldList[
 ImageCompose[#1, barra,  {320+150*o,473.8+13.2*#2 }]&,
 ImageCompose[back, NoteImg[n,notaBarra],  {300+150*o,372+13.2*NoteSpaces[n, "D4"] }],
 Range[2, NoteSpaces[n, "F5"]-2, 2]][[-1]];
 
-PrintNote[o_, n_/;SameQ[n, None]==False &&NoteSpacesPreorderQ["Ab5", n]&&Mod[NoteSpaces[n, "G5"], 2]==0, back_:chiave]:=FoldList[
+PrintNote[o_, n_/;NoteSpacesPreorderQ["Ab5", n]&&Mod[NoteSpaces[n, "G5"], 2]==0, back_:chiave]:=FoldList[
 ImageCompose[#1, barra,  {320+150*o,473.8+13.2*#2 }]&,
 ImageCompose[back, NoteImg[n,nota],  {300+150*o,372+13.2*NoteSpaces[n, "D4"] }],
 Range[2, NoteSpaces[n, "F5"], 2]][[-1]];
 
-PrintNote[o_, n_/;SameQ[n, None]==False && NoteSpacesPreorderQ[n, "Fb2"]&&Mod[NoteSpaces[n, "F2"], 2]==1, back_:chiave]:=FoldList[
+PrintNote[o_, n_/;NoteSpacesPreorderQ[n, "Fb2"]&&Mod[NoteSpaces[n, "F2"], 2]==1, back_:chiave]:=FoldList[
 ImageCompose[#1, barra,  {320+150*o,87-13.2*(#2-1) }]&,
 ImageCompose[back, NoteImg[n,notaBarra],  {300+150*o,104-13.2*NoteSpaces["F2", n] }],
 Range[2, NoteSpaces["F2", n], 2]][[-1]];
 
-PrintNote[o_, n_/;SameQ[n, None]==False &&NoteSpacesPreorderQ[n, "Fb2"]&&Mod[NoteSpaces[n, "F2"], 2]==0, back_:chiave]:=FoldList[
+PrintNote[o_, n_/;NoteSpacesPreorderQ[n, "Fb2"]&&Mod[NoteSpaces[n, "F2"], 2]==0, back_:chiave]:=FoldList[
 ImageCompose[#1, barra,  {320+150*o,87-13.2*(#2-1) }]&,
 ImageCompose[back, NoteImg[n,nota],  {300+150*o,104-13.2*NoteSpaces["F2", n] }],
 Range[2, NoteSpaces["F2", n], 2]][[-1]];
 
-(*_In caso che ci sia da stampre una nota None (caso di errore), non viene effettuata alcuna stampa*)
-PrintNote[o_, n_/;SameQ[n, None], back_:chiave]:=back;
+
 
 (*Fold della print note, iterando sulla lista di note data in input*)
 PrintChord[o_, c_, back_:chiave] :=Fold[PrintNote[o, #2, #1]&, back, c];
