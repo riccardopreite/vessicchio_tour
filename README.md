@@ -1,1 +1,1 @@
-vessicchio_tour
+read tutorial/tutorial.pdf
